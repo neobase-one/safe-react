@@ -3,7 +3,7 @@ import { IClientMeta, IRPCMap } from '@walletconnect/types'
 import { WalletModule } from 'bnc-onboard/dist/src/interfaces'
 import UAParser from 'ua-parser-js'
 
-import { APP_VERSION, INFURA_TOKEN, PUBLIC_URL, WC_BRIDGE } from 'src/utils/constants'
+import { APP_VERSION, RPC_ENDPOINT, PUBLIC_URL, WC_BRIDGE } from 'src/utils/constants'
 import { ChainId } from 'src/config/chain'
 import { getRpcServiceUrl } from 'src/config'
 import { getChains } from 'src/config/cache/chains'
@@ -53,7 +53,7 @@ const getPairingModule = (chainId: ChainId): WalletModule => {
       const provider = new WalletConnectProvider({
         bridge: WC_BRIDGE,
         pollingInterval: BLOCK_POLLING_INTERVAL,
-        infuraId: INFURA_TOKEN,
+        infuraId: RPC_ENDPOINT,
         rpc: RPC_MAP,
         chainId: parseInt(chainId, 10),
         storageId: STORAGE_ID,

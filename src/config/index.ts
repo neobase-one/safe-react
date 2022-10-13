@@ -10,7 +10,7 @@ import {
 import {
   DEFAULT_CHAIN_ID,
   ETHERSCAN_API_KEY,
-  INFURA_TOKEN,
+  RPC_ENDPOINT,
   SAFE_APPS_RPC_TOKEN,
   TX_SERVICE_VERSION,
 } from 'src/utils/constants'
@@ -70,7 +70,7 @@ const formatRpcServiceUrl = ({ authentication, value }: RpcUri, TOKEN: string): 
 }
 
 export const getRpcServiceUrl = (rpcUri = getChainInfo().rpcUri): string => {
-  return 'http://35.154.223.157:8545'
+  return RPC_ENDPOINT
 }
 
 export const getPublicRpcUrl = (): string => {
