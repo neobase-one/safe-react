@@ -1,12 +1,12 @@
 import WalletConnectProvider from '@walletconnect/web3-provider'
-import { IClientMeta, IRPCMap } from '@walletconnect/types'
+import { IClientMeta } from '@walletconnect/types'
 import { WalletModule } from 'bnc-onboard/dist/src/interfaces'
 import UAParser from 'ua-parser-js'
 
 import { APP_VERSION, RPC_ENDPOINT, PUBLIC_URL, WC_BRIDGE } from 'src/utils/constants'
 import { ChainId } from 'src/config/chain'
-import { getRpcServiceUrl } from 'src/config'
-import { getChains } from 'src/config/cache/chains'
+//import { getRpcServiceUrl } from 'src/config'
+//import { getChains } from 'src/config/cache/chains'
 import { BLOCK_POLLING_INTERVAL } from '../onboard'
 
 // Modified version of the built in WC module in Onboard v1.35.5
@@ -43,18 +43,17 @@ const getPairingModule = (chainId: ChainId): WalletModule => {
   return {
     name: PAIRING_MODULE_NAME,
     wallet: async ({ resetWalletState }) => {
-      const RPC_MAP: IRPCMap = getChains().reduce((map, { chainId, rpcUri }) => {
-        return {
-          ...map,
-          [parseInt(chainId, 10)]: getRpcServiceUrl(rpcUri),
-        }
-      }, {})
+      //const RPC_MAP: IRPCMap = getChains().reduce((map, { chainId, rpcUri }) => {
+      //  return {
+      //    ...map,
+      //    [parseInt(chainId, 10)]: getRpcServiceUrl(rpcUri),
+      //  }
+      //}, {})
 
       const provider = new WalletConnectProvider({
         bridge: WC_BRIDGE,
         pollingInterval: BLOCK_POLLING_INTERVAL,
-        infuraId: RPC_ENDPOINT,
-        rpc: RPC_MAP,
+        rpc: { 1: RPC_ENDPOINT },
         chainId: parseInt(chainId, 10),
         storageId: STORAGE_ID,
         qrcode: false, // Don't show QR modal

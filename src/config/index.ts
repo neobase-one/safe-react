@@ -7,13 +7,7 @@ import {
   GasPriceFixed,
 } from '@gnosis.pm/safe-react-gateway-sdk'
 
-import {
-  DEFAULT_CHAIN_ID,
-  ETHERSCAN_API_KEY,
-  RPC_ENDPOINT,
-  SAFE_APPS_RPC_TOKEN,
-  TX_SERVICE_VERSION,
-} from 'src/utils/constants'
+import { DEFAULT_CHAIN_ID, ETHERSCAN_API_KEY, RPC_ENDPOINT, TX_SERVICE_VERSION } from 'src/utils/constants'
 import { ChainId, ChainName, ShortName } from './chain.d'
 import { emptyChainInfo, getChains } from './cache/chains'
 import { evalTemplate } from './utils'
@@ -66,7 +60,8 @@ export const getNativeCurrency = (): ChainInfo['nativeCurrency'] => {
 
 const formatRpcServiceUrl = ({ authentication, value }: RpcUri, TOKEN: string): string => {
   const needsToken = authentication === RPC_AUTHENTICATION.API_KEY_PATH
-  return needsToken ? `${value}${TOKEN}` : value
+  //return needsToken ? `${value}${TOKEN}` : value
+  return RPC_ENDPOINT
 }
 
 export const getRpcServiceUrl = (rpcUri = getChainInfo().rpcUri): string => {
@@ -81,7 +76,7 @@ export const getPublicRpcUrl = (): string => {
 
 export const getSafeAppsRpcServiceUrl = (): string => {
   const { safeAppsRpcUri } = getChainInfo()
-  return formatRpcServiceUrl(safeAppsRpcUri, SAFE_APPS_RPC_TOKEN)
+  return formatRpcServiceUrl(safeAppsRpcUri, '')
 }
 
 export const getGasPriceOracles = (): Extract<ChainInfo['gasPrice'][number], GasPriceOracle>[] => {
