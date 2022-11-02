@@ -143,7 +143,7 @@ const Coins = (props: Props): React.ReactElement => {
                   </TableCell>
                 )
               })}
-              {/* <TableCell component="td">
+              <TableCell component="td">
                 <Row align="end" className={classes.actions}>
                   {granted && (
                     <Track {...ASSETS_EVENTS.SEND}>
@@ -170,7 +170,7 @@ const Coins = (props: Props): React.ReactElement => {
                     </StyledButton>
                   </Track>
                 </Row>
-              </TableCell> */}
+              </TableCell>
             </TableRow>
           ))
         }
