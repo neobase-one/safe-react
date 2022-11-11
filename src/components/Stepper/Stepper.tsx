@@ -87,7 +87,6 @@ function StepperComponent(): ReactElement {
             <StepContent>
               <Paper className={classes.root} elevation={1}>
                 {currentComponent}
-                <Hairline />
                 <Row align="center" grow className={classes.controlStyle}>
                   <Col center="xs" xs={12}>
                     {trackingCategory ? (
@@ -126,25 +125,31 @@ export default function Stepper(props: StepperProps): ReactElement {
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    border: "#06fc99 2px solid",
+    backgroundColor: 'black',
     margin: '10px 0 10px 10px',
     maxWidth: '800px',
-    boxShadow: '0 0 10px 0 rgba(33,48,77,0.10)',
   },
   controlStyle: {
-    backgroundColor: 'white',
+    backgroundColor: 'black',
     padding: lg,
     borderRadius: sm,
   },
   backButton: {
     marginRight: sm,
     fontWeight: boldFont,
-    color: theme.palette.secondary.main,
+    // color: theme.palette.secondary.main,
+    color: "#06fc99",
   },
   nextButton: {
     fontWeight: boldFont,
+    backgroundColor: '#06fc99',
+    boxShadow: 'none',
+    color: '#000',
   },
   stepLabel: {
     cursor: ({ isStepLabelClickable }: any) => (isStepLabelClickable ? 'pointer' : 'inherit'),
+    color: "#06fc99",
   },
 }))
 

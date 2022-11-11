@@ -103,11 +103,11 @@ function OwnersAndConfirmationsNewSafeStep(): ReactElement {
   return (
     <>
       <BlockWithPadding data-testid={'create-safe-owners-confirmation-step'}>
-        <ParagraphWithMargin color="primary" noMargin size="lg">
+        <ParagraphWithMargin color="#06fc99" noMargin size="lg">
           Your Safe will have one or more owners. We have prefilled the first owner with your connected wallet details,
           but you are free to change this to a different owner.
         </ParagraphWithMargin>
-        <Paragraph color="primary" size="lg">
+        <Paragraph color="#06fc99" size="lg">
           Add additional owners (e.g. wallets of your teammates) and specify how many of them have to confirm a
           transaction before it gets executed. In general, the more confirmations required, the more secure your Safe
           is.
@@ -125,13 +125,16 @@ function OwnersAndConfirmationsNewSafeStep(): ReactElement {
           . The new Safe will ONLY be available on <NetworkLabel />
         </Paragraph>
       </BlockWithPadding>
-      <Hairline />
+
       <RowHeader>
-        <Col xs={3}>NAME</Col>
-        <Col xs={7}>ADDRESS</Col>
+        <Col xs={3}>
+          <ColText>NAME</ColText>
+        </Col>
+        <Col xs={7}>
+          <ColText>ADDRESS</ColText>
+        </Col>
       </RowHeader>
-      <Hairline />
-      <Block margin="md" padding="md">
+      <Block margin="sm" padding="md">
         <RowHeader>
           {owners.map(({ nameFieldName, addressFieldName }, i: number) => {
             const hasOwnerAddressError = formErrors[addressFieldName]
@@ -216,7 +219,7 @@ function OwnersAndConfirmationsNewSafeStep(): ReactElement {
         </OwnerContainer>
         <BlockWithPadding>
           <Block>
-            <Paragraph>Any transaction requires the confirmation of:</Paragraph>
+            <Paragraph color="#06fc99">Any transaction requires the confirmation of:</Paragraph>
           </Block>
           <OwnerContainer align="center" grow>
             <Col xs={1}>
@@ -243,7 +246,9 @@ function OwnersAndConfirmationsNewSafeStep(): ReactElement {
               </Field>
             </Col>
             <Col xs={11}>
-              <StyledParagraph noMargin>out of {owners.length} owner(s)</StyledParagraph>
+              <StyledParagraph color="#06fc99" noMargin>
+                out of {owners.length} owner(s)
+              </StyledParagraph>
             </Col>
           </OwnerContainer>
         </BlockWithPadding>
@@ -276,6 +281,13 @@ const RowHeader = styled(Row)`
   padding: ${sm} ${lg};
   font-size: ${extraSmallFontSize};
   color: ${disabled};
+`
+
+const ColText = styled.p`
+  color: #06fc99;
+  font-size: 1rem;
+  margin-left: 10px;
+  margin-top: -1rem;
 `
 
 const OwnerNameField = styled(Field)`
