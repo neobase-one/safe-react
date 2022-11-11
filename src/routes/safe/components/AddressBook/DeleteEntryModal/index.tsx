@@ -4,7 +4,6 @@ import { ReactElement } from 'react'
 import { Modal } from 'src/components/Modal'
 import GnoForm from 'src/components/forms/GnoForm'
 import { Entry } from 'src/routes/safe/components/AddressBook'
-import styled from 'styled-components'
 
 export const DELETE_ENTRY_BTN_ID = 'delete-entry-btn-id'
 
@@ -34,9 +33,9 @@ export const DeleteEntryModal = ({
         {() => (
           <>
             <Modal.Body>
-              <Text size="xl" color="primary">
+              <Text size="xl">
                 This action will delete{' '}
-                <Text size="xl" color='primary' strong as="span">
+                <Text size="xl" strong as="span">
                   {entryToDelete.entry.name}
                 </Text>{' '}
                 from the address book.
@@ -45,12 +44,8 @@ export const DeleteEntryModal = ({
             <Modal.Footer>
               <Modal.Footer.Buttons
                 cancelButtonProps={{ onClick: onClose }}
-                confirmButtonProps={{ color: 'primary', testId: DELETE_ENTRY_BTN_ID, text: 'Delete' }}
+                confirmButtonProps={{ color: 'error', testId: DELETE_ENTRY_BTN_ID, text: 'Delete' }}
               />
-
-              {/* <Button onClick={onClose}>Cancel</Button>
-              <Button confirmButtonProps={{ color: 'primary', testId: DELETE_ENTRY_BTN_ID, text: 'Delete' }} >Delete</Button> */}
-              
             </Modal.Footer>
           </>
         )}

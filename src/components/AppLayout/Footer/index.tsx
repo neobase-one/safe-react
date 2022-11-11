@@ -12,7 +12,6 @@ import { secondary, sm } from 'src/theme/variables'
 const useStyles = makeStyles({
   footer: {
     boxSizing: 'border-box',
-    background: '#000',
     display: 'flex',
     flexDirection: 'row',
     flexShrink: '1',
@@ -21,7 +20,7 @@ const useStyles = makeStyles({
     alignItems: 'center',
     margin: '0 auto',
     maxWidth: '100%',
-    paddingBottom: '1rem',
+    padding: `20px ${sm} 20px`,
     width: '100%',
     height: '59px',
   },
@@ -47,6 +46,8 @@ const useStyles = makeStyles({
 } as any)
 
 const Footer = (): React.ReactElement => {
+  const appVersion = process.env.REACT_APP_APP_VERSION ? `v${process.env.REACT_APP_APP_VERSION} ` : 'Versions'
+  const date = new Date()
   const classes = useStyles()
   const dispatch = useDispatch()
 
@@ -56,7 +57,41 @@ const Footer = (): React.ReactElement => {
 
   return (
     <footer className={classes.footer}>
-      <p>Powered by Neobase</p>
+      <span className={classes.item}>©{date.getFullYear()} Safe Ecosystem Foundation</span>
+      <span className={classes.sep}>|</span>
+      <Link className={cn(classes.item, classes.link)} target="_blank" to="https://gnosis-safe.io/terms">
+        Terms
+      </Link>
+      <span className={classes.sep}>|</span>
+      <Link className={cn(classes.item, classes.link)} target="_blank" to="https://gnosis-safe.io/privacy">
+        Privacy
+      </Link>
+      <span className={classes.sep}>|</span>
+      <Link className={cn(classes.item, classes.link)} target="_blank" to="https://gnosis-safe.io/licenses">
+        Licenses
+      </Link>
+      <span className={classes.sep}>|</span>
+      <Link className={cn(classes.item, classes.link)} target="_blank" to="https://gnosis-safe.io/imprint">
+        Imprint
+      </Link>
+      <span className={classes.sep}>|</span>
+      <Link className={cn(classes.item, classes.link)} target="_blank" to="https://gnosis-safe.io/cookie">
+        Cookie Policy
+      </Link>
+      <span className={classes.sep}>-</span>
+      <GnoButtonLink className={cn(classes.item, classes.link, classes.buttonLink)} onClick={openCookiesHandler}>
+        Preferences
+      </GnoButtonLink>
+      <span className={classes.sep}>|</span>
+      <Link
+        className={cn(classes.item, classes.link)}
+        target="_blank"
+        to="https://github.com/gnosis/safe-react/releases"
+      >
+        {appVersion}
+      </Link>
+      <span className={classes.sep}>|</span>
+      <AppstoreButton light placement="footer" />
     </footer>
   )
 }

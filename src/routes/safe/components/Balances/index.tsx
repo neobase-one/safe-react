@@ -61,11 +61,12 @@ const Balances = (): ReactElement => {
         <Col start="sm" sm={6} xs={12}>
           <Breadcrumb>
             <BreadcrumbElement iconType="assets" text="ASSETS" color="primary" />
-            <BreadcrumbElement text={balancesSection} color="primary" />
+            <BreadcrumbElement text={balancesSection} color="placeHolder" />
           </Breadcrumb>
         </Col>
 
         <Col end="sm" sm={6} xs={12}>
+          {balancesSection === SECTION_NAME.coins && <CurrencyDropdown testId={'balances-currency-dropdown'} />}
         </Col>
       </Menu>
 

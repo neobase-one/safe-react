@@ -11,7 +11,7 @@ import {
   readNotification,
   selectNotifications,
 } from 'src/logic/notifications/store/notifications'
-import { background, black300, border, primary, primary200, primary400, sm } from 'src/theme/variables'
+import { background, black300, border, primary200, primary400, sm } from 'src/theme/variables'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import ExpandLessIcon from '@material-ui/icons/ExpandLess'
 import NotificationList from 'src/components/AppLayout/Header/components/Notifications/NotificationList'
@@ -142,13 +142,11 @@ const Notifications = ({ open, toggle, clickAway }: Props): ReactElement => {
 
 const Wrapper = styled.div`
   height: 100%;
-  margin-left: 1rem;
 `
 
 const BellIconButton = styled(IconButton)`
   width: 44px;
   height: 100%;
-  color: ${primary};
   border-radius: 0;
   &:hover {
     background: none;
@@ -164,9 +162,7 @@ export const UnreadNotificationBadge = styled(Badge)`
 const NotificationsPopper = styled(Paper)`
   box-sizing: border-box;
   border-radius: ${sm};
-  background-color: #000;
-  color: ${primary};
-  border: 2px solid ${primary};
+  box-shadow: 0 0 10px 0 rgba(33, 48, 77, 0.1);
   width: 438px;
 `
 

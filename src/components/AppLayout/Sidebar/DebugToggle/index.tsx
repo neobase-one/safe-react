@@ -7,7 +7,6 @@ import { LS_USE_PROD_CGW } from 'src/utils/constants'
 const StyledContainer = styled.div`
   padding-top: 10px;
   margin-left: 16px;
-  color: black;
 `
 
 const DebugToggle = (): React.ReactElement => {
@@ -23,11 +22,7 @@ const DebugToggle = (): React.ReactElement => {
 
   return (
     <StyledContainer>
-      <FormControlLabel
-        control={<Switch checked={enabled} onChange={onToggle}/>}
-        label="Use prod CGW"
-        style={{ color: '#06fc99', }}
-      />
+      <FormControlLabel control={<Switch checked={enabled} onChange={onToggle} />} label="Use prod CGW" />
     </StyledContainer>
   )
 }

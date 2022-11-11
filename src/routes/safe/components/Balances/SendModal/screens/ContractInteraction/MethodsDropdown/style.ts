@@ -5,7 +5,7 @@ export const useButtonStyles = makeStyles({
   button: {
     borderRadius: '4px',
     boxSizing: 'border-box',
-    color: '#05de87',
+    color: '#5d6d74',
     cursor: 'pointer',
     fontSize: '16px',
     fontWeight: 'normal',
@@ -30,7 +30,7 @@ export const useButtonStyles = makeStyles({
     '&::after': {
       borderLeft: '5px solid transparent',
       borderRight: '5px solid transparent',
-      borderTop: '5px solid #05de87',
+      borderTop: '5px solid #5d6d74',
       content: '""',
       height: '0',
       position: 'absolute',
@@ -41,7 +41,7 @@ export const useButtonStyles = makeStyles({
   },
   openMenuButton: {
     '&::after': {
-      borderBottom: '5px solid #05de87',
+      borderBottom: '5px solid #5d6d74',
       borderLeft: '5px solid transparent',
       borderRight: '5px solid transparent',
       borderTop: 'none',

@@ -16,7 +16,7 @@ export const styles = createStyles({
     wordBreak: 'break-all',
     overflow: 'auto',
     fontSize: '16px',
-    fontFamily: 'IBM Plex Mono, monospace',
+    fontFamily: 'Averta',
     maxHeight: '100px',
     letterSpacing: 'normal',
     fontStretch: 'normal',

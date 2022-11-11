@@ -14,10 +14,7 @@ import { TxDataRow } from './TxDataRow'
 import { md } from 'src/theme/variables'
 
 const StyledTxCreationAddress = styled.div`
-  display: flex;
-  justify-content: space-between;
   margin-bottom: ${md};
-  padding: 0 ${md};
 
   &:last-of-type {
     margin-bottom: 0px;
@@ -34,7 +31,7 @@ export const TxInfoCreation = ({ transaction }: { transaction: Transaction }): R
     address: KnownAddressType,
   ): ReactElement => (
     <StyledTxCreationAddress>
-      <Text color='primary' size="xl" strong>
+      <Text size="xl" strong>
         {title}:
       </Text>
       {creationEntity ? (
@@ -43,6 +40,7 @@ export const TxInfoCreation = ({ transaction }: { transaction: Transaction }): R
           hash={creationEntity.value}
           showCopyBtn
           explorerUrl={getExplorerInfo(creationEntity.value)}
+          name={address?.name || undefined}
           customAvatar={address?.logoUri || undefined}
           showAvatar
         />

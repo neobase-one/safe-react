@@ -28,20 +28,6 @@ export const NoPaddingAccordion = styled(Accordion).attrs((props) =>
   &.MuiAccordion-root .MuiAccordionDetails-root {
     padding: 0;
   }
-
-  .MuiAccordionSummary-root {
-    background-color: #000;
-  }
-
-  .MuiAccordionSummary-root:hover {
-    background-color: #000;
-  }
-
-  .MuiAccordionSummary-root.Mui-expanded {
-    background-color: #000;
-    border-bottom: 2px solid #60fc99;
-  }
-
 `
 
 export const ActionAccordion = styled(Accordion)`
@@ -90,8 +76,7 @@ export const SubTitle = styled(Text)`
   font-weight: 600;
   line-height: 1.5;
   letter-spacing: 1px;
-  color: #06fc99;
-  font-family: monospace;
+  color: ${({ theme }) => theme.colors.placeHolder};
   text-transform: uppercase;
 `
 
@@ -104,22 +89,31 @@ export const StyledTransactions = styled.div`
   row-gap: 6px;
 
   & .MuiAccordion-root.highlight .MuiAccordionSummary-root {
+    background-color: ${primary200};
   }
 
   & > .MuiAccordion-root {
+    border: 2px solid ${grey400};
     border-radius: 8px;
-    background-color: #000;
+
     &:first-child {
-      border: 2px solid #06fc99;
+      border: 2px solid ${grey400};
     }
 
-    & .MuiAccordionSummary-root.Mui-expanded
+    & .MuiAccordionSummary-root.Mui-expanded,
+    & .MuiAccordionSummary-root:hover {
+      background-color: ${primary200};
+    }
+
+    &.Mui-expanded {
+      border: 2px solid ${primary300};
+    }
   }
 `
 
 export const GroupedTransactionsCard = styled(StyledTransactions)<{ expanded?: boolean }>`
   transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  /* background-color: ${({ theme }) => theme.colors.white}; */
+  background-color: ${({ theme }) => theme.colors.white};
 
   border: 2px solid ${({ expanded }) => (expanded ? `${primary300}` : `${grey400}`)};
   box-sizing: border-box;
@@ -196,21 +190,12 @@ export const StyledTransaction = styled.div`
   grid-template-columns: ${Object.values(gridColumns).join(' ')};
   width: 100%;
 
-   /* &:hover {
-    background-color: red;
-  } */
-
-  ,
-  p {
-    color: #69fc99;
-  }
-
   & > div {
     align-self: center;
   }
 
   .tx-votes {
-    /* justify-self: center; */
+    justify-self: center;
   }
 
   .tx-actions {
@@ -323,6 +308,7 @@ export const GroupedTransactions = styled(StyledTransaction)`
       }
     }
   }
+}
 `
 
 export const DisclaimerContainer = styled(StyledTransaction)`
@@ -345,7 +331,7 @@ export const DisclaimerContainer = styled(StyledTransaction)`
 export const TxDetailsContainer = styled.div`
   ${willBeReplaced};
 
-  background-color: #06fc99 !important;
+  background-color: ${({ theme }) => theme.colors.separator} !important;
   display: grid;
   gap: 2px;
   grid-template-columns: 2fr 1fr;
@@ -361,12 +347,12 @@ export const TxDetailsContainer = styled.div`
 
     & > div {
       padding: 20px 24px;
-      background-color: black;
+      background-color: ${({ theme }) => theme.colors.white};
     }
   }
 
   .tx-summary {
-    /* background-color: ${({ theme }) => theme.colors.white}; */
+    background-color: ${({ theme }) => theme.colors.white};
     // grows to the height of tx-owner column
     flex-grow: 1;
     position: relative;
@@ -434,10 +420,10 @@ export const TxDetailsContainer = styled.div`
     justify-content: center;
 
     button {
-      /* color: ${({ theme }) => theme.colors.white}; */
+      color: ${({ theme }) => theme.colors.white};
 
       &:hover {
-        /* color: ${({ theme }) => theme.colors.white}; */
+        color: ${({ theme }) => theme.colors.white};
       }
 
       &.error {
@@ -449,7 +435,7 @@ export const TxDetailsContainer = styled.div`
       }
 
       &.primary {
-        background-color: #06fc99;
+        background-color: ${({ theme }) => theme.colors.primary};
 
         &:hover {
           background-color: ${({ theme }) => theme.colors.secondary};
@@ -461,9 +447,6 @@ export const TxDetailsContainer = styled.div`
 
 export const InlineEthHashInfo = styled(EthHashInfo)`
   display: inline-flex;
-  p {
-    color: #06fc99;
-  }
 
   span {
     font-weight: bold;
@@ -524,20 +507,10 @@ export const StyledAccordionSummary = styled(AccordionSummary).attrs((props) =>
   isDeeplinkedTx() ? { expandIcon: null, ...props } : props,
 )`
   height: 52px;
-  background: #000;
   .tx-nonce {
     margin: 0 16px 0 8px;
   }
-
-  .Mui-expanded {
-    background-color: #000;
-  }
-
-  :hover {
-    background-color: #000;
-  }
 `
-
 export const AlignItemsWithMargin = styled.div`
   display: flex;
   align-items: center;

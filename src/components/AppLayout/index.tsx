@@ -3,9 +3,9 @@ import styled, { keyframes } from 'styled-components'
 import { useLocation, matchPath, useRouteMatch } from 'react-router-dom'
 
 import { ListItemType } from 'src/components/List'
-import { StaticOverlay, ThemedBackground } from '..'
 
 import Header from './Header'
+import Footer from './Footer'
 import Sidebar from './Sidebar'
 import { MobileNotSupported } from './MobileNotSupported'
 import { SAFE_APP_LANDING_PAGE_ROUTE, SAFE_ROUTES, WELCOME_ROUTE } from 'src/routes/routes'
@@ -13,13 +13,13 @@ import useDarkMode from 'src/logic/hooks/useDarkMode'
 import { screenSm } from 'src/theme/variables'
 import TransactionQueueBar from '../TransactionQueueBar/TransactionQueueBar'
 import { InvalidMasterCopyError } from 'src/components/AppLayout/InvalidMasterCopyError'
-import Footer from './Footer'
 
 const Container = styled.div`
   height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
+
   background-color: ${({ theme }) => theme.colors.background};
 `
 
@@ -27,16 +27,17 @@ const HeaderWrapper = styled.nav`
   height: 52px;
   min-height: 52px;
   width: 100%;
-  z-index: 100;
+  z-index: 1299;
+
+  background-color: white;
+  box-shadow: 0 2px 4px 0 rgba(40, 54, 61, 0.18);
 `
 
 const BodyWrapper = styled.div`
   height: calc(100% - 52px);
   width: 100%;
   display: flex;
-  background-color: black;
   flex-direction: row;
-  margin-top: 1rem;
 `
 
 const slideIn = keyframes`
@@ -57,13 +58,16 @@ const SidebarWrapper = styled.aside`
   flex-shrink: 0;
   z-index: 1;
   overflow: hidden;
+
   padding: 8px 8px 0 8px;
-  background-color: #000;
+  background-color: ${({ theme }) => theme.colors.white};
+  border-right: 1px solid #f0efee;
+  box-shadow: 1px 2px 12px rgba(40, 54, 61, 0.08);
 
   @media (max-width: ${screenSm}px) {
     position: fixed;
     z-index: 1000;
-    left: 10px; /* temp value */
+    left: 0;
     transition: transform 200ms ease-out;
     transform: translateX(${({ $expanded }: { $expanded: boolean }) => ($expanded ? '0' : '-95%')});
     animation: ${slideIn} 300ms ease-in;
@@ -131,9 +135,9 @@ const Layout: React.FC<Props> = ({
 
   const closeMobileNotSupported = () => setMobileNotSupportedClosed(true)
 
-  // const hasFooter = !!matchPath(pathname, {
-  //   path: [SAFE_ROUTES.SETTINGS, WELCOME_ROUTE],
-  // })
+  const hasFooter = !!matchPath(pathname, {
+    path: [SAFE_ROUTES.SETTINGS, WELCOME_ROUTE],
+  })
 
   const showSideBar = !useRouteMatch({ path: SAFE_APP_LANDING_PAGE_ROUTE })
   const onSidebarClick = useCallback(
@@ -146,12 +150,10 @@ const Layout: React.FC<Props> = ({
 
   return (
     <Container onClick={() => setExpanded(false)}>
-      <ThemedBackground />
-      <StaticOverlay />
       <HeaderWrapper>
         <Header />
       </HeaderWrapper>
-      {/* <InvalidMasterCopyError /> will come to this later */}
+      <InvalidMasterCopyError />
 
       <BodyWrapper>
         {showSideBar && (
@@ -171,9 +173,9 @@ const Layout: React.FC<Props> = ({
         <ContentWrapper>
           <MainContentWrapper>{children}</MainContentWrapper>
           <TransactionQueueBar />
+          {hasFooter && <Footer />}
         </ContentWrapper>
       </BodyWrapper>
-      <Footer />
 
       {!mobileNotSupportedClosed && <MobileNotSupported onClose={closeMobileNotSupported} />}
     </Container>

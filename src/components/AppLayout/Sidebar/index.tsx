@@ -15,6 +15,11 @@ import { loadFromCookie } from 'src/logic/cookies/utils'
 import { COOKIES_KEY, BannerCookiesType, COOKIE_IDS } from 'src/logic/cookies/model/cookie'
 import { background, primaryLite } from 'src/theme/variables'
 
+const StyledDivider = styled(Divider)`
+  margin: 16px -8px 0;
+  border-top: 1px solid ${background};
+`
+
 const HelpContainer = styled.div`
   margin-top: auto;
 `
@@ -49,10 +54,6 @@ const HelpCenterLink = styled.a`
     text-transform: uppercase;
     padding: 0 0 0 4px;
   }
-`
-
-const StyledList = styled(List)`
-  background-color: #000;
 `
 type Props = {
   safeAddress?: string
@@ -105,20 +106,19 @@ const Sidebar = ({
 
   return (
     <>
-      <div style={{ marginTop: '2rem' }}>
-        <SafeHeader
-          address={safeAddress}
-          safeName={safeName}
-          granted={granted}
-          balance={balance}
-          onToggleSafeList={onToggleSafeList}
-          onReceiveClick={onReceiveClick}
-          onNewTransactionClick={onNewTransactionClick}
-        />
-      </div>
+      <SafeHeader
+        address={safeAddress}
+        safeName={safeName}
+        granted={granted}
+        balance={balance}
+        onToggleSafeList={onToggleSafeList}
+        onReceiveClick={onReceiveClick}
+        onNewTransactionClick={onNewTransactionClick}
+      />
 
       {items.length ? (
         <>
+          <StyledDivider />
           <List items={items} />
         </>
       ) : null}
@@ -126,16 +126,24 @@ const Sidebar = ({
       <HelpContainer>
         {debugToggle}
 
+        <StyledDivider />
+
         <HelpList>
-          {/* icons color needs to be changed */}
           {!isDesktop && BEAMER_ID && (
             <Track {...OVERVIEW_EVENTS.WHATS_NEW}>
               <StyledListItem className="beamer-trigger" button onClick={handleClick}>
-                <ListIcon type="gift" size="sm" color="primary" />
+                <ListIcon type="gift" color="secondary" size="sm" />
                 <StyledListItemText>What&apos;s new</StyledListItemText>
               </StyledListItem>
             </Track>
           )}
+
+          <Track {...OVERVIEW_EVENTS.HELP_CENTER}>
+            <HelpCenterLink href="https://help.gnosis-safe.io/en/" target="_blank" title="Help Center of Gnosis Safe">
+              <ListIcon type="question" color="secondary" size="sm" />
+              <StyledListItemText>Help Center</StyledListItemText>
+            </HelpCenterLink>
+          </Track>
         </HelpList>
       </HelpContainer>
     </>

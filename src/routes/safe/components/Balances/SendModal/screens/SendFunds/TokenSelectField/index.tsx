@@ -43,7 +43,7 @@ const SelectedToken = ({ tokenAddress, tokens }: SelectTokenProps): ReactElement
           />
         </>
       ) : (
-        <Text color="primary" size="xl">
+        <Text color="placeHolder" size="xl">
           Select an asset*
         </Text>
       )}

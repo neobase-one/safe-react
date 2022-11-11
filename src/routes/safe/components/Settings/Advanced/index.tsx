@@ -1,4 +1,4 @@
-import { Text, Title } from '@gnosis.pm/safe-react-components'
+import { Text, theme, Title } from '@gnosis.pm/safe-react-components'
 import { ReactElement } from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
@@ -17,17 +17,17 @@ const InfoText = styled(Text)`
 `
 
 const Bold = styled.strong`
-  color: #69fc99;
+  color: ${theme.colors.text};
 `
 
 const NoModuleLegend = (): ReactElement => (
-  <InfoText color="primary" size="xl">
+  <InfoText color="secondaryLight" size="xl">
     No modules enabled
   </InfoText>
 )
 
 const NoTransactionGuardLegend = (): ReactElement => (
-  <InfoText color="primary" size="xl">
+  <InfoText color="secondaryLight" size="xl">
     No transaction guard set
   </InfoText>
 )
@@ -48,11 +48,11 @@ const Advanced = (): ReactElement => {
         <Title size="xs" withoutMargin>
           Safe Nonce
         </Title>
-        <InfoText color="primary" size="lg">
+        <InfoText size="lg">
           For security reasons, transactions made with Safe need to be executed in order. The nonce shows you which
           transaction will be executed next. You can find the nonce for a transaction in the transaction details.
         </InfoText>
-        <InfoText color="primary" size="xl">
+        <InfoText color="secondaryLight" size="xl">
           Current Nonce: <Bold data-testid={'current-nonce'}>{nonce}</Bold>
         </InfoText>
       </Block>
@@ -62,10 +62,10 @@ const Advanced = (): ReactElement => {
         <Title size="xs" withoutMargin>
           Safe Modules
         </Title>
-        <InfoText color="primary" size="lg">
+        <InfoText size="lg">
           Modules allow you to customize the access-control logic of your Safe. Modules are potentially risky, so make
           sure to only use modules from trusted sources. Learn more about modules{' '}
-          <a href={DOCS_LINK} style={{ color: '#69fc99' }} rel="noopener noreferrer" target="_blank">
+          <a href={DOCS_LINK} rel="noopener noreferrer" target="_blank">
             here
           </a>
           .
@@ -80,7 +80,7 @@ const Advanced = (): ReactElement => {
           <Title size="xs" withoutMargin>
             Transaction Guard
           </Title>
-          <InfoText color="primary" size="lg">
+          <InfoText size="lg">
             Transaction guards impose additional constraints that are checked prior to executing a Safe transaction.
             Transaction guards are potentially risky, so make sure to only use modules from trusted sources. Learn more
             about transaction guards{' '}
@@ -88,7 +88,6 @@ const Advanced = (): ReactElement => {
               href="https://help.gnosis-safe.io/en/articles/5324092-what-is-a-transaction-guard"
               rel="noopener noreferrer"
               target="_blank"
-              style={{ color: '#69ff99' }}
             >
               here
             </a>

@@ -4,7 +4,7 @@ import { primaryLite, primaryActive } from 'src/theme/variables'
 
 const Container = styled.div<{ size: number }>`
   background: ${primaryLite};
-  color: #000;
+  color: ${primaryActive};
   font-size: ${(p) => p.size}px;
   font-weight: bold;
   border-radius: 100%;

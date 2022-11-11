@@ -10,7 +10,7 @@ import { Field } from 'src/routes/safe/components/Settings/SpendingLimit/FormFie
 // TODO: propose refactor in safe-react-components based on this requirements
 const SpendingLimitRadioButtons = styled(RadioButtons)`
   & .MuiRadio-colorPrimary.Mui-checked {
-    color: #06fc99;
+    color: ${({ theme }) => theme.colors.primary};
   }
 `
 
@@ -23,7 +23,7 @@ const StyledSwitch = styled(({ ...rest }) => <SwitchMui {...rest} />)`
     }
 
     .MuiSwitch-colorSecondary.Mui-checked .MuiIconButton-label {
-      color: #06fc99;
+      color: ${({ theme }) => theme.colors.primary};
     }
 
     .MuiSwitch-colorSecondary.Mui-checked:hover {

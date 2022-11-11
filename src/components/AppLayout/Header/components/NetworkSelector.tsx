@@ -26,11 +26,13 @@ import { OVERVIEW_EVENTS } from 'src/utils/events/overview'
 
 const styles = {
   root: {
-    display: 'flex',
     alignItems: 'center',
+    display: 'flex',
+    height: '100%',
 
     [`@media (min-width: ${screenSm}px)`]: {
-
+      flexBasis: '180px',
+      marginRight: '20px',
     },
   },
   networkList: {
@@ -38,22 +40,22 @@ const styles = {
     cursor: 'pointer',
     display: 'flex',
     flex: '1 1 auto',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between',
     [`@media (min-width: ${screenSm}px)`]: {
       paddingRight: sm,
     },
   },
   expand: {
     height: '30px',
-    color: '#06fc99',
+    width: '30px',
   },
   popper: {
     zIndex: 1301,
   },
   network: {
-    backgroundColor: 'black',
-    border: '2px solid #06fc99',
+    backgroundColor: 'white',
     borderRadius: sm,
+    boxShadow: '0 0 10px 0 rgba(33, 48, 77, 0.1)',
     marginTop: '11px',
     minWidth: '180px',
     padding: '0',
@@ -68,6 +70,13 @@ const StyledLink = styled.a`
   display: flex;
   justify-content: space-between;
   padding: 14px 16px 14px 0;
+
+  :hover {
+    background-color: ${({ theme }) => theme.colors.background};
+  }
+`
+const StyledDivider = styled(Divider)`
+  margin: 0;
 `
 
 type NetworkSelectorProps = ReturnValue
@@ -98,9 +107,9 @@ const NetworkSelector = ({ open, toggle, clickAway }: NetworkSelectorProps): Rea
       <div className={classes.root} ref={networkRef}>
         <Col className={classes.networkList} end="sm" middle="xs" onClick={toggle}>
           <NetworkLabel />
-          {/* <IconButton className={classes.expand} disableRipple>
+          <IconButton className={classes.expand} disableRipple>
             {open ? <ExpandLess /> : <ExpandMore />}
-          </IconButton> */}
+          </IconButton>
         </Col>
         <Divider />
       </div>
@@ -122,6 +131,7 @@ const NetworkSelector = ({ open, toggle, clickAway }: NetworkSelectorProps): Rea
 
                       {chainId === network.chainId && <Icon type="check" size="md" color="primary" />}
                     </StyledLink>
+                    <StyledDivider />
                   </Fragment>
                 ))}
               </List>

@@ -1,17 +1,22 @@
 import { withStyles } from '@material-ui/core/styles'
 import { ReactElement } from 'react'
-import styled from 'styled-components'
+
+import Col from 'src/components/layout/Col'
+import Paragraph from 'src/components/layout/Paragraph'
+import { sm } from 'src/theme/variables'
+import { KeyRing } from 'src/components/AppLayout/Header/components/KeyRing'
 
 const styles = () => ({
   network: {
-    fontFamily: 'IBM Plex Mono, monospace',
+    fontFamily: 'Averta, sans-serif',
   },
   account: {
+    alignItems: 'start',
     display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+    flexDirection: 'column',
     flexGrow: 1,
-    marginTop: '0.5rem'
+    justifyContent: 'center',
+    paddingRight: sm,
   },
   connect: {
     letterSpacing: '-0.5px',
@@ -19,24 +24,24 @@ const styles = () => ({
   },
 })
 
-const ConnectWalletText = styled.h2`
-  color: #000;
-  font-size: 0.7rem;
-  `
-const ConnectWalletButton = styled.div`
-  margin-top: -0.5rem;
-  background-color: #06fc99;
-  padding: 0rem 1rem;
-  border-radius: 0.3rem;
-`
-
 const ProviderDisconnected = ({ classes }): ReactElement => (
   <>
-    <div className={classes.account}>   
-      <ConnectWalletButton>
-        <ConnectWalletText>Connect Wallet</ConnectWalletText>
-      </ConnectWalletButton>
-    </div>
+    <KeyRing circleSize={35} dotRight={11} dotSize={16} dotTop={24} keySize={17} mode="error" />
+    <Col className={classes.account} end="sm" layout="column" middle="xs">
+      <Paragraph
+        className={classes.network}
+        noMargin
+        size="sm"
+        transform="capitalize"
+        weight="bold"
+        data-testid="not-connected-wallet"
+      >
+        Not Connected
+      </Paragraph>
+      <Paragraph className={classes.connect} color="fancy" noMargin size="sm">
+        Connect Wallet
+      </Paragraph>
+    </Col>
   </>
 )
 

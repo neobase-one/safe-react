@@ -5,7 +5,7 @@ import { ChainInfo } from '@gnosis.pm/safe-react-gateway-sdk'
 import Col from 'src/components/layout/Col'
 import Paragraph from 'src/components/layout/Paragraph'
 import { getChainInfo } from 'src/config'
-import { md, screenSm, sm, xs } from 'src/theme/variables'
+import { border, md, screenSm, sm, xs, fontColor } from 'src/theme/variables'
 
 const StyledCol = styled(Col)`
   flex-grow: 0;
@@ -16,16 +16,17 @@ const StyledCol = styled(Col)`
     padding-right: ${md};
   }
 `
-const StyledParagraph = styled(Paragraph)`
-  background-color: #000;
-  color: #06fc99;
-  border: #06fc99 2px solid;
-  border-radius: 5px;
+const StyledParagraph = styled(Paragraph)<{
+  $theme: ChainInfo['theme']
+}>`
+  background-color: ${(props) => props?.$theme?.backgroundColor ?? border};
+  color: ${(props) => props?.$theme?.textColor ?? fontColor};
+  border-radius: 3px;
   line-height: normal;
   text-transform: capitalize;
   margin: 0;
   padding: ${xs} ${sm};
-  min-width: 50px;
+  min-width: 70px;
   text-align: center;
 `
 
@@ -40,7 +41,7 @@ const NetworkLabel = ({
 
   return (
     <StyledCol middle="xs" start="xs" onClick={onClick}>
-      <StyledParagraph size="xs" className="networkLabel">
+      <StyledParagraph size="xs" $theme={chain.theme} className="networkLabel">
         {chain.chainName}
       </StyledParagraph>
     </StyledCol>

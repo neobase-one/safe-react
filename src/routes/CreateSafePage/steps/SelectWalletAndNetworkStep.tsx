@@ -41,18 +41,18 @@ function SelectWalletAndNetworkStep(): ReactElement {
       {isWalletConnected ? (
         <>
           {!isWrongNetwork && (
-            <Paragraph color="#06fc99" noMargin size="lg">
+            <Paragraph color="primary" noMargin size="lg">
               Wallet connected.
             </Paragraph>
           )}
 
-          <Paragraph color="#06fc99" size="lg" noMargin={isWrongNetwork}>
+          <Paragraph color="primary" size="lg" noMargin={isWrongNetwork}>
             Creating a Safe on&nbsp;
             <NetworkLabel onClick={openNetworkSelectorPopup} data-testid="switch-network-link" />
           </Paragraph>
         </>
       ) : (
-        <Paragraph color="#06fc99" noMargin size="lg">
+        <Paragraph color="primary" noMargin size="lg">
           In order to create your Safe, you need to connect a wallet
         </Paragraph>
       )}
@@ -64,7 +64,7 @@ function SelectWalletAndNetworkStep(): ReactElement {
       )}
 
       {isWalletConnected && isWrongNetwork && (
-        <Paragraph color="#06fc99" size="lg">
+        <Paragraph color="primary" size="lg">
           Your wallet connection must match the selected network. <WalletSwitch />
         </Paragraph>
       )}
@@ -97,8 +97,6 @@ function SelectWalletAndNetworkStep(): ReactElement {
 
 const Container = styled(Block)`
   padding: ${lg};
-  background-color: black;
-  border-radius: 10px;
 `
 
 const WalletContainer = styled.div`

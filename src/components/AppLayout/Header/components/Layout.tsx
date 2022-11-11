@@ -13,32 +13,33 @@ import { headerHeight, md, screenSm, sm } from 'src/theme/variables'
 import { useStateHandler } from 'src/logic/hooks/useStateHandler'
 import { ROOT_ROUTE } from 'src/routes/routes'
 import WalletSwitch from 'src/components/WalletSwitch'
+import Divider from 'src/components/layout/Divider'
 import { shouldSwitchWalletChain } from 'src/logic/wallets/store/selectors'
 import { useSelector } from 'react-redux'
 import { OVERVIEW_EVENTS } from 'src/utils/events/overview'
 import Track from 'src/components/Track'
 import Notifications from 'src/components/AppLayout/Header/components/Notifications'
-import styled from 'styled-components'
+import AnimatedLogo from 'src/components/AppLayout/Header/components/AnimatedLogo'
 import SafeTokenWidget, { getSafeTokenAddress } from './SafeTokenWidget'
 import { _getChainId } from 'src/config'
 
 const styles = () => ({
   root: {
-    backgroundColor: "black",
+    backgroundColor: 'white',
     borderRadius: sm,
-    border: "2px solid #06fc99",
+    boxShadow: 'rgb(40 54 61 / 18%) 1px 2px 10px 0px',
     marginTop: '11px',
     minWidth: '280px',
     padding: 0,
   },
   summary: {
     alignItems: 'center',
-    backgroundColor: 'black',
+    backgroundColor: 'white',
     flexWrap: 'nowrap',
     height: headerHeight,
     position: 'fixed',
     width: '100%',
-    zIndex: 99999,
+    zIndex: 1301,
   },
   logo: {
     [`@media (min-width: ${screenSm}px)`]: {
@@ -47,6 +48,7 @@ const styles = () => ({
       paddingRight: md,
     },
     [`@media (max-width: ${screenSm}px)`]: {
+      maxWidth: '95px',
       overflow: 'hidden',
       '& img': {
         width: '72px',
@@ -57,7 +59,6 @@ const styles = () => ({
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
-      textDecoration: 'none',
     },
   },
   wallet: {
@@ -65,23 +66,16 @@ const styles = () => ({
   },
   popper: {
     zIndex: 1301,
-    color: '#06fc99',
   },
   network: {
+    backgroundColor: 'white',
     borderRadius: sm,
+    boxShadow: '0 0 10px 0 rgba(33, 48, 77, 0.1)',
     marginTop: '11px',
     minWidth: '180px',
     padding: '0',
   },
 })
-
-const LogoText = styled.a`
-  color: #06fc99;
-  font-size: 2rem;
-  text-decoration: none;
-  margin-left: 3rem;
-  font-weight: 700;
-`
 
 const WalletPopup = ({ anchorEl, providerDetails, classes, open, onClose }) => {
   if (!open) {
@@ -117,7 +111,7 @@ const Layout = ({ classes, providerDetails, providerInfo }) => {
       <Col className={classes.logo} middle="xs" start="xs">
         <Track {...OVERVIEW_EVENTS.HOME}>
           <Link to={ROOT_ROUTE}>
-            <LogoText>Safe</LogoText>
+            <AnimatedLogo />
           </Link>
         </Track>
       </Col>
@@ -127,16 +121,21 @@ const Layout = ({ classes, providerDetails, providerInfo }) => {
       {isWrongChain && (
         <div className={classes.wallet}>
           <WalletSwitch />
+          <Divider />
         </div>
       )}
 
       {chainHasSafeToken && (
         <>
+          <Divider />
           <SafeTokenWidget />
         </>
       )}
+
+      <Divider />
       <Notifications open={openNotifications} toggle={toggleNotifications} clickAway={clickAwayNotifications} />
 
+      <Divider />
       <Provider
         info={providerInfo}
         open={openWallet}
@@ -154,7 +153,7 @@ const Layout = ({ classes, providerDetails, providerInfo }) => {
         }
       />
 
-        {/* network selector in navbar */}
+      <Divider />
       <NetworkSelector open={openNetworks} toggle={toggleNetworks} clickAway={clickAwayNetworks} />
     </Row>
   )

@@ -10,7 +10,7 @@ import ListMui from '@material-ui/core/List'
 import ListItem, { ListItemProps } from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import Collapse from '@material-ui/core/Collapse'
-import { primary, secondary, secondaryText } from 'src/theme/variables'
+import { background, secondary, primaryLite, black500, gray500 } from 'src/theme/variables'
 
 const ListItemWrapper = styled.div`
   padding: 0 12px;
@@ -26,6 +26,7 @@ export const StyledListItem = styled(ListItem)<ListItemProps>`
   }
 
   &.MuiListItem-button:hover {
+    background-color: ${primaryLite};
     border-radius: 8px;
   }
 
@@ -37,27 +38,21 @@ export const StyledListItem = styled(ListItem)<ListItemProps>`
   &.MuiListItem-root {
     padding-top: 9px;
     padding-bottom: 9px;
-    span {
-      & svg {
-        fill: #06fc99;
-      }
-    }
   }
 
   &.MuiListItem-root.Mui-selected {
-    border: 2px solid #06fc99;
-    color: #000;
+    background-color: ${primaryLite};
     border-radius: 8px;
-    color: #06fc99;
+    color: ${({ theme }) => theme.colors.primary};
     span {
-      color: #06fc99;
+      color: ${({ theme }) => theme.colors.primary};
 
       & svg {
-        fill: #06fc99;
+        fill: ${({ theme }) => theme.colors.primary};
       }
     }
     .icon-color {
-      fill: #06fc99;
+      fill: ${({ theme }) => theme.colors.primary};
     }
   }
 
@@ -83,7 +78,7 @@ const StyledListSubItem = styled(ListItem)<ListItemProps>`
       content: '';
       width: 6px;
       height: 1px;
-      background: ${primary};
+      background: ${gray500};
       position: absolute;
       left: -${subItemLeftSpace};
     }
@@ -94,38 +89,41 @@ const StyledListSubItem = styled(ListItem)<ListItemProps>`
   }
 
   &.MuiListItem-button:hover {
+    background-color: ${background};
     border-radius: 8px;
   }
 
   &.MuiButtonBase-root.MuiListItem-root.Mui-selected {
+    background-color: ${background};
     border-radius: 8px;
-    color: #06fc99;
+    color: ${({ theme }) => theme.colors.primary};
     span {
-      color: #06fc99;
+      color: ${({ theme }) => theme.colors.primary};
     }
     .icon-color {
-      fill: #06fc99;
+      fill: ${({ theme }) => theme.colors.primary};
     }
   }
 `
 
 export const StyledListItemText = styled(ListItemText)`
   span {
-    font-family: "IBM Plex Mono", monospace;
+    font-family: ${({ theme }) => theme.fonts.fontFamily};
     font-size: 14px;
     font-weight: 600;
     line-height: 1.5;
     letter-spacing: 0.5px;
-    color: #06fc99 !important;
+    color: ${black500} !important;
   }
 `
 
 const StyledListSubItemText = styled(ListItemText)`
   span {
+    font-family: ${({ theme }) => theme.fonts.fontFamily};
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: 0;
-    color: ${secondaryText} !important;
+    color: ${black500} !important;
   }
 `
 
@@ -145,13 +143,14 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       width: '100%',
       maxWidth: 200,
-      // backgroundColor: theme.palette.background.paper,
+      backgroundColor: theme.palette.background.paper,
       overflowX: 'auto',
       margin: '8px 0 -4px 0',
       '&::-webkit-scrollbar': {
         width: '0.5em',
       },
       '&::-webkit-scrollbar-track': {
+        boxShadow: 'inset 0 0 6px rgba(0, 0, 0, 0.3)',
         webkitBoxShadow: 'inset 0 0 6px rgba(0, 0, 0, 0.3)',
         borderRadius: '20px',
       },
@@ -163,7 +162,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     listMui: {
       marginLeft: '20px',
-      borderLeft: `1px solid ${primary}`,
+      borderLeft: `1px solid ${gray500}`,
 
       '&::after': {
         content: '""',
@@ -172,7 +171,7 @@ const useStyles = makeStyles((theme: Theme) =>
         position: 'absolute',
         bottom: 0,
         left: '-1px',
-        background: '#000',
+        background: 'white',
       },
     },
     nested: {
@@ -233,7 +232,7 @@ const List = ({ items }: Props): React.ReactElement => {
         onClick={onClick}
         selected={item.selected || isSubItemSelected(item)}
       >
-        {/* {item.icon && !isSubItem && item.icon} */}
+        {item.icon && !isSubItem && item.icon}
 
         <TextAndBadgeWrapper>
           <StyledBadge badgeContent=" " color="error" invisible={!item.badge} variant="dot">

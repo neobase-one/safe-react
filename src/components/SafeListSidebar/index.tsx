@@ -3,6 +3,7 @@ import Drawer from '@material-ui/core/Drawer'
 
 import { SafeList } from './SafeList'
 import useSidebarStyles from './style'
+import Hairline from 'src/components/layout/Hairline'
 import AddSafeButton from 'src/components/SafeListSidebar/AddSafeButton'
 import { trackEvent } from 'src/utils/googleTagManager'
 import { OVERVIEW_EVENTS } from 'src/utils/events/overview'
@@ -42,6 +43,8 @@ export const SafeListSidebar = ({ children }: Props): ReactElement => {
         open={isOpen}
       >
         <AddSafeButton onAdd={toggleSidebar} />
+
+        <Hairline />
 
         <SafeList onSafeClick={toggleSidebar} />
       </Drawer>

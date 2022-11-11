@@ -14,12 +14,14 @@ import {
   fontColor,
   largeFontSize,
   lg,
+  mainFontFamily,
   md,
   mediumFontSize,
   primary,
   regularFont,
   secondary,
   secondaryBackground,
+  secondaryFontFamily,
   secondaryText,
   sm,
   smallFontSize,
@@ -50,19 +52,18 @@ const palette = {
 // see https://github.com/mui-org/material-ui/blob/v1-beta/src/styles/createMuiTheme.js
 const theme = createTheme({
   typography: {
-    fontFamily: 'monospace',
+    fontFamily: mainFontFamily,
+    useNextVariants: true,
   },
   overrides: {
     MuiButton: {
       label: {
         lineHeight: '1',
         fontSize: largeFontSize,
-        fontFamily: 'monospace',
         fontWeight: regularFont,
-        color: "#000",
       },
       root: {
-        fontFamily: 'monospace',
+        fontFamily: secondaryFontFamily,
         letterSpacing: '0.9px',
         '&$disabled': {
           color: disabled,
@@ -72,7 +73,7 @@ const theme = createTheme({
         borderRadius: sm,
       },
       contained: {
-       
+        boxShadow: '1px 2px 10px 0 rgba(212, 212, 211, 0.59)',
       },
       containedPrimary: {
         backgroundColor: secondary,
@@ -80,7 +81,7 @@ const theme = createTheme({
       containedSecondary: {
         backgroundColor: error,
         '&:hover': {
-          // backgroundColor: '#d4d5d3',
+          backgroundColor: '#d4d5d3',
         },
       },
       outlinedPrimary: {
@@ -122,7 +123,7 @@ const theme = createTheme({
     },
     MuiChip: {
       root: {
-        fontFamily: 'monospace',
+        fontFamily: secondaryFontFamily,
       },
     },
     MuiStepIcon: {
@@ -140,17 +141,17 @@ const theme = createTheme({
     },
     MuiStepContent: {
       root: {
-        borderLeft: `${secondaryText}`,
+        borderLeft: `1px solid ${secondaryText}`,
       },
     },
     MuiTypography: {
       body1: {
-        fontFamily: 'monospace',
+        fontFamily: secondaryFontFamily,
         letterSpacing: '-0.5px',
         fontSize: mediumFontSize,
       },
       body2: {
-        fontFamily: 'monospace',
+        fontFamily: secondaryFontFamily,
       },
     },
     MuiFormControl: {
@@ -163,7 +164,7 @@ const theme = createTheme({
         backgroundColor: secondaryBackground,
         borderRadius: '5px',
         color: primary,
-        fontFamily: 'monospace',
+        fontFamily: secondaryFontFamily,
         fontSize: mediumFontSize,
         lineHeight: '56px',
         order: '1',
@@ -233,10 +234,10 @@ const theme = createTheme({
         padding: 0,
         borderRadius: xs,
         color: primary,
-        fontFamily: 'monospace',
+        fontFamily: secondaryFontFamily,
         fontSize: largeFontSize,
         '&:$disabled': {
-          color: primary,
+          color: '#0000ff',
         },
         '& .MuiOutlinedInput-notchedOutline': {
           borderColor: black300,
@@ -248,7 +249,7 @@ const theme = createTheme({
         },
         '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
           borderColor: black400,
-          borderWidth: '2px',
+          borderWidth: '1px',
         },
         '&.Mui-error .MuiOutlinedInput-notchedOutline': {
           borderColor: error,
@@ -309,18 +310,9 @@ const theme = createTheme({
     },
     MuiStepLabel: {
       label: {
-        color: primary,
         textAlign: 'left',
-        '&.MuiStepLabel-label': {
-          color: primary,
-        },
-        '&.MuiStepLabel-label > p': {
-          color: "green",
-        },
-        '&$active > p': {
-          color: primary,
-        },
-        '&$completed > p': {
+        color: secondary,
+        '&$active': {
           color: primary,
         },
       },
@@ -332,11 +324,10 @@ const theme = createTheme({
     },
     MuiTab: {
       root: {
-        fontFamily: 'monospace',
+        fontFamily: secondaryFontFamily,
         fontWeight: 'normal',
         fontSize: extraSmallFontSize,
         '&$selected': {
-          backgroundColor: 'black',
           fontWeight: boldFont,
         },
         '@media (min-width: 960px)': {
@@ -367,7 +358,7 @@ const theme = createTheme({
       },
       caption: {
         color: disabled,
-        fontFamily: 'monospace',
+        fontFamily: secondaryFontFamily,
         fontSize: mediumFontSize,
         order: '2',
       },
@@ -395,10 +386,9 @@ const theme = createTheme({
     },
     MuiTableCell: {
       root: {
-        borderBottom: `2px solid #60fc99`,
-        fontFamily: 'monospace',
+        borderBottomWidth: '2px',
+        fontFamily: secondaryFontFamily,
         fontSize: mediumFontSize,
-        borderRadius: md,
       },
       head: {
         letterSpacing: '1px',
@@ -418,12 +408,13 @@ const theme = createTheme({
     MuiBackdrop: {
       root: {
         backdropFilter: 'blur(1px)',
-        backgroundColor: 'rgba(0, 0, 0, 0.75)',
+        backgroundColor: 'rgba(228, 232, 241, 0.75)',
+        top: '52px',
       },
     },
     MuiMenuItem: {
       root: {
-        fontFamily: 'monospace',
+        fontFamily: secondaryFontFamily,
       },
     },
     MuiListItemIcon: {
@@ -434,13 +425,13 @@ const theme = createTheme({
     MuiListItemText: {
       primary: {
         color: primary,
-        fontFamily: 'monospace',
+        fontFamily: secondaryFontFamily,
         fontSize: mediumFontSize,
         fontWeight: bolderFont,
       },
       secondary: {
         color: disabled,
-        fontFamily: 'monospace',
+        fontFamily: secondaryFontFamily,
         fontSize: smallFontSize,
       },
     },
@@ -453,9 +444,8 @@ const theme = createTheme({
     },
     MuiFormLabel: {
       root: {
-        color: primary,
         '&$focused': {
-          color: primary,
+          color: black400,
         },
       },
     },
@@ -510,6 +500,7 @@ export const DropdownListTheme = {
         marginTop: '10px',
       },
       elevation0: {
+        boxShadow: '1px 2px 10px 0 rgba(212, 212, 211, 0.59)',
       },
       rounded: {
         borderRadius: xs,

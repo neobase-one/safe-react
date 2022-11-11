@@ -4,10 +4,9 @@ import { border, fontColor, screenSm, sm, xs } from 'src/theme/variables'
 
 export const styles = createStyles({
   root: {
-    backgroundColor: '#000',
+    backgroundColor: 'white',
     borderRadius: sm,
-    marginTop: '2rem',
-    border: "3px solid #06fc99",
+    boxShadow: '1px 2px 10px 0 rgba(212, 212, 211, 0.59)',
     display: 'flex',
     flexDirection: 'column',
     marginBottom: '54px',

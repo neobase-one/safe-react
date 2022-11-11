@@ -24,12 +24,6 @@ const StyledLink = styled(Link)`
   }
 `
 
-const StyledTab = styled(Tab)`
-  .MuiTab-root {
-    background: red;
-  }
-`
-
 const GatewayTransactions = (): ReactElement => {
   const history = useHistory()
   const { path } = useRouteMatch()
@@ -58,13 +52,12 @@ const GatewayTransactions = (): ReactElement => {
                 </StyledLink>
               ))(<BreadcrumbElement iconType="transactionsInactive" text="TRANSACTIONS" />)}
 
-            <BreadcrumbElement text={breadcrumbText.toUpperCase()} color="primary" />
+            <BreadcrumbElement text={breadcrumbText.toUpperCase()} color="placeHolder" />
           </Breadcrumb>
         </Col>
       </Menu>
 
-      {/* wip */}
-      {!isTxDetails && <StyledTab onChange={onTabChange} items={TRANSACTION_TABS} selectedTab={path} />}
+      {!isTxDetails && <Tab onChange={onTabChange} items={TRANSACTION_TABS} selectedTab={path} />}
 
       <ContentWrapper>
         <Switch>

@@ -9,7 +9,6 @@ const StyledContainer = styled.div<{
 }>`
   display: flex;
   flex-wrap: wrap;
-  background-color: #000;
   box-sizing: border-box;
   justify-content: space-between;
   gap: ${(props) => (props.$vertical ? '20px' : '60px')};
@@ -20,6 +19,8 @@ const StyledContainer = styled.div<{
 const ConnectDetails = ({ vertical = false }: { vertical?: boolean }): ReactElement => (
   <StyledContainer $vertical={vertical}>
     <ConnectButton data-testid="heading-connect-btn" />
+
+    <MobilePairing vertical={vertical} />
   </StyledContainer>
 )
 

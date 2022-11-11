@@ -25,10 +25,6 @@ import { currentNetworkAddressBookAsMap } from 'src/logic/addressBook/store/sele
 
 export const reviewLoadStepLabel = 'Review'
 
-const StyledPara = styled(Paragraph)`
-  color: #06fc99;
-`
-
 function ReviewLoadStep(): ReactElement {
   const loadSafeForm = useForm()
   const userAddress = useSelector(userAccountSelector)
@@ -55,30 +51,30 @@ function ReviewLoadStep(): ReactElement {
       <Col layout="column" xs={4}>
         <DetailsContainer>
           <Block margin="lg">
-            <StyledPara noMargin size="lg" data-testid="load-safe-step-three">
+            <Paragraph color="primary" noMargin size="lg" data-testid="load-safe-step-three">
               Review details
-            </StyledPara>
+            </Paragraph>
           </Block>
           <Block margin="lg">
-            <StyledPara color="primary" noMargin size="sm">
+            <Paragraph color="disabled" noMargin size="sm">
               Network
-            </StyledPara>
+            </Paragraph>
             <StyledParagraph color="disabled" noMargin size="sm" data-testid="load-form-review-safe-network">
               <NetworkLabel />
             </StyledParagraph>
           </Block>
           <Block margin="lg">
-            <StyledPara color="disabled" noMargin size="sm">
+            <Paragraph color="disabled" noMargin size="sm">
               Name of the Safe
-            </StyledPara>
-            <StyledPara color="primary" noMargin size="md" weight="bolder" data-testid="load-form-review-safe-name">
+            </Paragraph>
+            <Paragraph color="primary" noMargin size="md" weight="bolder" data-testid="load-form-review-safe-name">
               {safeName}
-            </StyledPara>
+            </Paragraph>
           </Block>
           <Block margin="lg">
-            <StyledPara color="disabled" noMargin size="sm">
+            <Paragraph color="disabled" noMargin size="sm">
               Safe address
-            </StyledPara>
+            </Paragraph>
             <SafeAddressContainer>
               <PrefixedEthHashInfo
                 hash={safeAddress}
@@ -90,29 +86,29 @@ function ReviewLoadStep(): ReactElement {
             </SafeAddressContainer>
           </Block>
           <Block margin="lg">
-            <StyledPara color="disabled" noMargin size="sm">
+            <Paragraph color="disabled" noMargin size="sm">
               Connected wallet client is owner?
-            </StyledPara>
-            <StyledPara data-testid={'connected-wallet-is-owner'} color="primary" noMargin size="md" weight="bolder">
+            </Paragraph>
+            <Paragraph data-testid={'connected-wallet-is-owner'} color="primary" noMargin size="md" weight="bolder">
               {isUserConnectedWalletASAfeOwner ? 'Yes' : 'No (read-only)'}
-            </StyledPara>
+            </Paragraph>
           </Block>
           <Block margin="lg">
-            <StyledPara color="disabled" noMargin size="sm">
+            <Paragraph color="disabled" noMargin size="sm">
               Any transaction requires the confirmation of:
-            </StyledPara>
-            <StyledPara color="primary" noMargin size="md" weight="bolder">
+            </Paragraph>
+            <Paragraph color="primary" noMargin size="md" weight="bolder">
               {`${threshold} out of ${ownerList.length} owners`}
-            </StyledPara>
+            </Paragraph>
           </Block>
         </DetailsContainer>
       </Col>
       <Col layout="column" xs={8}>
         <TableContainer>
           <OwnersContainer>
-            <StyledPara color="primary" noMargin size="lg">
+            <Paragraph color="primary" noMargin size="lg">
               {`${ownerList.length} Safe owners`}
-            </StyledPara>
+            </Paragraph>
           </OwnersContainer>
           <Hairline />
           {ownerListWithNames.map((owner, index) => (

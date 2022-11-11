@@ -57,9 +57,9 @@ const useStyles = (chainInfo: ChainInfo) =>
         height: '84px',
         justifyContent: 'center',
         '& > button': {
-          fontFamily: 'IBM Plex Mono, monospace',
+          fontFamily: 'Averta',
           fontSize: md,
-         
+          boxShadow: '1px 2px 10px 0 rgba(212, 212, 211, 0.59)',
         },
       },
       addressContainer: {

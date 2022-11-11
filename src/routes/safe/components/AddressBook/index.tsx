@@ -159,16 +159,12 @@ const AddressBookTable = (): ReactElement => {
     setImportEntryModalOpen(false)
   }
 
-  const StyledBreadcrumbElements = styled(BreadcrumbElement)`
-    font-family: monospace;
-  `
-
   return (
     <>
       <Menu>
         <Col start="sm" sm={6} xs={12}>
           <Breadcrumb>
-            <StyledBreadcrumbElements iconType="addressBook" text="Address Book" counter={addressBook?.length.toString()} />
+            <BreadcrumbElement iconType="addressBook" text="Address Book" counter={addressBook?.length.toString()} />
           </Breadcrumb>
         </Col>
         <Col end="sm" sm={6} xs={12}>
@@ -182,7 +178,6 @@ const AddressBookTable = (): ReactElement => {
               iconType="exportImg"
               iconSize="sm"
               textSize="xl"
-              style={{textDecoration: 'none'}}
             >
               Export
             </ButtonLink>
@@ -196,7 +191,6 @@ const AddressBookTable = (): ReactElement => {
               iconType="importImg"
               iconSize="sm"
               textSize="xl"
-              style={{textDecoration: 'none'}}
             >
               Import
             </ButtonLink>
@@ -211,7 +205,6 @@ const AddressBookTable = (): ReactElement => {
               iconType="add"
               iconSize="sm"
               textSize="xl"
-              style={{textDecoration: 'none'}}
             >
               Create entry
             </ButtonLink>

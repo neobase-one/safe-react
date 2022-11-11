@@ -97,8 +97,9 @@ const SafeAppCard = ({
 
           {/* Safe App Actions */}
           <ActionsContainer onClick={(e) => e.preventDefault()}>
+            {/* Share Safe App button */}
             <IconBtn onClick={shareSafeApp} aria-label={`copy ${safeApp.name} Safe App share link to clipboard`}>
-              <Icon size="md" color="primary" type="share" tooltip="Copy share link" />
+              <Icon size="md" type="share" tooltip="Copy share link" />
             </IconBtn>
 
             {/* Pin & Unpin Safe App button */}
@@ -110,7 +111,7 @@ const SafeAppCard = ({
                 {isPinned ? (
                   <PinnedIcon size="md" type="bookmarkFilled" color="primary" tooltip="Unpin from the Safe Apps" />
                 ) : (
-                  <PinnedIcon color="primary" size="md" type="bookmark" tooltip="Pin from the Safe Apps" />
+                  <PinnedIcon size="md" type="bookmark" tooltip="Pin from the Safe Apps" />
                 )}
               </IconBtn>
             )}
@@ -168,8 +169,11 @@ const StyledAppCard = styled(Card)`
 
   transition: all 0.3s ease-in-out 0s;
   transition-property: border-color, background-color;
-  background-color: black;
-  border: 2px solid #06fc99;
+
+  :hover {
+    background-color: ${primary200};
+    border: 2px solid ${primary300};
+  }
 `
 
 const LogoContainer = styled.div`
@@ -202,13 +206,12 @@ const SafeAppTitle = styled(Title)`
   font-size: 16px;
   line-height: 22px;
   font-weight: bold;
-  color: #06fc99;
+  color: initial;
 `
 
 const SafeAppDescription = styled(Text)`
   margin: 0;
   line-height: 22px;
-  color: #06fc99;
 
   overflow: hidden;
   display: -webkit-box;

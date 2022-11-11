@@ -30,10 +30,6 @@ import useTxStatus from 'src/logic/hooks/useTxStatus'
 import Spacer from 'src/components/Spacer'
 import { isSupportedMultiSendCall } from 'src/logic/safe/transactions/multisend'
 
-const StyledP = styled.p`
-  font-family: monospace;
-`
-
 export const TxInfo = ({ info, name }: { info: AssetInfo; name?: string }): ReactElement | null => {
   if (isTokenTransferAsset(info)) {
     return <TokenTransferAmount assetInfo={info} />
@@ -139,7 +135,6 @@ export const TxCollapsed = ({
   const txCollapsedType = (
     <div className={'tx-type' + willBeReplaced}>
       <CustomIconText
-        // transaction history table text color need to be changed from here.
         address={toAddress?.value || '0x'}
         iconUrl={type.icon || toInfo?.logoUri || undefined}
         iconUrlFallback={type.fallbackIcon}
@@ -158,9 +153,7 @@ export const TxCollapsed = ({
     <div className={'tx-time' + willBeReplaced}>
       <Tooltip title={formatDateTime(time)} arrow backgroundColor="white" size="lg">
         <TooltipContent ref={timestamp}>
-          <Text size="xl">
-            <StyledP>{txLocation === 'history' ? formatTime(time) : formatTimeInWords(time)}</StyledP>
-          </Text>
+          <Text size="xl">{txLocation === 'history' ? formatTime(time) : formatTimeInWords(time)}</Text>
         </TooltipContent>
       </Tooltip>
     </div>
@@ -198,8 +191,8 @@ export const TxCollapsed = ({
       ) : (
         isAwaitingExecution(txStatus) && <SmallDot color={status.color} />
       )}
-      <Text size="md" className="col" strong>
-        <StyledP>{status.text}</StyledP>
+      <Text size="md" color={status.color} className="col" strong>
+        {status.text}
       </Text>
     </div>
   )

@@ -42,10 +42,7 @@ const StyledButton = styled(Button)`
   svg {
     margin: 0 6px 0 0;
   }
-`;
-const ButtonText = styled(Text)`
-  color: #000';
-`;
+`
 
 const useStyles = makeStyles(styles)
 
@@ -157,17 +154,19 @@ const Coins = (props: Props): React.ReactElement => {
                         variant="contained"
                         data-testid="balance-send-btn"
                       >
-                        <ButtonText size="xl">
+                        <FixedIcon type="arrowSentWhite" />
+                        <Text size="xl" color="white">
                           Send
-                        </ButtonText>
+                        </Text>
                       </StyledButton>
                     </Track>
                   )}
                   <Track {...ASSETS_EVENTS.RECEIVE}>
                     <StyledButton color="primary" onClick={showReceiveFunds} size="md" variant="contained">
-                      <ButtonText size="xl">
+                      <FixedIcon type="arrowReceivedWhite" />
+                      <Text size="xl" color="white">
                         Receive
-                      </ButtonText>
+                      </Text>
                     </StyledButton>
                   </Track>
                 </Row>

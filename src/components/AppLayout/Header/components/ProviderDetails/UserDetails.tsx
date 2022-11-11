@@ -31,16 +31,14 @@ const styles = createStyles({
   },
   user: {
     borderRadius: '3px',
-    backgroundColor: "black",
+    backgroundColor: background,
     margin: '0 auto',
     padding: '9px',
     lineHeight: 1,
-    color: "white",
   },
   ens: {
-    // paddingBottom: md,
-    // fontWeight: 'bold',
-    // color: "#06fc99",
+    paddingBottom: md,
+    fontWeight: 'bold',
   },
   details: {
     padding: `0 ${md}`,
@@ -72,9 +70,10 @@ const styles = createStyles({
   },
   disconnectButton: {
     marginBottom: `${md}`,
-    backgroundColor: '#06fc99',
-    color: '#000',
-    boxShadow: 'none',
+    '&:hover': {
+      backgroundColor: '#F02525',
+      color: '#fff',
+    },
   },
   dashboard: {
     padding: `${md} ${lg} ${xs}`,
@@ -131,9 +130,8 @@ export const UserDetails = ({
           </Block>
         )}
         <Block className={classes.user} justify="center">
-          { userAddress ? (
+          {userAddress ? (
             <PrefixedEthHashInfo
-              textColor='primary'
               hash={userAddress}
               showCopyBtn
               explorerUrl={getExplorerInfo(userAddress)}

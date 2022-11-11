@@ -14,11 +14,10 @@ const StyledBlock = styled(Block)`
   font-size: 12px;
   line-height: 1.08;
   letter-spacing: -0.5px;
-  border: 2px solid ${border};
+  background-color: ${border};
   width: fit-content;
   padding: 5px 10px;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: ${xs};
   margin-left: 40px;
   border-radius: 3px;
 `
@@ -50,7 +49,7 @@ const SafeInfo = ({ text }: SafeInfoProps): React.ReactElement => {
       />
       {ethBalance && (
         <StyledBlock>
-          <Paragraph>
+          <Paragraph noMargin>
             Balance: <Bold data-testid="current-eth-balance">{`${ethBalance} ${nativeCurrency.symbol}`}</Bold>
           </Paragraph>
         </StyledBlock>
