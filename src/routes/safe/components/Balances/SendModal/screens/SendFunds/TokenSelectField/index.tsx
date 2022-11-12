@@ -63,6 +63,7 @@ const TokenSelectField = ({ initialValue, isValid = true, tokens }: TokenSelectF
 
   return (
     <Field
+    style={{background: 'black'}}
       classes={{ selectMenu: classes.selectMenu }}
       className={isValid ? 'isValid' : 'isInvalid'}
       component={(props) => (
@@ -80,7 +81,7 @@ const TokenSelectField = ({ initialValue, isValid = true, tokens }: TokenSelectF
       validate={required}
     >
       {tokens.map((token) => (
-        <MenuItem key={token.address} value={token.address}>
+        <MenuItem style={{background: 'black', padding: "0"}} key={token.address} value={token.address}>
           <ListItemIcon>
             <Img
               className={tokenClasses.tokenImage}
