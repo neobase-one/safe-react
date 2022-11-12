@@ -308,7 +308,7 @@ const AddressBookTable = (): ReactElement => {
                               data-testid={SEND_ENTRY_BUTTON}
                             >
                               <FixedIcon type="arrowSentWhite" />
-                              <Text size="xl" color="white">
+                              <Text size="xl" color="black">
                                 Send
                               </Text>
                             </StyledButton>

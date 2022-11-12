@@ -157,7 +157,7 @@ const Coins = (props: Props): React.ReactElement => {
                         variant="contained"
                         data-testid="balance-send-btn"
                       >
-                        <ButtonText size="xl">
+                        <ButtonText size="xl" color="black">
                           Send
                         </ButtonText>
                       </StyledButton>
@@ -165,7 +165,7 @@ const Coins = (props: Props): React.ReactElement => {
                   )}
                   <Track {...ASSETS_EVENTS.RECEIVE}>
                     <StyledButton color="primary" onClick={showReceiveFunds} size="md" variant="contained">
-                      <ButtonText size="xl">
+                      <ButtonText size="xl" color="black">
                         Receive
                       </ButtonText>
                     </StyledButton>
