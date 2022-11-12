@@ -29,11 +29,10 @@ import {
   infoColor,
 } from './variables'
 
-const cantoColor = '#60fc99'
 
 const palette = {
   primary: {
-    main: cantoColor,
+    main: primary,
   },
   secondary: {
     main: secondary,
