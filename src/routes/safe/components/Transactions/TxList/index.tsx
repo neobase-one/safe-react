@@ -43,7 +43,7 @@ const GatewayTransactions = (): ReactElement => {
                 </StyledLink>
               ))(<BreadcrumbElement iconType="transactionsInactive" text="TRANSACTIONS" color="primary" />)}
 
-            <BreadcrumbElement text={breadcrumbText.toUpperCase()} color="cantoGreen" />
+            <BreadcrumbElement text={breadcrumbText.toUpperCase()} color="primary" />
           </Breadcrumb>
         </Col>
       </Menu>

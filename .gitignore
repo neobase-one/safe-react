@@ -10,6 +10,7 @@ dist
 electron-builder.yml
 /.yalc
 yalc.lock
+settings.json
 # testing
 /coverage/
 src/types/contracts/
@@ -21,3 +22,5 @@ jest.results.json
 cypress/videos
 cypress/screenshots
 cypress/downloads
+src/routes/safe/components/Transactions/TxList/index.tsx
+.vscode/settings.json
