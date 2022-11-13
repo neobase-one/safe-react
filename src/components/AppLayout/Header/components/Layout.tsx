@@ -18,15 +18,15 @@ import { useSelector } from 'react-redux'
 import { OVERVIEW_EVENTS } from 'src/utils/events/overview'
 import Track from 'src/components/Track'
 import Notifications from 'src/components/AppLayout/Header/components/Notifications'
-import styled from 'styled-components'
 import SafeTokenWidget, { getSafeTokenAddress } from './SafeTokenWidget'
 import { _getChainId } from 'src/config'
+import GnosisLogo from '../assets/safe-logo.svg'
 
 const styles = () => ({
   root: {
-    backgroundColor: "black",
+    backgroundColor: 'black',
     borderRadius: sm,
-    border: "2px solid #06fc99",
+    border: '2px solid #06fc99',
     marginTop: '11px',
     minWidth: '280px',
     padding: 0,
@@ -75,14 +75,6 @@ const styles = () => ({
   },
 })
 
-const LogoText = styled.a`
-  color: #06fc99;
-  font-size: 2rem;
-  text-decoration: none;
-  margin-left: 3rem;
-  font-weight: 700;
-`
-
 const WalletPopup = ({ anchorEl, providerDetails, classes, open, onClose }) => {
   if (!open) {
     return null
@@ -107,7 +99,7 @@ const WalletPopup = ({ anchorEl, providerDetails, classes, open, onClose }) => {
 const Layout = ({ classes, providerDetails, providerInfo }) => {
   const { clickAway: clickAwayNotifications, open: openNotifications, toggle: toggleNotifications } = useStateHandler()
   const { clickAway: clickAwayWallet, open: openWallet, toggle: toggleWallet } = useStateHandler()
-  const { clickAway: clickAwayNetworks, open: openNetworks, toggle: toggleNetworks } = useStateHandler()
+  const { clickAway: clickAwayNetworks, open: openNetworks } = useStateHandler()
   const isWrongChain = useSelector(shouldSwitchWalletChain)
   const chainId = _getChainId()
   const chainHasSafeToken = Boolean(getSafeTokenAddress(chainId))
@@ -117,7 +109,9 @@ const Layout = ({ classes, providerDetails, providerInfo }) => {
       <Col className={classes.logo} middle="xs" start="xs">
         <Track {...OVERVIEW_EVENTS.HOME}>
           <Link to={ROOT_ROUTE}>
-            <LogoText>Safe</LogoText>
+            <span style={{ paddingLeft: '35%' }}>
+              <img alt="Safe" src={`${GnosisLogo}`} id="safe-logo" height={36} />
+            </span>
           </Link>
         </Track>
       </Col>
@@ -130,11 +124,7 @@ const Layout = ({ classes, providerDetails, providerInfo }) => {
         </div>
       )}
 
-      {chainHasSafeToken && (
-        <>
-          <SafeTokenWidget />
-        </>
-      )}
+      {chainHasSafeToken && <SafeTokenWidget />}
       <Notifications open={openNotifications} toggle={toggleNotifications} clickAway={clickAwayNotifications} />
 
       <Provider
@@ -154,8 +144,8 @@ const Layout = ({ classes, providerDetails, providerInfo }) => {
         }
       />
 
-        {/* network selector in navbar */}
-      <NetworkSelector open={openNetworks} toggle={toggleNetworks} clickAway={clickAwayNetworks} />
+      {/* network selector in navbar */}
+      <NetworkSelector open={openNetworks} toggle={() => {}} clickAway={clickAwayNetworks} />
     </Row>
   )
 }
