@@ -17,7 +17,6 @@ import SelectField from 'src/components/forms/SelectField'
 import { useStepper } from 'src/components/Stepper/stepperContext'
 import { providerNameSelector } from 'src/logic/wallets/store/selectors'
 import { disabled, extraSmallFontSize, lg, sm, xs, md } from 'src/theme/variables'
-import Hairline from 'src/components/layout/Hairline'
 import Row from 'src/components/layout/Row'
 import Col from 'src/components/layout/Col'
 import TextField from 'src/components/forms/TextField'
@@ -211,7 +210,13 @@ function OwnersAndConfirmationsNewSafeStep(): ReactElement {
           })}
         </RowHeader>
         <OwnerContainer align="center" grow>
-          <Button color="secondary" data-testid="add-new-owner" onClick={onClickAddNewOwner}>
+          <Button
+            style={{
+              backgroundColor: '#06fc99',
+            }}
+            data-testid="add-new-owner"
+            onClick={onClickAddNewOwner}
+          >
             <Paragraph noMargin size="lg">
               + Add another owner
             </Paragraph>
