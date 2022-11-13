@@ -16,6 +16,8 @@ const useStyles = makeStyles({
   },
   root: {
     width: '340px',
+    border: '#06fc99 solid 2px',
+    borderRadius: '5px',
   },
   success: {
     background: '#CBF1EB',
@@ -27,7 +29,7 @@ const useStyles = makeStyles({
     background: '#fff3e2',
   },
   info: {
-    background: '#EBF7FF',
+    background: '#000000',
   },
   snackbar: {
     borderRadius: `${sm}`,
