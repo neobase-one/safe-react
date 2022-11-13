@@ -18,15 +18,16 @@ const useStyles = makeStyles({
     width: '340px',
     border: '#06fc99 solid 2px',
     borderRadius: '5px',
+    background: '#000000',
   },
   success: {
-    background: '#CBF1EB',
+    background: '#000000',
   },
   error: {
-    background: '#ffe6ea',
+    background: '#000000',
   },
   warning: {
-    background: '#fff3e2',
+    background: '#000000',
   },
   info: {
     background: '#000000',

@@ -5,21 +5,16 @@ import { getExplorerInfo, getNativeCurrency } from 'src/config'
 import { currentSafeWithNames } from 'src/logic/safe/store/selectors'
 import Paragraph from 'src/components/layout/Paragraph'
 import Bold from 'src/components/layout/Bold'
-import { border, xs } from 'src/theme/variables'
 import Block from 'src/components/layout/Block'
 import Row from 'src/components/layout/Row'
 import PrefixedEthHashInfo from 'src/components/PrefixedEthHashInfo'
 
 const StyledBlock = styled(Block)`
-  font-size: 12px;
+  font-size: 13.5px;
   line-height: 1.08;
   letter-spacing: -0.5px;
-  border: 2px solid ${border};
   width: fit-content;
-  padding: 5px 10px;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  margin-left: 40px;
+  padding: 5px;
   border-radius: 3px;
 `
 
