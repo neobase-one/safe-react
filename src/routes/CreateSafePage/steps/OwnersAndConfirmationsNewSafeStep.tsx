@@ -241,6 +241,7 @@ function OwnersAndConfirmationsNewSafeStep(): ReactElement {
               >
                 {owners.map((_, option) => (
                   <MenuItem
+                    style={{ color: '#06fc99' }}
                     key={`threshold-selector-option-${option}`}
                     value={option + 1}
                     data-testid={`threshold-selector-option-${option + 1}`}

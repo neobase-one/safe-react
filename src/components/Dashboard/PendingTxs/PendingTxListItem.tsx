@@ -25,9 +25,9 @@ const TransactionToConfirm = styled(Link)`
   margin: 0 auto;
   padding: 8px 24px;
   text-decoration: none;
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.black};
   border: 2px solid ${grey400};
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.black};
   border-radius: 8px;
   box-sizing: border-box;
 `
