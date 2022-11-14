@@ -65,6 +65,7 @@ function StepperComponent(): ReactElement {
             className={classes.nextButton}
             type="button"
             color="primary"
+            variant="contained"
           >
             {backButtonLabel}
           </Button>
