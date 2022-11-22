@@ -56,7 +56,7 @@ const Footer = (): React.ReactElement => {
 
   return (
     <footer className={classes.footer}>
-      <p>Powered by Neobase</p>
+      <p>Powered by Neobase, Based on Gnosis Safe</p>
     </footer>
   )
 }
