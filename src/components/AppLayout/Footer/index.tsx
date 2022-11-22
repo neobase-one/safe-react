@@ -1,13 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles'
-import cn from 'classnames'
 import * as React from 'react'
-import { useDispatch } from 'react-redux'
-import AppstoreButton from 'src/components/AppstoreButton'
-
-import GnoButtonLink from 'src/components/layout/ButtonLink'
-import Link from 'src/components/layout/Link'
-import { openCookieBanner } from 'src/logic/cookies/store/actions/openCookieBanner'
-import { secondary, sm } from 'src/theme/variables'
+import { secondary } from 'src/theme/variables'
 
 const useStyles = makeStyles({
   footer: {
@@ -48,15 +41,10 @@ const useStyles = makeStyles({
 
 const Footer = (): React.ReactElement => {
   const classes = useStyles()
-  const dispatch = useDispatch()
-
-  const openCookiesHandler = () => {
-    dispatch(openCookieBanner({ cookieBannerOpen: true }))
-  }
 
   return (
     <footer className={classes.footer}>
-      <p>Powered by Neobase, Based on Gnosis Safe</p>
+      <p>Powered by NeoBase, Based on Gnosis Safe</p>
     </footer>
   )
 }
