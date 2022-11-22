@@ -16,10 +16,7 @@ function Welcome(): ReactElement {
   return (
     <Page align="center">
       <Block>
-        <Title>Welcome to the Safe.</Title>
-        <SubTitle>
-          Safe is the most trusted platform to manage digital assets. <br /> Here is how to get started:
-        </SubTitle>
+        <Title>Welcome to Canto Safe.</Title>
         <CardsContainer>
           <StyledCard>
             {/* Create Safe */}
