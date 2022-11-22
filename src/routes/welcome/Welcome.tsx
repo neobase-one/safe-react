@@ -16,7 +16,7 @@ function Welcome(): ReactElement {
   return (
     <Page align="center">
       <Block>
-        <Title>Welcome to Canto Safe.</Title>
+        <Title>Welcome to Canto Safe</Title>
         <CardsContainer>
           <StyledCard>
             {/* Create Safe */}
