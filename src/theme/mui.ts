@@ -59,7 +59,7 @@ const theme = createTheme({
         fontSize: largeFontSize,
         fontFamily: 'monospace',
         fontWeight: regularFont,
-        color: "#000",
+        color: '#000',
       },
       root: {
         fontFamily: 'monospace',
@@ -70,9 +70,12 @@ const theme = createTheme({
         color: disabled,
         textTransform: 'none',
         borderRadius: sm,
+        '&:hover': {
+          backgroundColor: '#d4d5d3',
+        },
       },
       contained: {
-       
+        backgroundColor: secondary,
       },
       containedPrimary: {
         backgroundColor: secondary,
@@ -315,7 +318,7 @@ const theme = createTheme({
           color: primary,
         },
         '&.MuiStepLabel-label > p': {
-          color: "green",
+          color: 'green',
         },
         '&$active > p': {
           color: primary,
@@ -509,8 +512,7 @@ export const DropdownListTheme = {
       root: {
         marginTop: '10px',
       },
-      elevation0: {
-      },
+      elevation0: {},
       rounded: {
         borderRadius: xs,
       },

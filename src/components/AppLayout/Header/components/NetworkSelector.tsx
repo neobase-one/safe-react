@@ -6,9 +6,6 @@ import ClickAwayListener from '@material-ui/core/ClickAwayListener'
 import Grow from '@material-ui/core/Grow'
 import List from '@material-ui/core/List'
 import Popper from '@material-ui/core/Popper'
-import IconButton from '@material-ui/core/IconButton'
-import ExpandLess from '@material-ui/icons/ExpandLess'
-import ExpandMore from '@material-ui/icons/ExpandMore'
 import { Divider, Icon } from '@gnosis.pm/safe-react-components'
 
 import NetworkLabel from './NetworkLabel'
@@ -29,13 +26,11 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
 
-    [`@media (min-width: ${screenSm}px)`]: {
-
-    },
+    [`@media (min-width: ${screenSm}px)`]: {},
   },
   networkList: {
     alignItems: 'center',
-    cursor: 'pointer',
+    cursor: 'default',
     display: 'flex',
     flex: '1 1 auto',
     justifyContent: 'flex-start',

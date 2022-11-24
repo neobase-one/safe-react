@@ -10,8 +10,7 @@ import { md, screenSm, sm, xs } from 'src/theme/variables'
 const StyledCol = styled(Col)`
   flex-grow: 0;
   padding: 0 ${sm};
-  cursor: ${(props) => (props.onClick ? 'pointer' : 'inherit')};
-  @media (min-width: ${screenSm}px) {
+  cursor: default @media (min-width: ${screenSm}px) {
     padding-left: ${md};
     padding-right: ${md};
   }
