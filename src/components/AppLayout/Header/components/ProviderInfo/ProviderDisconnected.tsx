@@ -21,9 +21,6 @@ const styles = () => ({
 
 const ConnectWalletText = styled.h2`
   font-size: 0.7rem;
-  :hover {
-    color: #06fc99;
-  }
 `
 const ConnectWalletButton = styled.div`
   margin-top: -0.5rem;
@@ -34,8 +31,8 @@ const ConnectWalletButton = styled.div`
   border: 0.5px solid #06fc99;
   border-radius: 0.3rem;
   :hover {
-    background-color: #00341f;
-    color: #06fc99;
+    background-color: #039b5e;
+    color: black;
     border: 0.5px solid #06fc99;
   }
 `
