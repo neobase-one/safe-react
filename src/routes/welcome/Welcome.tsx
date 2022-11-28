@@ -110,12 +110,12 @@ const CardContentContainer = styled.div`
 
 const CreateNewLabel = styled(Text)`
   color: #000;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'modeSeven', monospace;
 `
 const StyledButtonLabel = styled(Text)`
   min-width: 130px;
   color: #06fc99;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'modeSeven', monospace;
 
 `
 

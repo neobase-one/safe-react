@@ -40,7 +40,7 @@ const HelpCenterLink = styled.a`
     background-color: ${primaryLite};
   }
   p {
-    font-family: ${({ theme }) => theme.fonts.fontFamily};
+    font-family: "modeSeven", monospace;
     font-size: 0.76em;
     font-weight: 600;
     line-height: 1.5;
