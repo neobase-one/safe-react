@@ -20,14 +20,21 @@ const styles = () => ({
 })
 
 const ConnectWalletText = styled.h2`
-  color: #000;
   font-size: 0.7rem;
 `
 const ConnectWalletButton = styled.div`
   margin-top: -0.5rem;
+  color: #000;
   background-color: #06fc99;
+  cursor: pointer;
   padding: 0rem 1rem;
+  border: 0.5px solid #06fc99;
   border-radius: 0.3rem;
+  :hover {
+    background-color: #039b5e;
+    color: black;
+    border: 0.5px solid #06fc99;
+  }
 `
 
 const ProviderDisconnected = ({ classes }): ReactElement => (

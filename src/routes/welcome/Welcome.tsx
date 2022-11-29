@@ -1,5 +1,5 @@
 import { ReactElement } from 'react'
-import { Button } from '@gnosis.pm/safe-react-components'
+import Button from 'src/components/layout/Button'
 import Divider from '@material-ui/core/Divider'
 import styled from 'styled-components'
 
@@ -9,8 +9,6 @@ import Link from 'src/components/layout/Link'
 import { LOAD_SAFE_ROUTE, OPEN_SAFE_ROUTE } from 'src/routes/routes'
 import Track from 'src/components/Track'
 import { CREATE_SAFE_EVENTS, LOAD_SAFE_EVENTS } from 'src/utils/events/createLoadSafe'
-import { soliditySha3 } from 'web3-utils'
-import { border } from 'src/theme/variables'
 
 function Welcome(): ReactElement {
   return (
@@ -21,24 +19,31 @@ function Welcome(): ReactElement {
           <StyledCard>
             {/* Create Safe */}
             <CardContentContainer>
-              <Title>Create Safe</Title>
+              <SubTitle>Create Safe</SubTitle>
               <CardDescriptionContainer>
                 <Text>Create a new Safe that is controlled by one or multiple owners.</Text>
                 <Text>You will be required to pay a network fee for creating your new Safe.</Text>
               </CardDescriptionContainer>
               <Track {...CREATE_SAFE_EVENTS.CREATE_BUTTON}>
-                <Button size="lg" color="primary" variant="contained" component={Link} to={OPEN_SAFE_ROUTE}
-                style={{
-                  background: "#06fc99",
-                }}>
-                  <CreateNewLabel>+ Create new Safe</CreateNewLabel>
-                </Button>
+                <StyledButtonLabel>
+                  <Button
+                    minHeight="50"
+                    minWidth="250"
+                    color="primary"
+                    size="lg"
+                    variant="contained"
+                    component={Link}
+                    to={OPEN_SAFE_ROUTE}
+                  >
+                    + Create new Safe
+                  </Button>
+                </StyledButtonLabel>
               </Track>
             </CardContentContainer>
             <Divider orientation="vertical" flexItem />
             <CardContentContainer>
               {/* Load Safe */}
-              <Title>Load Existing Safe</Title>
+              <SubTitle>Load Existing Safe</SubTitle>
               <CardDescriptionContainer>
                 <Text>
                   Already have a Safe or want to access it from a different device? Easily load your Safe using your
@@ -46,18 +51,16 @@ function Welcome(): ReactElement {
                 </Text>
               </CardDescriptionContainer>
               <Track {...LOAD_SAFE_EVENTS.LOAD_BUTTON}>
-                
                 <Button
-                  variant="bordered"
+                  minHeight="50"
+                  minWidth="250"
+                  color="secondary"
+                  variant="contained"
                   size="lg"
                   component={Link}
                   to={LOAD_SAFE_ROUTE}
-                  style={{
-                    outline: "0",
-                    border: "2px solid #06fc99"
-                  }}
                 >
-                  <StyledButtonLabel color="secondary">Add existing Safe</StyledButtonLabel>
+                  Add existing Safe
                 </Button>
               </Track>
             </CardContentContainer>
@@ -72,12 +75,12 @@ export default Welcome
 
 const Title = styled.div`
   color: #06fc99;
-  font-size: 2rem;
+  font-size: 3rem;
 `
 
 const SubTitle = styled.div`
   color: #06fc99;
-  font-size: 1rem;
+  font-size: 2rem;
 `
 
 const Text = styled.p`
@@ -107,18 +110,20 @@ const CardContentContainer = styled.div`
   padding: 24px;
   align-items: flex-start;
 `
-
-const CreateNewLabel = styled(Text)`
-  color: #000;
-  font-family: 'modeSeven', monospace;
-`
-const StyledButtonLabel = styled(Text)`
+const StyledButtonLabel = styled.div`
+  background-color: black;
   min-width: 130px;
   color: #06fc99;
-  font-family: 'modeSeven', monospace;
-
+  font-family: 'IBM Plex Mono', monospace;
+  border: 0.5px solid #06fc99;
+  border-radius: 1rem;
+  :hover {
+    background-color: #00341f;
+    color: #06fc99;
+    border: 0.5px solid #06fc99;
+    border-radius: 1rem;
+  }
 `
-
 const CardDescriptionContainer = styled.div`
   margin-top: 16px;
   margin-bottom: auto;

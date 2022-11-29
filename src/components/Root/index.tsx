@@ -2,6 +2,7 @@ import * as Sentry from '@sentry/react'
 import { theme as styledTheme, Loader } from '@gnosis.pm/safe-react-components'
 import { useEffect, useState } from 'react'
 import { setBaseUrl } from '@gnosis.pm/safe-react-gateway-sdk'
+// import { setCustomText } from 'react-native-global-props';
 
 import { LoadingContainer } from 'src/components/LoaderContainer'
 import App from 'src/components/App'
@@ -27,6 +28,14 @@ import { GATEWAY_URL } from 'src/utils/constants'
 const removePreloader = () => {
   document.getElementById('safe-preloader-animation')?.remove()
 }
+
+// const customTextProps = {
+//   style: {
+//     fontFamily: 'modeSeven'
+//   }
+// }
+
+// setCustomText(customTextProps);
 
 const RootConsumer = (): React.ReactElement | null => {
   const [hasChains, setHasChains] = useState<boolean>(false)

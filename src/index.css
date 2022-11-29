@@ -1,0 +1,9 @@
+body,
+html {
+  font-family: 'modeSeven', monospace;
+}
+
+@font-face {
+  font-family: 'modeSeven';
+  src: local('modeSeven'), url(./assets/modeseven.ttf) format('truetype');
+}

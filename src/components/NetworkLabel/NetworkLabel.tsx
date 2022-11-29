@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { ChainInfo } from '@gnosis.pm/safe-react-gateway-sdk'
 
 import { getChainInfo } from 'src/config'
-import { border, extraSmallFontSize, sm, xs, fontColor } from 'src/theme/variables'
+import { extraSmallFontSize, sm, xs } from 'src/theme/variables'
 
 type Props = {
   networkInfo?: ChainInfo
@@ -42,7 +42,6 @@ const StyledLabel = styled.span<StyledLabelTypes>`
   padding: ${xs} ${sm};
   border: #06fc99 2px solid;
   color: #06fc99;
-  cursor: ${({ onClick }) => (onClick ? 'pointer' : 'inherit')};
   text-align: center;
   border-radius: 4px;
   text-transform: capitalize;
