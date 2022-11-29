@@ -4,14 +4,14 @@ import styled from 'styled-components'
 
 const styles = () => ({
   network: {
-    fontFamily: 'IBM Plex Mono, monospace',
+    fontFamily: 'modeSeven, monospace',
   },
   account: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     flexGrow: 1,
-    marginTop: '0.5rem'
+    marginTop: '0.5rem',
   },
   connect: {
     letterSpacing: '-0.5px',
@@ -22,7 +22,7 @@ const styles = () => ({
 const ConnectWalletText = styled.h2`
   color: #000;
   font-size: 0.7rem;
-  `
+`
 const ConnectWalletButton = styled.div`
   margin-top: -0.5rem;
   background-color: #06fc99;
@@ -31,13 +31,11 @@ const ConnectWalletButton = styled.div`
 `
 
 const ProviderDisconnected = ({ classes }): ReactElement => (
-  <>
-    <div className={classes.account}>   
-      <ConnectWalletButton>
-        <ConnectWalletText>Connect Wallet</ConnectWalletText>
-      </ConnectWalletButton>
-    </div>
-  </>
+  <div className={classes.account}>
+    <ConnectWalletButton>
+      <ConnectWalletText>Connect Wallet</ConnectWalletText>
+    </ConnectWalletButton>
+  </div>
 )
 
 export default withStyles(styles as any)(ProviderDisconnected)

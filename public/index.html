@@ -51,8 +51,14 @@
       src: url(assets/modeseven.ttf) format('truetype'), url(modeseven.ttf) format('truetype');
     }
   </style>
-  <body>
+  <body style="font-family:'modeSeven' monospace">
+    <style>
+      @font-face {
+        font-family: 'modeSeven';
+        src: url(assets/modeseven.ttf) format('truetype'), url(modeseven.ttf) format('truetype');
+      }
+    </style>
     <img id="safe-preloader-animation" src="./resources/logo.svg" />
-    <div id="root" style="overflow: hidden"></div>
+    <div id="root" style="overflow: hidden; font-family:'modeSeven' monospace"></div>
   </body>
 </html>

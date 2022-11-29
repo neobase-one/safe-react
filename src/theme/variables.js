@@ -52,7 +52,7 @@ module.exports = {
   largeFontSize: '16px',
   lg,
   lightFont: 300,
-  mainFontFamily: 'IBM Plex Mono',
+  mainFontFamily: 'modeSeven',
   marginButtonImg,
   md,
   mediumFontSize: '14px',

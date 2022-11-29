@@ -57,9 +57,8 @@ const useStyles = (chainInfo: ChainInfo) =>
         height: '84px',
         justifyContent: 'center',
         '& > button': {
-          fontFamily: 'IBM Plex Mono, monospace',
+          fontFamily: 'modeSeven, monospace',
           fontSize: md,
-         
         },
       },
       addressContainer: {

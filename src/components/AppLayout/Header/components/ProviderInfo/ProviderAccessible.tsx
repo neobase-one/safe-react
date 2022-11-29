@@ -13,7 +13,7 @@ import { getChainById } from 'src/config'
 
 const useStyles = makeStyles({
   network: {
-    fontFamily: 'IBM Plex Mono, monospace',
+    fontFamily: 'modeSeven, monospace',
   },
   networkLabel: {
     '& div': {
@@ -61,7 +61,6 @@ interface ProviderInfoProps {
   // TODO: [xDai] Review. This may cause some issues with EthHashInfo.
   userAddress: string
 }
-
 
 const ProviderInfo = ({ connected, provider, userAddress }: ProviderInfoProps): React.ReactElement => {
   const classes = useStyles()

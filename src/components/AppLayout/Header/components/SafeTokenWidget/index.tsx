@@ -31,6 +31,7 @@ const StyledWrapper = styled(Box)`
   gap: 8px;
   height: 100%;
   justify-content: center;
+  font-family: 'modeSeven', monospace;
 `
 
 const buttonStyle = {

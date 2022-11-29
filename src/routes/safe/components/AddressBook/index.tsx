@@ -1,13 +1,4 @@
-import {
-  Breadcrumb,
-  BreadcrumbElement,
-  Button,
-  ButtonLink,
-  FixedIcon,
-  Icon,
-  Menu,
-  Text,
-} from '@gnosis.pm/safe-react-components'
+import { Breadcrumb, BreadcrumbElement, Button, ButtonLink, Icon, Menu, Text } from '@gnosis.pm/safe-react-components'
 import TableCell from '@material-ui/core/TableCell'
 import TableContainer from '@material-ui/core/TableContainer'
 import TableRow from '@material-ui/core/TableRow'
@@ -160,7 +151,7 @@ const AddressBookTable = (): ReactElement => {
   }
 
   const StyledBreadcrumbElements = styled(BreadcrumbElement)`
-    font-family: monospace;
+    font-family: 'modeSeven', monospace;
   `
 
   return (
@@ -168,7 +159,11 @@ const AddressBookTable = (): ReactElement => {
       <Menu>
         <Col start="sm" sm={6} xs={12}>
           <Breadcrumb>
-            <StyledBreadcrumbElements iconType="addressBook" text="Address Book" counter={addressBook?.length.toString()} />
+            <StyledBreadcrumbElements
+              iconType="addressBook"
+              text="Address Book"
+              counter={addressBook?.length.toString()}
+            />
           </Breadcrumb>
         </Col>
         <Col end="sm" sm={6} xs={12}>
@@ -182,7 +177,7 @@ const AddressBookTable = (): ReactElement => {
               iconType="exportImg"
               iconSize="sm"
               textSize="xl"
-              style={{textDecoration: 'none'}}
+              style={{ textDecoration: 'none' }}
             >
               Export
             </ButtonLink>
@@ -196,7 +191,7 @@ const AddressBookTable = (): ReactElement => {
               iconType="importImg"
               iconSize="sm"
               textSize="xl"
-              style={{textDecoration: 'none'}}
+              style={{ textDecoration: 'none' }}
             >
               Import
             </ButtonLink>
@@ -211,7 +206,7 @@ const AddressBookTable = (): ReactElement => {
               iconType="add"
               iconSize="sm"
               textSize="xl"
-              style={{textDecoration: 'none'}}
+              style={{ textDecoration: 'none' }}
             >
               Create entry
             </ButtonLink>

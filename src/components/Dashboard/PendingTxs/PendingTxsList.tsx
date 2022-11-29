@@ -35,7 +35,7 @@ const StyledWidgetTitle = styled.div`
 
 const StyledText = styled(Text)`
   color: #06fc99;
-  font-family: monospace;
+  font-family: 'modeSeven', monospace;
 `
 
 const EmptyState = (

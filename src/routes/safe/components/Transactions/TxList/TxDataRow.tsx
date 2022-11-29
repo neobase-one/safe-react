@@ -106,6 +106,6 @@ export const TxDataRow = ({
 }
 
 const StyledText = styled.p`
-  font-family: monospace;
+  font-family: 'modeSeven', monospace;
   margin: 0;
 `

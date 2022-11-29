@@ -148,6 +148,7 @@ const Wrapper = styled.div`
 const BellIconButton = styled(IconButton)`
   width: 44px;
   height: 100%;
+  font-family: 'modeSeven', monospace;
   color: ${primary};
   border-radius: 0;
   &:hover {
@@ -163,6 +164,7 @@ export const UnreadNotificationBadge = styled(Badge)`
 
 const NotificationsPopper = styled(Paper)`
   box-sizing: border-box;
+  font-family: 'modeSeven', monospace;
   border-radius: ${sm};
   background-color: #000;
   color: ${primary};
@@ -222,6 +224,7 @@ export const NotificationSubtitle = styled.span`
 
 const ExpandIconButton = styled(IconButton)`
   box-sizing: border-box;
+  font-family: 'modeSeven', monospace;
   background-color: ${border};
   width: 20px;
   height: 20px;

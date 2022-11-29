@@ -111,7 +111,7 @@ const StyledListSubItem = styled(ListItem)<ListItemProps>`
 
 export const StyledListItemText = styled(ListItemText)`
   span {
-    font-family: "modeSeven", monospace;
+    font-family: 'modeSeven', monospace;
     font-size: 14px;
     font-weight: 600;
     line-height: 1.5;
@@ -125,6 +125,7 @@ const StyledListSubItemText = styled(ListItemText)`
     font-size: 14px;
     font-weight: 500;
     letter-spacing: 0;
+    font-family: 'modeSeven', monospace;
     color: ${secondaryText} !important;
   }
 `

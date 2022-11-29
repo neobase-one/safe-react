@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components'
 import { useSelector } from 'react-redux'
 import {
   Icon,
-  FixedIcon,
   Text,
   Title,
   Identicon,
@@ -13,18 +12,9 @@ import {
 import { useRouteMatch } from 'react-router-dom'
 
 import FlexSpacer from 'src/components/FlexSpacer'
-import Paragraph from 'src/components/layout/Paragraph'
-import { getChainInfo, getExplorerInfo } from 'src/config'
-import {
-  secondary,
-  border,
-  fontColor,
-  background,
-  primaryLite,
-  secondaryBackground,
-  black400,
-} from 'src/theme/variables'
-import { ChainInfo } from '@gnosis.pm/safe-react-gateway-sdk'
+
+import { getExplorerInfo } from 'src/config'
+import { secondary, background, primaryLite } from 'src/theme/variables'
 import PrefixedEthHashInfo from 'src/components/PrefixedEthHashInfo'
 import { copyShortNameSelector } from 'src/logic/appearance/selectors'
 import { ADDRESSED_ROUTE } from 'src/routes/routes'
@@ -140,29 +130,17 @@ const StyledQRCodeButton = styled.button`
   ${innerButtonStyle}
 `
 
-type StyledTextLabelProps = {
-  chainInfo: ChainInfo
-}
-
-const StyledTextLabel = styled(Text)`
-  margin: -8px 0 0 -8px;
-  padding: 4px 8px;
-  width: 100%;
-  text-align: center;
-  color: ${(props: StyledTextLabelProps) => props.chainInfo?.theme?.textColor ?? fontColor};
-  background-color: ${(props: StyledTextLabelProps) => props.chainInfo?.theme?.backgroundColor ?? border};
-`
-
 const StyledTextSafeName = styled(Text)`
   width: 90%;
   overflow: hidden;
-  font-family: monospace;
+  font-family: 'modeSeven', monospace;
   text-overflow: ellipsis;
   color: #06fc99;
 `
 
 const StyledPrefixedEthHashInfo = styled(PrefixedEthHashInfo)`
-  p, span {
+  p,
+  span {
     color: #06fc99;
     font-size: 14px;
     line-height: 20px;
@@ -170,7 +148,7 @@ const StyledPrefixedEthHashInfo = styled(PrefixedEthHashInfo)`
 `
 
 const StyledText = styled(Title)`
-  font-family: monospace;
+  font-family: 'modeSeven', monospace;
   color: #000;
   font-size: 1rem;
   margin: 0;
@@ -208,11 +186,10 @@ const SidebarText = styled.h2`
   font-size: 1rem;
 `
 
-
 const SafeHeader = ({
   address,
   safeName,
-  balance,
+  // balance,
   granted,
   onToggleSafeList,
   onReceiveClick,
@@ -244,50 +221,46 @@ const SafeHeader = ({
   }
 
   return (
-    <>
-      <Container>
-        {/* Identicon */}
-        <IdenticonContainer>
-          <Box position="relative">
-            <Threshold threshold={threshold} owners={owners.length} />
-            <Identicon address={address} size="lg" />
-          </Box>
-          <ToggleSafeListButton onClick={onToggleSafeList} data-testid={TOGGLE_SIDEBAR_BTN_TESTID}>
-            <StyledIcon size="md" type="circleDropdown" />
-          </ToggleSafeListButton>
-        </IdenticonContainer>
+    <Container>
+      {/* Identicon */}
+      <IdenticonContainer>
+        <Box position="relative">
+          <Threshold threshold={threshold} owners={owners.length} />
+          <Identicon address={address} size="lg" />
+        </Box>
+        <ToggleSafeListButton onClick={onToggleSafeList} data-testid={TOGGLE_SIDEBAR_BTN_TESTID}>
+          <StyledIcon size="md" type="circleDropdown" />
+        </ToggleSafeListButton>
+      </IdenticonContainer>
 
-        {/* SafeInfo */}
-        <StyledTextSafeName size="xl" center>
-          {safeName}
-        </StyledTextSafeName>
-        <StyledPrefixedEthHashInfo textColor='primary' hash={address} shortenHash={4} textSize="sm" />
-        <IconContainer>
-          <Track {...OVERVIEW_EVENTS.SHOW_QR}>
-            <StyledQRCodeButton onClick={onReceiveClick}>
-              <Icon size="sm" type="qrCode" tooltip="Show QR code" />
-            </StyledQRCodeButton>
-          </Track>
-          <Track {...OVERVIEW_EVENTS.COPY_ADDRESS}>
-            <StyledCopyToClipboardBtn textToCopy={copyChainPrefix ? `${shortName}:${address}` : `${address}`} />
-          </Track>
-          <Track {...OVERVIEW_EVENTS.OPEN_EXPLORER}>
-            <StyledExplorerButton explorerUrl={getExplorerInfo(address)} />
-          </Track>
-        </IconContainer>
-        <StyledButton
-          size="md"
-          disabled={!granted}
-          color="primary"
-          variant="contained"
-          onClick={handleNewTransactionClick}
-        >
-          <StyledText size="sm">
-            {granted ? 'New Transaction' : 'Read Only'}
-          </StyledText>
-        </StyledButton>
-      </Container>
-    </>
+      {/* SafeInfo */}
+      <StyledTextSafeName size="xl" center>
+        {safeName}
+      </StyledTextSafeName>
+      <StyledPrefixedEthHashInfo textColor="primary" hash={address} shortenHash={4} textSize="sm" />
+      <IconContainer>
+        <Track {...OVERVIEW_EVENTS.SHOW_QR}>
+          <StyledQRCodeButton onClick={onReceiveClick}>
+            <Icon size="sm" type="qrCode" tooltip="Show QR code" />
+          </StyledQRCodeButton>
+        </Track>
+        <Track {...OVERVIEW_EVENTS.COPY_ADDRESS}>
+          <StyledCopyToClipboardBtn textToCopy={copyChainPrefix ? `${shortName}:${address}` : `${address}`} />
+        </Track>
+        <Track {...OVERVIEW_EVENTS.OPEN_EXPLORER}>
+          <StyledExplorerButton explorerUrl={getExplorerInfo(address)} />
+        </Track>
+      </IconContainer>
+      <StyledButton
+        size="md"
+        disabled={!granted}
+        color="primary"
+        variant="contained"
+        onClick={handleNewTransactionClick}
+      >
+        <StyledText size="sm">{granted ? 'New Transaction' : 'Read Only'}</StyledText>
+      </StyledButton>
+    </Container>
   )
 }
 

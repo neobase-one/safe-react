@@ -47,15 +47,18 @@ const Wrapper = styled.div`
 const Description = styled(Typography)`
   color: ${primary};
   padding-top: 8px;
+  font-family: 'modeSeven', monospace;
 `
 
 const StyledList = styled(List)`
   padding: 0;
+  font-family: 'modeSeven', monospace;
 `
 
 const ScrollContainer = styled(StyledScrollableBar)<{ $showScrollbar: boolean }>`
   height: ${({ $showScrollbar: $scroll }) => ($scroll ? '500px' : 'auto')};
   overflow-x: hidden;
+  font-family: 'modeSeven', monospace;
   overflow-y: auto;
 `
 
