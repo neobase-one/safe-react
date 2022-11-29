@@ -5,7 +5,7 @@ import StepContent from '@material-ui/core/StepContent'
 import StepLabel from '@material-ui/core/StepLabel'
 import Paper from '@material-ui/core/Paper'
 import { makeStyles } from '@material-ui/core/'
-
+import { useMedia } from 'react-use'
 import Button from 'src/components/layout/Button'
 import Col from 'src/components/layout/Col'
 import Row from 'src/components/layout/Row'
@@ -23,6 +23,7 @@ type StepperProps = {
 }
 
 function StepperComponent(): ReactElement {
+  const below800 = useMedia('(max-width: 800px)')
   const {
     currentStep,
     setCurrentStep,
@@ -52,14 +53,15 @@ function StepperComponent(): ReactElement {
         }
 
         const currentComponent = steps[index]
-
-        const backButtonLabel = isFirstStep ? 'Cancel' : 'Back'
+        const customBackButtonLabel = currentComponent.props.backButtonLabel
+        const backButtonLabel = isFirstStep ? customBackButtonLabel || 'Cancel' : customBackButtonLabel || 'Back'
         const customNextButtonLabel = currentComponent.props.nextButtonLabel
 
         const nextButtonLabel = customNextButtonLabel || 'Next'
 
         const backButton = (
           <Button
+            minWidth={below800 ? '50' : ''}
             onClick={onClickPreviousStep}
             size="small"
             className={classes.nextButton}
@@ -73,6 +75,7 @@ function StepperComponent(): ReactElement {
 
         const nextButton = (
           <Button
+            minWidth={below800 ? '50' : ''}
             onClick={onClickNextStep}
             color="primary"
             variant="contained"
@@ -93,7 +96,12 @@ function StepperComponent(): ReactElement {
             <StepContent>
               <Paper className={classes.root} elevation={1}>
                 {currentComponent}
-                <Row align="center" grow className={classes.controlStyle}>
+                <Row
+                  align="center"
+                  grow
+                  className={classes.controlStyle}
+                  style={{ paddingTop: '1px', paddingLeft: { below800 } ? '24%' : '18px' }}
+                >
                   <Col center="xs" xs={12}>
                     {trackingCategory ? (
                       <>

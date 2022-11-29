@@ -9,10 +9,11 @@ import styled from 'styled-components'
 type Props = Omit<Parameters<typeof EthHashInfo>[0], 'shouldShowShortName' | 'shouldCopyShortName'>
 
 const StyledEthHashInfo = styled(EthHashInfo)`
-p, span {
+  p,
+  span {
     color: #06fc99;
     font-family: monospace;
-};
+  }
 `
 
 const PrefixedEthHashInfo = ({ hash, ...rest }: Props): ReactElement => {
@@ -23,7 +24,7 @@ const PrefixedEthHashInfo = ({ hash, ...rest }: Props): ReactElement => {
 
   return (
     <StyledEthHashInfo
-      hash={address}
+      hash={address.toString().slice(0, 5) + '....' + address.toString().slice(-3)}
       shortName={shortName}
       shouldShowShortName={showChainPrefix}
       shouldCopyShortName={copyChainPrefix}

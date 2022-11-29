@@ -6,11 +6,10 @@ import { useSelector } from 'react-redux'
 import queryString from 'query-string'
 import { useLocation } from 'react-router-dom'
 import { Loader } from '@gnosis.pm/safe-react-components'
-
+import { useMedia } from 'react-use'
 import Page from 'src/components/layout/Page'
 import Block from 'src/components/layout/Block'
 import Row from 'src/components/layout/Row'
-import Heading from 'src/components/layout/Heading'
 import { history } from 'src/routes/routes'
 import { secondary, sm } from 'src/theme/variables'
 import StepperForm, { StepFormElement } from 'src/components/StepperForm/StepperForm'
@@ -41,6 +40,7 @@ import { CREATE_SAFE_CATEGORY, CREATE_SAFE_EVENTS } from 'src/utils/events/creat
 import { trackEvent } from 'src/utils/googleTagManager'
 
 function CreateSafePage(): ReactElement {
+  const below800 = useMedia('(max-width: 800px)')
   const [safePendingToBeCreated, setSafePendingToBeCreated] = useState<CreateSafeFormValues>()
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const providerName = useSelector(providerNameSelector)
@@ -125,33 +125,62 @@ function CreateSafePage(): ReactElement {
           </BackIcon>
           <MainHeading color="#06fc99">Create new Safe</MainHeading>
         </Row>
-        <StepperForm
-          initialValues={initialFormValues}
-          onSubmit={showSafeCreationProcess}
-          testId={'create-safe-form'}
-          trackingCategory={CREATE_SAFE_CATEGORY}
-        >
-          <StepFormElement
-            label={selectWalletAndNetworkStepLabel}
-            nextButtonLabel="Continue"
-            disableNextButton={isInitializing}
+        {!below800 && (
+          <StepperForm
+            initialValues={initialFormValues}
+            onSubmit={showSafeCreationProcess}
+            testId={'create-safe-form'}
+            trackingCategory={CREATE_SAFE_CATEGORY}
           >
+            <StepFormElement
+              label={selectWalletAndNetworkStepLabel}
+              nextButtonLabel="Continue"
+              disableNextButton={isInitializing}
+            >
               <SelectWalletAndNetworkStep />
-          </StepFormElement>
+            </StepFormElement>
 
-          <StepFormElement label={nameNewSafeStepLabel} nextButtonLabel="Continue">
-            <NameNewSafeStep />
-          </StepFormElement>
+            <StepFormElement label={nameNewSafeStepLabel} nextButtonLabel="Continue">
+              <NameNewSafeStep />
+            </StepFormElement>
 
-          <StepFormElement label={ownersAndConfirmationsNewSafeStepLabel} nextButtonLabel="Continue">
-            <OwnersAndConfirmationsNewSafeStep />
-          </StepFormElement>
+            <StepFormElement label={ownersAndConfirmationsNewSafeStepLabel} nextButtonLabel="Continue">
+              <OwnersAndConfirmationsNewSafeStep />
+            </StepFormElement>
 
-          <StepFormElement label={reviewNewSafeStepLabel} nextButtonLabel="Create">
-            <ReviewNewSafeStep />
-          </StepFormElement>
-          
-        </StepperForm>
+            <StepFormElement label={reviewNewSafeStepLabel} nextButtonLabel="Create">
+              <ReviewNewSafeStep />
+            </StepFormElement>
+          </StepperForm>
+        )}
+        {below800 && (
+          <StepperForm
+            initialValues={initialFormValues}
+            onSubmit={showSafeCreationProcess}
+            testId={'create-safe-form'}
+            trackingCategory={CREATE_SAFE_CATEGORY}
+          >
+            <StepFormElement
+              label={selectWalletAndNetworkStepLabel}
+              nextButtonLabel=">"
+              backButtonLabel="<"
+              disableNextButton={isInitializing}
+            >
+              <SelectWalletAndNetworkStep />
+            </StepFormElement>
+            <StepFormElement label={nameNewSafeStepLabel} nextButtonLabel=">" backButtonLabel="<">
+              <NameNewSafeStep />
+            </StepFormElement>
+
+            <StepFormElement label={ownersAndConfirmationsNewSafeStepLabel} nextButtonLabel=">" backButtonLabel="<">
+              <OwnersAndConfirmationsNewSafeStep />
+            </StepFormElement>
+
+            <StepFormElement label={reviewNewSafeStepLabel} nextButtonLabel=">" backButtonLabel="<">
+              <ReviewNewSafeStep />
+            </StepFormElement>
+          </StepperForm>
+        )}
       </Block>
     </Page>
   )
