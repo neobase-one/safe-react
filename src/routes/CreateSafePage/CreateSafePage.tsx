@@ -10,7 +10,6 @@ import { Loader } from '@gnosis.pm/safe-react-components'
 import Page from 'src/components/layout/Page'
 import Block from 'src/components/layout/Block'
 import Row from 'src/components/layout/Row'
-import Heading from 'src/components/layout/Heading'
 import { history } from 'src/routes/routes'
 import { secondary, sm } from 'src/theme/variables'
 import StepperForm, { StepFormElement } from 'src/components/StepperForm/StepperForm'
@@ -123,7 +122,7 @@ function CreateSafePage(): ReactElement {
           <BackIcon disableRipple onClick={history.goBack}>
             <ChevronLeft />
           </BackIcon>
-          <MainHeading color="#06fc99">Create new Safe</MainHeading>
+          <MainHeading>Create new Safe</MainHeading>
         </Row>
         <StepperForm
           initialValues={initialFormValues}
@@ -136,7 +135,7 @@ function CreateSafePage(): ReactElement {
             nextButtonLabel="Continue"
             disableNextButton={isInitializing}
           >
-              <SelectWalletAndNetworkStep />
+            <SelectWalletAndNetworkStep />
           </StepFormElement>
 
           <StepFormElement label={nameNewSafeStepLabel} nextButtonLabel="Continue">
@@ -150,7 +149,6 @@ function CreateSafePage(): ReactElement {
           <StepFormElement label={reviewNewSafeStepLabel} nextButtonLabel="Create">
             <ReviewNewSafeStep />
           </StepFormElement>
-          
         </StepperForm>
       </Block>
     </Page>
@@ -231,6 +229,7 @@ const BackIcon = styled(IconButton)`
   margin-right: 5px;
 `
 
-const MainHeading = styled.h2`
+const MainHeading = styled.p`
   color: #06fc99;
+  font-family: 'modeSeven', monospace;
 `

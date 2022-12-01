@@ -148,7 +148,7 @@ const Wrapper = styled.div`
 const BellIconButton = styled(IconButton)`
   width: 44px;
   height: 100%;
-  font-family: 'modeSeven', monospace;
+  font-family: 'modeSeven', monospace !important;
   color: ${primary};
   border-radius: 0;
   &:hover {
@@ -164,7 +164,7 @@ export const UnreadNotificationBadge = styled(Badge)`
 
 const NotificationsPopper = styled(Paper)`
   box-sizing: border-box;
-  font-family: 'modeSeven', monospace;
+  font-family: 'modeSeven', monospace !important;
   border-radius: ${sm};
   background-color: #000;
   color: ${primary};
@@ -180,10 +180,10 @@ const NotificationsHeader = styled.div`
   border-bottom: 2px solid ${background};
 `
 
-const NotificationsTitle = styled.h4`
+const NotificationsTitle = styled.p`
   all: unset;
+  font-family: 'modeSeven', monospace !important;
   display: inline;
-  font-weight: 700;
   font-size: 20px;
   line-height: 26px;
 `
@@ -203,7 +203,7 @@ const ClearAllButton = styled.button`
   all: unset;
   cursor: pointer;
   font-style: normal;
-  font-weight: 700;
+  font-family: 'modeSeven', monospace !important;
   font-size: 16px;
   color: ${primary400};
   :hover {
@@ -216,7 +216,7 @@ const NotificationsFooter = styled.div`
 `
 
 export const NotificationSubtitle = styled.span`
-  font-weight: 400;
+  font-family: 'modeSeven', monospace !important;
   font-size: 16px;
   line-height: 24px;
   color: ${black300};
@@ -224,7 +224,7 @@ export const NotificationSubtitle = styled.span`
 
 const ExpandIconButton = styled(IconButton)`
   box-sizing: border-box;
-  font-family: 'modeSeven', monospace;
+  font-family: 'modeSeven', monospace !important;
   background-color: ${border};
   width: 20px;
   height: 20px;

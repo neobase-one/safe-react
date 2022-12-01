@@ -33,7 +33,6 @@ import { makeAddressBookEntry } from 'src/logic/addressBook/model/addressBook'
 import Paragraph from 'src/components/layout/Paragraph'
 import NetworkLabel from 'src/components/NetworkLabel/NetworkLabel'
 import Button from 'src/components/layout/Button'
-import { boldFont } from 'src/theme/variables'
 import { WELCOME_ROUTE, history, generateSafeRoute, SAFE_ROUTES } from 'src/routes/routes'
 import { getExplorerInfo, getShortName } from 'src/config'
 import { createSendParams } from 'src/logic/safe/transactions/gas'
@@ -56,7 +55,7 @@ const ButtonContainer = styled.div`
 `
 
 const EmphasisLabel = styled.span`
-  font-weight: ${boldFont};
+  font-family: 'modeSeven', monospace !important;
 `
 
 type ModalDataType = {

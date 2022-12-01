@@ -134,10 +134,7 @@ const ChooseTxType = ({
                   className={classNames(classes.leftIcon, classes.iconSmall)}
                   src={ContractInteractionIcon}
                 />
-                <ButtonText >
-
-                Contract interaction
-                </ButtonText>
+                <ButtonText>Contract interaction</ButtonText>
               </Button>
             </Track>
           )}
@@ -149,7 +146,7 @@ const ChooseTxType = ({
 
 export default ChooseTxType
 
-
 const ButtonText = styled.p`
   color: #06fc99;
+  font-family: 'modeSeven', monospace !important;
 `

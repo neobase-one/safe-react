@@ -31,7 +31,7 @@ import Spacer from 'src/components/Spacer'
 import { isSupportedMultiSendCall } from 'src/logic/safe/transactions/multisend'
 
 const StyledP = styled.p`
-  font-family: 'modeSeven', monospace;
+  font-family: 'modeSeven', monospace !important;
 `
 
 export const TxInfo = ({ info, name }: { info: AssetInfo; name?: string }): ReactElement | null => {
@@ -92,7 +92,7 @@ const SmallDot = styled(Dot)`
 
 const IconText = styled(IconTextSrc)`
   p {
-    font-weight: bold;
+    font-family: 'modeSeven', monospace !important;
   }
 `
 

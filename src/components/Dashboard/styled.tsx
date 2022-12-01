@@ -2,6 +2,7 @@ import { ReactElement } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import ChevronRightIcon from '@material-ui/icons/ChevronRight'
+import { Text } from '@gnosis.pm/safe-react-components'
 import { xs, lg, black500, extraLargeFontSize, largeFontSize } from 'src/theme/variables'
 
 export const WidgetContainer = styled.section`
@@ -10,17 +11,19 @@ export const WidgetContainer = styled.section`
   height: 100%;
 `
 
-export const DashboardTitle = styled.h1`
+export const DashboardTitle = styled.p`
   color: ${black500};
   font-size: ${extraLargeFontSize};
+  font-family: 'modeSeven', monospace !important;
   width: 100%;
   margin: 12px 12px -33px;
 `
 
-export const WidgetTitle = styled.h2`
+export const WidgetTitle = styled.p`
   color: ${black500};
   font-size: ${largeFontSize};
   margin-top: 0;
+  font-family: 'modeSeven', monospace !important;
 `
 
 export const WidgetBody = styled.div`
@@ -46,19 +49,23 @@ export const Card = styled.div`
 `
 
 const StyledLink = styled(Link)`
+  font-family: 'modeSeven', monospace !important;
   text-decoration: none;
   color: #05de87;
-  font-weight: bold;
   display: flex;
   align-items: center;
   gap: ${xs};
   margin-bottom: 10px;
   padding-right: 26px;
 `
+const StyledText = styled(Text)`
+  color: #06fc99;
+  font-family: 'modeSeven', monospace !important;
+`
 
 export const ViewAllLink = ({ url, text }: { url: string; text?: string }): ReactElement => (
   <StyledLink to={url}>
-    {text || 'View All'}
+    {text || <StyledText size="xl">View All</StyledText>}
     <ChevronRightIcon />
   </StyledLink>
 )

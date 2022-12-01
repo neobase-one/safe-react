@@ -4,6 +4,7 @@ import TableCell from '@material-ui/core/TableCell'
 import TableContainer from '@material-ui/core/TableContainer'
 import TableRow from '@material-ui/core/TableRow'
 import cn from 'classnames'
+import styled from 'styled-components'
 
 import { AddOwnerModal } from './AddOwnerModal'
 import { EditOwnerModal } from './EditOwnerModal'
@@ -71,6 +72,9 @@ const ManageOwners = ({ granted, owners }: Props): ReactElement => {
   const columns = generateColumns()
   const autoColumns = columns.filter((c) => !c.custom)
   const ownerData = getOwnerData(owners)
+  const StyledP = styled.p`
+    font-family: 'modeSeven', monospace !important;
+  `
 
   return (
     <>
@@ -112,7 +116,7 @@ const ManageOwners = ({ granted, owners }: Props): ReactElement => {
                           />
                         </Block>
                       ) : (
-                        row[column.id]
+                        <StyledP>{row[column.id]}</StyledP>
                       )}
                     </TableCell>
                   ))}

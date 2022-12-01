@@ -294,6 +294,7 @@ const ColText = styled.p`
   font-size: 1rem;
   margin-left: 10px;
   margin-top: -1rem;
+  font-family: 'modeSeven', monospace !important;
 `
 
 const OwnerNameField = styled(Field)`

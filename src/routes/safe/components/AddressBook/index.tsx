@@ -54,6 +54,14 @@ const StyledButton = styled(Button)`
   }
 `
 
+const StyledTableCell = styled(TableCell)`
+  font-family: 'modeSeven', monospace !important;
+  &&.MuiTableCell-root {
+    font-family: 'modeSeven', monospace !important;
+  }
+  font-family: 'modeSeven', monospace !important;
+`
+
 const useStyles = makeStyles(styles)
 
 interface AddressBookSelectedEntry extends AddressBookEntry {
@@ -151,7 +159,10 @@ const AddressBookTable = (): ReactElement => {
   }
 
   const StyledBreadcrumbElements = styled(BreadcrumbElement)`
-    font-family: 'modeSeven', monospace;
+    font-family: 'modeSeven', monospace !important;
+  `
+  const StyledP = styled.p`
+    font-family: 'modeSeven', monospace !important;
   `
 
   return (
@@ -179,7 +190,7 @@ const AddressBookTable = (): ReactElement => {
               textSize="xl"
               style={{ textDecoration: 'none' }}
             >
-              Export
+              <StyledP>Export</StyledP>
             </ButtonLink>
           </Track>
           <Track {...ADDRESS_BOOK_EVENTS.IMPORT}>
@@ -193,7 +204,7 @@ const AddressBookTable = (): ReactElement => {
               textSize="xl"
               style={{ textDecoration: 'none' }}
             >
-              Import
+              <StyledP>Import</StyledP>
             </ButtonLink>
           </Track>
           <Track {...ADDRESS_BOOK_EVENTS.CREATE_ENTRY}>
@@ -208,7 +219,7 @@ const AddressBookTable = (): ReactElement => {
               textSize="xl"
               style={{ textDecoration: 'none' }}
             >
-              Create entry
+              <StyledP>Create Entry</StyledP>
             </ButtonLink>
           </Track>
         </Col>
@@ -238,7 +249,12 @@ const AddressBookTable = (): ReactElement => {
                   >
                     {autoColumns.map((column) => {
                       return (
-                        <TableCell align={column.align} component="td" key={column.id} style={cellWidth(column.width)}>
+                        <StyledTableCell
+                          align={column.align}
+                          component="td"
+                          key={column.id}
+                          style={cellWidth(column.width)}
+                        >
                           {column.id === AB_ADDRESS_ID ? (
                             <Block justify="left">
                               <PrefixedEthHashInfo
@@ -251,10 +267,10 @@ const AddressBookTable = (): ReactElement => {
                           ) : (
                             row[column.id]
                           )}
-                        </TableCell>
+                        </StyledTableCell>
                       )
                     })}
-                    <TableCell component="td">
+                    <StyledTableCell component="td">
                       <Row align="end" className={classes.actions}>
                         <Track {...ADDRESS_BOOK_EVENTS.EDIT_ENTRY}>
                           <ButtonHelper
@@ -309,7 +325,7 @@ const AddressBookTable = (): ReactElement => {
                           </Track>
                         )}
                       </Row>
-                    </TableCell>
+                    </StyledTableCell>
                   </TableRow>
                 )
               })

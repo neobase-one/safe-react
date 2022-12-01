@@ -9,7 +9,7 @@ import { useAssetInfo } from 'src/routes/safe/components/Transactions/TxList/hoo
 import { useKnownAddress } from 'src/routes/safe/components/Transactions/TxList/hooks/useKnownAddress'
 import { useTransactionType } from 'src/routes/safe/components/Transactions/TxList/hooks/useTransactionType'
 import { getTxTo } from 'src/routes/safe/components/Transactions/TxList/utils'
-import { boldFont, grey400, primary200, smallFontSize } from 'src/theme/variables'
+import { grey400, primary200, smallFontSize } from 'src/theme/variables'
 import { isMultisigExecutionInfo } from 'src/logic/safe/store/models/types/gateway.d'
 import Spacer from 'src/components/Spacer'
 import { CustomIconText } from 'src/components/CustomIconText'
@@ -36,7 +36,7 @@ const StyledConfirmationsCount = styled.div`
   padding: 8px 12px;
   border-radius: 8px;
   background-color: ${primary200};
-  font-weight: ${boldFont};
+  font-family: 'modeSeven', monospace !important;
   font-size: ${smallFontSize};
 `
 

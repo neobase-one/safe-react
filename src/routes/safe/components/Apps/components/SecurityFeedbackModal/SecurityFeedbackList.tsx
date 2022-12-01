@@ -35,7 +35,7 @@ const StyledIcon = styled(Icon)`
 `
 
 const StyledTitle = styled(Title)`
-  font-weight: bold;
+  font-family: 'modeSeven', monospace !important;
   text-align: center;
 `
 

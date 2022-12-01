@@ -2,12 +2,26 @@ import TableCell from '@material-ui/core/TableCell'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import TableSortLabel from '@material-ui/core/TableSortLabel'
+import styled from 'styled-components'
 import * as React from 'react'
 import { primary } from 'src/theme/variables'
 
 interface CellWidth {
   maxWidth: string
 }
+
+const StyledTableCell = styled(TableCell)`
+  &&.MuiTableCell-root {
+    font-family: 'modeSeven', monospace !important;
+  }
+  font-family: 'modeSeven', monospace !important;
+`
+const StyledTableSortLabel = styled(TableSortLabel)`
+  &&.MuiTableCell-root {
+    font-family: 'modeSeven', monospace !important;
+  }
+  font-family: 'modeSeven', monospace !important;
+`
 
 export const cellWidth = (width?: string | number): CellWidth | undefined => {
   if (!width) {
@@ -37,7 +51,7 @@ class GnoTableHead extends React.PureComponent<any> {
       <TableHead>
         <TableRow>
           {columns.map((column) => (
-            <TableCell
+            <StyledTableCell
               align={column.align}
               key={column.id}
               padding={column.disablePadding ? 'none' : 'normal'}
@@ -46,16 +60,16 @@ class GnoTableHead extends React.PureComponent<any> {
               {column.static ? (
                 <div style={{ color: primary }}>{column.label}</div>
               ) : (
-                <TableSortLabel
+                <StyledTableSortLabel
                   active={orderBy === column.id}
                   direction={order}
                   onClick={this.changeSort(column.id, column.order)}
-                  style={{ color: primary }}
+                  style={{ color: primary, fontFamily: `'modeSeven', monospace` }}
                 >
                   {column.label}
-                </TableSortLabel>
+                </StyledTableSortLabel>
               )}
-            </TableCell>
+            </StyledTableCell>
           ))}
         </TableRow>
       </TableHead>

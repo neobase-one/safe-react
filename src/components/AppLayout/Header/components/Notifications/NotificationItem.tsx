@@ -79,8 +79,8 @@ const NotificationListItem = styled(ListItem)<{ $requiresAction: boolean }>`
 `
 
 const NotificationMessage = styled.p`
+  font-family: 'modeSeven', monospace !important;
   all: unset;
-  font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   color: ${black500};

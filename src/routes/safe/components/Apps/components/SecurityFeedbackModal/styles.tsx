@@ -5,7 +5,8 @@ export const StyledTitle = styled(Title)<{ color?: string; bold?: boolean; cente
   text-align: ${({ centered }) => (centered ? 'center' : 'left')};
   margin: 24px 0;
   color: inherit;
-  font-weight: ${({ bold }) => (bold ? 'bold' : 'normal')};
+  font-weight: 'normal';
+  font-family: 'modeSeven', monospace !important;
 `
 
 export const StyledSecurityTitle = styled(Text)`

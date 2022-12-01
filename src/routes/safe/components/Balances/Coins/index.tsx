@@ -9,7 +9,7 @@ import TableRow from '@material-ui/core/TableRow'
 import { Skeleton } from '@material-ui/lab'
 
 import InfoIcon from 'src/assets/icons/info_red.svg'
-import { FixedIcon, Text, Button } from '@gnosis.pm/safe-react-components'
+import { Text, Button } from '@gnosis.pm/safe-react-components'
 
 import Img from 'src/components/layout/Img'
 import Table from 'src/components/Table'
@@ -38,14 +38,23 @@ const StyledButton = styled(Button)`
     margin: 4px 12px 4px 0px;
     padding: 0 12px;
     min-width: auto;
+    font-family: 'modeSeven', monospace !important;
   }
   svg {
     margin: 0 6px 0 0;
   }
-`;
+`
 const ButtonText = styled(Text)`
   color: #000';
-`;
+  font-family: 'modeSeven', monospace !important;
+`
+
+const StyledP = styled.p`
+  font-family: 'modeSeven', monospace !important;
+`
+const StyledDiv = styled.div`
+  font-family: 'modeSeven', monospace !important;
+`
 
 const useStyles = makeStyles(styles)
 
@@ -113,7 +122,9 @@ const Coins = (props: Props): React.ReactElement => {
                     break
                   }
                   case BALANCE_TABLE_BALANCE_ID: {
-                    cellItem = <div data-testid={`balance-${row[BALANCE_TABLE_ASSET_ID].symbol}`}>{row[id]}</div>
+                    cellItem = (
+                      <StyledDiv data-testid={`balance-${row[BALANCE_TABLE_ASSET_ID].symbol}`}>{row[id]}</StyledDiv>
+                    )
                     break
                   }
                   case BALANCE_TABLE_VALUE_ID: {
@@ -142,7 +153,7 @@ const Coins = (props: Props): React.ReactElement => {
                 }
                 return (
                   <TableCell align={align} component="td" key={id} style={cellWidth(width)}>
-                    {cellItem}
+                    <StyledP>{cellItem}</StyledP>
                   </TableCell>
                 )
               })}

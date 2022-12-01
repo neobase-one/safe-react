@@ -28,9 +28,8 @@ const NotificationLink = ({ title, onClick, ...rest }: NotificationLinkProps): R
 const StyledLink = styled(Link)`
   all: unset;
   cursor: pointer;
-  font-family: 'modeSeven', monospace;
+  font-family: 'modeSeven', monospace !important;
   color: ${primaryActive};
-  font-weight: 700;
   display: flex;
   align-items: center;
 `

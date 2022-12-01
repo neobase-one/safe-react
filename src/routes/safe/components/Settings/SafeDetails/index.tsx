@@ -50,6 +50,19 @@ const StyledIcon = styled(Icon)`
   top: 3px;
   left: 6px;
 `
+
+const StyledText = styled(Text)`
+  font-family: 'modeSeven', monospace !important;
+  font-size: 18px;
+`
+const StyledButton = styled(Button)`
+  font-family: 'modeSeven', monospace !important;
+  font-size: 14px;
+  .MuiButton-label {
+    font-family: 'modeSeven', monospace !important;
+    font-size: 14px;
+  }
+`
 const StyledParagraph = styled(Paragraph)`
   margin-bottom: 0;
 `
@@ -127,22 +140,22 @@ const SafeDetails = (): ReactElement => {
   return (
     <GnoForm onSubmit={handleSubmit}>
       {() => (
-        <div style={{background: '#000'}}>
+        <div style={{ background: '#000' }}>
           <Block className={classes.formContainer}>
             <Heading tag="h2">Contract Version</Heading>
             <Row align="end" grow>
               <StyledLink rel="noreferrer noopener" target="_blank" href={safeInfo?.deployerRepoUrl}>
-                <Text size="xl" as="span" color="primary">
+                <StyledText as="span">
                   {getSafeVersion()}
                   {getSafeVersionUpdate()}
-                </Text>
+                </StyledText>
                 <StyledIcon size="sm" type="externalLink" color="primary" />
               </StyledLink>
             </Row>
             {safeNeedsUpdate && isUserOwner ? (
               <Row align="end" grow>
                 <Paragraph>
-                  <Button
+                  <StyledButton
                     className={classes.saveBtn}
                     color="primary"
                     onClick={handleUpdateSafe}
@@ -151,7 +164,7 @@ const SafeDetails = (): ReactElement => {
                     variant="contained"
                   >
                     Update Safe
-                  </Button>
+                  </StyledButton>
                 </Paragraph>
               </Row>
             ) : null}
@@ -188,8 +201,7 @@ const SafeDetails = (): ReactElement => {
 
           <Row align="end" className={classes.controlsRow} grow>
             <Col end="xs">
-              <Button
-                className={classes.saveBtn}
+              <StyledButton
                 color="primary"
                 size="small"
                 testId={SAFE_NAME_SUBMIT_BTN_TEST_ID}
@@ -197,7 +209,7 @@ const SafeDetails = (): ReactElement => {
                 variant="contained"
               >
                 Save
-              </Button>
+              </StyledButton>
             </Col>
           </Row>
           <Modal description="Update Safe" handleClose={toggleModal} open={isModalOpen} title="Update Safe">

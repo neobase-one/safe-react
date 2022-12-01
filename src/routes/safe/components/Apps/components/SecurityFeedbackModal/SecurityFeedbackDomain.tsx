@@ -24,7 +24,7 @@ const StyledIcon = styled(Icon)`
 const StyledSecurityFeedbackContentText = styled(Text)<{ showInOneLine: boolean }>`
   display: block;
   font-size: 12px;
-  font-weight: bold;
+  font-family: 'modeSeven', monospace !important;
   overflow-wrap: anywhere;
   background-color: #effaf8;
   padding: 10px 15px 10px 10px;

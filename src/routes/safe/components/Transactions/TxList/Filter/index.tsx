@@ -19,7 +19,7 @@ import RHFTextField from 'src/routes/safe/components/Transactions/TxList/Filter/
 import RHFAddressSearchField from 'src/routes/safe/components/Transactions/TxList/Filter/RHFAddressSearchField'
 import BackdropLayout from 'src/components/layout/Backdrop'
 import filterIcon from 'src/routes/safe/components/Transactions/TxList/assets/filter-icon.svg'
-import { lg, md, primary300, grey400, largeFontSize, primary200, sm, black300, fontColor } from 'src/theme/variables'
+import { lg, md, grey400, largeFontSize, primary200, sm, black300 } from 'src/theme/variables'
 import { trackEvent } from 'src/utils/googleTagManager'
 import { TX_LIST_EVENTS } from 'src/utils/events/txList'
 import { isValidAmount, isValidNonce } from 'src/routes/safe/components/Transactions/TxList/Filter/validation'
@@ -34,7 +34,6 @@ import { checksumAddress } from 'src/utils/checksumAddress'
 import { ChainId } from 'src/config/chain'
 import { Dispatch } from 'src/logic/safe/store/actions/types'
 import { isEqual } from 'lodash'
-import { red } from '@material-ui/core/colors'
 
 export const FILTER_TYPE_FIELD_NAME = 'type'
 export const DATE_FROM_FIELD_NAME = 'execution_date__gte'
@@ -108,6 +107,13 @@ const StyledRHFTextField = styled(RHFTextField)`
       border-color: ${black300};
     }
   }
+`
+
+export const StyledButton = styled(Button)`
+  &&.MuiButton-label {
+    font-family: 'modeSeven', monospace !important;
+  }
+  font-family: 'modeSeven', monospace !important;
 `
 
 const Filter = (): ReactElement => {
@@ -301,12 +307,10 @@ const Filter = (): ReactElement => {
                       )}
                     </ParametersFormWrapper>
                     <ButtonWrapper>
-                      <Button type="submit" variant="contained" color="primary">
-                        Apply
-                      </Button>
-                      <Button variant="contained" onClick={clearFilter} color="primary" disabled={!search}>
+                      <StyledButton type="submit">Apply</StyledButton>
+                      <StyledButton variant="contained" onClick={clearFilter} color="primary" disabled={!search}>
                         Clear
-                      </Button>
+                      </StyledButton>
                     </ButtonWrapper>
                   </ParamsFormControl>
                 </FilterWrapper>
@@ -331,12 +335,10 @@ const StyledFilterButton = styled(Button)<{ $isFiltered: boolean }>`
     margin-top: -51px;
     margin-bottom: ${md};
 
-      span {
-        color: #06fc99;
-      }
+    span {
+      color: #06fc99;
+    }
   }
-
- 
 `
 
 const StyledFilterIconImage = styled.img`
@@ -354,7 +356,7 @@ const Wrapper = styled.div`
 
 const StyledPaper = styled(Paper)`
   border: 2px solid #06fc99;
-  background-color: black; 
+  background-color: black;
   position: absolute;
   width: calc(100% - 30px);
   margin-left: 10px;

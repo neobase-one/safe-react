@@ -86,11 +86,11 @@ export const SubTitle = styled(Text)`
   margin-bottom: 8px;
   margin-left: 2px;
   font-size: 0.76em;
-  font-weight: 600;
+  font-family: 'modeSeven', monospace !important;
   line-height: 1.5;
   letter-spacing: 1px;
   color: #06fc99;
-  font-family: 'modeSeven', monospace;
+  font-family: 'modeSeven', monospace !important;
   text-transform: uppercase;
 `
 
@@ -462,10 +462,11 @@ export const InlineEthHashInfo = styled(EthHashInfo)`
   display: inline-flex;
   p {
     color: #06fc99;
+    font-family: 'modeSeven', monospace !important;
   }
 
   span {
-    font-weight: bold;
+    font-family: 'modeSeven', monospace !important;
   }
 `
 
@@ -473,7 +474,7 @@ export const InlinePrefixedEthHashInfo = styled(PrefixedEthHashInfo)`
   display: inline-flex;
 
   span {
-    font-weight: bold;
+    font-family: 'modeSeven', monospace !important;
   }
 `
 

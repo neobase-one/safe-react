@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
-import { primaryLite, primaryActive } from 'src/theme/variables'
+import { primaryLite } from 'src/theme/variables'
 
 const Container = styled.div<{ size: number }>`
   background: ${primaryLite};
   color: #000;
   font-size: ${(p) => p.size}px;
-  font-weight: bold;
+  font-family: 'modeSeven', monospace !important;
   border-radius: 100%;
   padding: 0.25em;
   position: absolute;

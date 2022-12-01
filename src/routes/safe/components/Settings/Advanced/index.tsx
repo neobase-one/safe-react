@@ -14,10 +14,11 @@ import { TransactionGuard } from './TransactionGuard'
 
 const InfoText = styled(Text)`
   margin-top: 16px;
+  font-family: 'modeSeven', monospace !important;
 `
 
-const Bold = styled.strong`
-  color: #69fc99;
+const StyledTitle = styled(Title)`
+  font-family: 'modeSeven', monospace !important;
 `
 
 const NoModuleLegend = (): ReactElement => (
@@ -45,23 +46,23 @@ const Advanced = (): ReactElement => {
     <>
       {/* Nonce */}
       <Block className={classes.container}>
-        <Title size="xs" withoutMargin>
+        <StyledTitle size="xs" withoutMargin>
           Safe Nonce
-        </Title>
+        </StyledTitle>
         <InfoText color="primary" size="lg">
           For security reasons, transactions made with Safe need to be executed in order. The nonce shows you which
           transaction will be executed next. You can find the nonce for a transaction in the transaction details.
         </InfoText>
         <InfoText color="primary" size="xl">
-          Current Nonce: <Bold data-testid={'current-nonce'}>{nonce}</Bold>
+          Current Nonce: {nonce}
         </InfoText>
       </Block>
 
       {/* Modules */}
       <Block className={classes.container}>
-        <Title size="xs" withoutMargin>
+        <StyledTitle size="xs" withoutMargin>
           Safe Modules
-        </Title>
+        </StyledTitle>
         <InfoText color="primary" size="lg">
           Modules allow you to customize the access-control logic of your Safe. Modules are potentially risky, so make
           sure to only use modules from trusted sources. Learn more about modules{' '}
@@ -77,9 +78,9 @@ const Advanced = (): ReactElement => {
       {/* Transaction guard */}
       {isVersionWithGuards && (
         <Block className={classes.container}>
-          <Title size="xs" withoutMargin>
+          <StyledTitle size="xs" withoutMargin>
             Transaction Guard
-          </Title>
+          </StyledTitle>
           <InfoText color="primary" size="lg">
             Transaction guards impose additional constraints that are checked prior to executing a Safe transaction.
             Transaction guards are potentially risky, so make sure to only use modules from trusted sources. Learn more

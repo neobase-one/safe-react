@@ -35,9 +35,9 @@ const StyledContainer = styled.div<{
   }
 `
 
-const StyledTitle = styled.h5`
+const StyledTitle = styled.p`
   font-size: 18px;
-  font-weight: 600;
+  font-family: 'modeSeven', monospace !important;
   letter-spacing: 0.4px;
   margin: 0;
   color: #06fc99;
@@ -46,7 +46,7 @@ const StyledTitle = styled.h5`
 const StyledDivider = styled(Divider)`
   width: calc(100% + 40px);
   margin: 0 -20px;
-  font-family: 'modeSeven', monospace;
+  font-family: 'modeSeven', monospace !important;
 `
 
 const StyledContent = styled.div`

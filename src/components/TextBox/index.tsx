@@ -6,6 +6,7 @@ const Box = styled.p`
   padding: 10px;
   word-wrap: break-word;
   border: solid 2px ${border};
+  font-family: 'modeSeven', monospace !important;
 `
 
 type Props = {

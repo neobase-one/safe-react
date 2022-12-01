@@ -3,6 +3,7 @@ import Card from '@material-ui/core/Card'
 import { createStyles, makeStyles } from '@material-ui/core/styles'
 import { useSelector } from 'react-redux'
 import { Grid } from '@material-ui/core'
+import styled from 'styled-components'
 
 import Item from './components/Item'
 import Paragraph from 'src/components/layout/Paragraph'
@@ -30,8 +31,7 @@ const useStyles = makeStyles(
       backgroundColor: '#000',
       border: '4px solid #06fc99',
     },
-    cardOuter: {
-    },
+    cardOuter: {},
     gridRow: {
       boxSizing: 'border-box',
       columnGap: '30px',
@@ -83,7 +83,7 @@ const useStyles = makeStyles(
     noData: {
       fontSize: lg,
       textAlign: 'center',
-      color: '#06fc99'
+      color: '#06fc99',
     },
   }),
 )
@@ -164,6 +164,11 @@ const Collectibles = ({ children }: { children: ReactNode }): React.ReactElement
   )
 }
 
+const StyledP = styled.p`
+  font-family: 'modeSeven', monospace !important;
+  font-size: 18px;
+`
+
 const CollectiblesPage = (): React.ReactElement => {
   const NFT_APPS_TAG = 'nft'
   const { allApps, pinnedSafeApps, togglePin } = useAppList()
@@ -183,7 +188,7 @@ const CollectiblesPage = (): React.ReactElement => {
         <>
           {infoBar}
 
-          <h3>NFT apps</h3>
+          <StyledP>NFT apps</StyledP>
 
           <Grid style={{ marginBottom: '30px' }}>
             {nftApps.map((app) => (
@@ -200,7 +205,7 @@ const CollectiblesPage = (): React.ReactElement => {
         </>
       )}
 
-      <h3>NFTs</h3>
+      <StyledP>NFTs</StyledP>
     </Collectibles>
   )
 }

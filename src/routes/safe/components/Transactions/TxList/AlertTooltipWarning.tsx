@@ -15,7 +15,7 @@ const StyledTooltip = withStyles(() => ({
 }))(Tooltip)
 
 const StyledAlert = styled(Alert)<{ $isWarning: boolean }>`
-  font-weight: 700;
+  font-family: 'modeSeven', monospace !important;
   color: ${black500};
   background-color: ${({ $isWarning }) => ($isWarning ? orange200 : green200)};
   display: inline-flex;

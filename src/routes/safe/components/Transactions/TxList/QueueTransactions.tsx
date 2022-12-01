@@ -1,5 +1,6 @@
 import { Loader, Title } from '@gnosis.pm/safe-react-components'
 import { ReactElement, useEffect, useMemo } from 'react'
+import styled from 'styled-components'
 
 import Img from 'src/components/layout/Img'
 import NoTransactionsImage from './assets/no-transactions.svg'
@@ -37,13 +38,17 @@ export const QueueTransactions = (): ReactElement => {
     )
   }
 
+  const StyledTitle = styled(Title)`
+    font-family: 'modeSeven', monospace !important;
+  `
+
   // `loading` is, actually `!transactions`
   // added the `transaction` verification to prevent `Object is possibly 'undefined'` error
   if (count === 0 || !transactions) {
     return (
       <NoTransactions>
         <Img alt="No Transactions yet" src={NoTransactionsImage} />
-        <Title size="xs">Queued transactions will appear here </Title>
+        <StyledTitle size="xs">Queued transactions will appear here </StyledTitle>
       </NoTransactions>
     )
   }

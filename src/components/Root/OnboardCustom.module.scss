@@ -1,7 +1,7 @@
 /* Onboard.js custom styles */
 
 :global(.bn-onboard-custom.bn-onboard-modal) {
-  font-family: 'modeSeven', monospace;
+  font-family: 'modeSeven', monospace !important;
   z-index: 2001;
 }
 

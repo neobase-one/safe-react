@@ -133,7 +133,7 @@ const StyledQRCodeButton = styled.button`
 const StyledTextSafeName = styled(Text)`
   width: 90%;
   overflow: hidden;
-  font-family: 'modeSeven', monospace;
+  font-family: 'modeSeven', monospace !important;
   text-overflow: ellipsis;
   color: #06fc99;
 `
@@ -147,8 +147,8 @@ const StyledPrefixedEthHashInfo = styled(PrefixedEthHashInfo)`
   }
 `
 
-const StyledText = styled(Title)`
-  font-family: 'modeSeven', monospace;
+const StyledTitle = styled(Title)`
+  font-family: 'modeSeven', monospace !important;
   color: #000;
   font-size: 1rem;
   margin: 0;
@@ -258,7 +258,7 @@ const SafeHeader = ({
         variant="contained"
         onClick={handleNewTransactionClick}
       >
-        <StyledText size="sm">{granted ? 'New Transaction' : 'Read Only'}</StyledText>
+        <StyledTitle size="sm">{granted ? 'New Transaction' : 'Read Only'}</StyledTitle>
       </StyledButton>
     </Container>
   )

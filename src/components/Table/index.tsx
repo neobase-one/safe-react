@@ -36,6 +36,7 @@ const styles = {
     marginBottom: '90px',
     borderBottomRightRadius: sm,
     borderBottomLeftRadius: sm,
+    fontFamily: `'modeSeven' monospace `,
   },
 }
 

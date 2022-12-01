@@ -21,9 +21,9 @@ const StyledContainer = styled.div`
   background-color: #000;
 `
 
-const StyledTitle = styled.h5`
+const StyledTitle = styled.p`
   font-size: 18px;
-  font-weight: 600;
+  font-family: 'modeSeven', monospace !important;
   letter-spacing: 0.4px;
   margin: 0;
 `

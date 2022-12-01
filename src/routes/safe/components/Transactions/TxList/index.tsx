@@ -19,14 +19,23 @@ const TRANSACTION_TABS: Item[] = [
 
 const StyledLink = styled(Link)`
   text-decoration: none;
+  font-family: 'modeSeven', monospace !important;
   & * {
     cursor: pointer !important;
+    font-family: 'modeSeven', monospace !important;
   }
 `
 
 const StyledTab = styled(Tab)`
   .MuiTab-root {
     background: red;
+  }
+`
+
+const StyledBreadcrumbElement = styled(BreadcrumbElement)`
+  font-family: 'modeSeven', monospace !important;
+  &&.jfyXPu {
+    font-family: 'modeSeven', monospace !important;
   }
 `
 
@@ -56,7 +65,7 @@ const GatewayTransactions = (): ReactElement => {
                 <StyledLink to={generateSafeRoute(SAFE_ROUTES.TRANSACTIONS, extractPrefixedSafeAddress())}>
                   {parentCrumb}
                 </StyledLink>
-              ))(<BreadcrumbElement iconType="transactionsInactive" text="TRANSACTIONS" />)}
+              ))(<StyledBreadcrumbElement iconType="transactionsInactive" text="TRANSACTIONS" />)}
 
             <BreadcrumbElement text={breadcrumbText.toUpperCase()} color="primary" />
           </Breadcrumb>

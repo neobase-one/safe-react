@@ -19,8 +19,9 @@ const styles = () => ({
   },
 })
 
-const ConnectWalletText = styled.h2`
+const ConnectWalletText = styled.p`
   font-size: 0.7rem;
+  font-family: 'modeSeven', monospace !important;
 `
 const ConnectWalletButton = styled.div`
   margin-top: -0.5rem;

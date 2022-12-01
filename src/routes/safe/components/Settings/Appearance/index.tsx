@@ -23,6 +23,9 @@ import useSafeAddress from 'src/logic/currentSession/hooks/useSafeAddress'
 const Container = styled(Block)`
   padding: ${lg};
 `
+const StyledP = styled.p`
+  font-family: 'modeSeven', monospace !important;
+`
 
 const StyledPrefixedEthHashInfo = styled(PrefixedEthHashInfo)`
   margin-bottom: 1em;
@@ -66,15 +69,15 @@ const Appearance = (): ReactElement => {
       <Container>
         <Heading tag="h2">Use Chain-Specific Addresses</Heading>
         <Paragraph>You can choose whether to prepend EIP-3770 short chain names across Safes.</Paragraph>
-        <StyledPrefixedEthHashInfo textColor='primary' hash={safeAddress} />
+        <StyledPrefixedEthHashInfo textColor="primary" hash={safeAddress} />
         <FormGroup>
           <FormControlLabel
             control={<Checkbox checked={showShortName} onChange={handleShowChange} name="showShortName" />}
-            label="Prepend addresses with chain prefix."
+            label={<StyledP>Prepend addresses with chain prefix.</StyledP>}
           />
           <FormControlLabel
             control={<Checkbox checked={copyShortName} onChange={handleCopyChange} name="copyShortName" />}
-            label="Copy addresses with chain prefix."
+            label={<StyledP>Copy addresses with chain prefix.</StyledP>}
           />
         </FormGroup>
       </Container>
@@ -84,7 +87,7 @@ const Appearance = (): ReactElement => {
         <FormGroup>
           <FormControlLabel
             control={<Checkbox checked={darkMode} onChange={handleInvertChange} name="showShortName" />}
-            label="Inverted colors"
+            label={<StyledP>Inverted colors</StyledP>}
           />
         </FormGroup>
       </Container>

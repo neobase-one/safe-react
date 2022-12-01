@@ -10,10 +10,11 @@ import ListMui from '@material-ui/core/List'
 import ListItem, { ListItemProps } from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import Collapse from '@material-ui/core/Collapse'
-import { primary, secondary, secondaryText } from 'src/theme/variables'
+import { primary, secondary } from 'src/theme/variables'
 
 const ListItemWrapper = styled.div`
   padding: 0 12px;
+  font-family: 'modeSeven', monospace !important;
 `
 
 export const StyledListItem = styled(ListItem)<ListItemProps>`
@@ -111,27 +112,19 @@ const StyledListSubItem = styled(ListItem)<ListItemProps>`
 
 export const StyledListItemText = styled(ListItemText)`
   span {
-    font-family: 'modeSeven', monospace;
+    font-family: 'modeSeven', monospace !important;
     font-size: 14px;
-    font-weight: 600;
     line-height: 1.5;
     letter-spacing: 0.5px;
     color: #06fc99 !important;
   }
 `
 
-const StyledListSubItemText = styled(ListItemText)`
-  span {
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 0;
-    font-family: 'modeSeven', monospace;
-    color: ${secondaryText} !important;
-  }
-`
-
 const TextAndBadgeWrapper = styled.div`
   flex: 1 1 auto;
+`
+const StyledP = styled.p`
+  font-family: 'modeSeven', monospace !important;
 `
 
 const StyledBadge = styled(Badge)`
@@ -219,7 +212,6 @@ const List = ({ items }: Props): React.ReactElement => {
     const onClick = (e) => onItemClick(item, e)
 
     const ListItemAux = isSubItem ? StyledListSubItem : StyledListItem
-    const ListItemTextAux = isSubItem ? StyledListSubItemText : StyledListItemText
 
     return (
       <ListItemAux
@@ -238,7 +230,8 @@ const List = ({ items }: Props): React.ReactElement => {
 
         <TextAndBadgeWrapper>
           <StyledBadge badgeContent=" " color="error" invisible={!item.badge} variant="dot">
-            <ListItemTextAux primary={item.label} />
+            <StyledP>{item.label}</StyledP>
+            {/* <ListItemTextAux primary={item.label} /> */}
           </StyledBadge>
         </TextAndBadgeWrapper>
 

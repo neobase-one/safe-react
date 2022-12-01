@@ -13,6 +13,10 @@ import { getNativeCurrencyAddress } from 'src/config/utils'
 const StyledParagraph = styled(Paragraph)`
   margin-left: 10px;
   margin-right: 10px;
+  font-family: 'modeSeven', monospace !important;
+  &&.MuiTableCell-root {
+    font-family: 'modeSeven', monospace !important;
+  }
 `
 
 const AssetTableCell = ({ asset }: { asset: BalanceData['asset'] }): ReactElement => {

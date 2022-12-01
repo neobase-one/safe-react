@@ -5,7 +5,7 @@
   border: none;
   text-decoration: underline;
   cursor: pointer;
-  font-family: 'modeSeven', monospace;
+  font-family: 'modeSeven', monospace !important;
 }
 
 .sm {
@@ -29,7 +29,7 @@
 }
 
 .light {
-  font-weight: $lightFont;
+  font-weight: $regularFont;
 }
 
 .regular {
@@ -37,11 +37,11 @@
 }
 
 .bolder {
-  font-weight: $bolderFont;
+  font-weight: $regularFont;
 }
 
 .bold {
-  font-weight: $boldFont;
+  font-weight: $regularFont;
 }
 
 .soft {

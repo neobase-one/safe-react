@@ -85,6 +85,7 @@ const SubTitle = styled.div`
 
 const Text = styled.p`
   color: #06fc99;
+  font-family: 'modeSeven', monospace !important;
 `
 const CardsContainer = styled.div`
   display: flex;
@@ -114,7 +115,7 @@ const StyledButtonLabel = styled.div`
   background-color: black;
   min-width: 130px;
   color: #06fc99;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'modeSeven', monospace !important;
   border: 0.5px solid #06fc99;
   border-radius: 1rem;
   :hover {

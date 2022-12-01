@@ -12,7 +12,8 @@ const StyledEthHashInfo = styled(EthHashInfo)`
   p,
   span {
     color: #06fc99;
-    font-family: 'modeSeven', monospace;
+    font-family: 'modeSeven', monospace !important;
+    font-weight: normal;
   }
 `
 

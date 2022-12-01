@@ -83,7 +83,7 @@ type StyledStepProps = {
 }
 const StyledStep = styled(Step)<StyledStepProps>`
   .MuiStepLabel-label {
-    font-weight: ${({ $bold = false }) => ($bold ? 'bold' : 'normal')};
+    font-family: 'modeSeven', monospace !important;
     font-size: 16px;
     color: ${({ state }) => getStepColor(state)};
   }

@@ -25,16 +25,24 @@ const IdenticonContainer = styled.div`
 
 const StyledText = styled(Text)`
   margin-top: 8px;
+  font-family: 'modeSeven', monospace !important;
   font-size: 24px;
-  font-weight: bold;
   color: #06fc99;
-  font-family: 'modeSeven', monospace;
+`
+
+const StyledButton = styled(Button)`
+  font-family: 'modeSeven', monospace !important;
+  font-size: 14px;
+  .MuiButton-label {
+    font-family: 'modeSeven', monospace !important;
+    font-size: 14px;
+  }
 `
 const StyledP = styled(Text)`
   margin-top: 8px;
   font-size: 16px;
   color: #06fc99;
-  font-family: 'modeSeven', monospace;
+  font-family: 'modeSeven', monospace !important;
 `
 
 const StyledLink = styled(Link)`
@@ -119,9 +127,7 @@ const Overview = (): ReactElement => {
                   <Identicon address={address} size="xl" />
                 </IdenticonContainer>
                 <Box mb={2} overflow="hidden">
-                  <StyledText size="xl" strong>
-                    {name}
-                  </StyledText>
+                  <StyledText size="xl">{name}</StyledText>
                   <div style={{ marginTop: '1rem' }}>
                     <StyledP size="lg">{address}</StyledP>
                   </div>
@@ -150,9 +156,9 @@ const Overview = (): ReactElement => {
               <Grid item xs={6}>
                 <Box display="flex" height={1} alignItems="flex-end" justifyContent="flex-end">
                   <StyledLink to={assetsLink}>
-                    <Button size="medium" variant="contained" color="primary">
+                    <StyledButton size="medium" variant="contained" color="primary">
                       View Assets
-                    </Button>
+                    </StyledButton>
                   </StyledLink>
                 </Box>
               </Grid>

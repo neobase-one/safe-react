@@ -16,7 +16,6 @@ import { FETCH_STATUS } from 'src/utils/requests'
 import { copyToClipboard } from 'src/utils/clipboard'
 import { getShortName } from 'src/config'
 import { SafeAppDescriptionSK, SafeAppLogoSK, SafeAppTitleSK } from './SafeAppSkeleton'
-import { primary200, primary300 } from 'src/theme/variables'
 import useSafeAddress from 'src/logic/currentSession/hooks/useSafeAddress'
 
 type SafeAppCardSize = 'md' | 'lg'
@@ -201,7 +200,7 @@ const SafeAppTitle = styled(Title)`
   margin: 8px 0px;
   font-size: 16px;
   line-height: 22px;
-  font-weight: bold;
+  font-family: 'modeSeven', monospace !important;
   color: #06fc99;
 `
 

@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import cn from 'classnames'
 import { ReactElement } from 'react'
 import { useSelector } from 'react-redux'
+import styled from 'styled-components'
 
 import Button from 'src/components/layout/Button'
 import { NFTToken } from 'src/logic/collectibles/sources/collectibles'
@@ -98,6 +99,11 @@ const useStyles = makeStyles({
   },
 } as any)
 
+const StyledP = styled.p`
+  font-family: 'modeSeven', monospace !important;
+  font-size: 18px;
+`
+
 const Item = ({ data, onSend }: { data: NFTToken; onSend: (nftToken: NFTToken) => void }): ReactElement => {
   const granted = useSelector(grantedSelector)
   const classes = useStyles({ granted })
@@ -108,9 +114,9 @@ const Item = ({ data, onSend }: { data: NFTToken; onSend: (nftToken: NFTToken) =
         <img src={data.image} className={classes.image} loading="lazy" />
         <div className={classes.textContainer}>
           {data.name && (
-            <h3 className={classes.title} title={data.name}>
+            <StyledP className={classes.title} title={data.name}>
               {data.name}
-            </h3>
+            </StyledP>
           )}
           {data.description && (
             <p className={classes.text} title={data.description}>

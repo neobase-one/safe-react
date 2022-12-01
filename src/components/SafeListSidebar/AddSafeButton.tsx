@@ -33,6 +33,11 @@ const StyledLink = styled(Link)`
     }
   }
 `
+const StyledText = styled(Text)`
+  font-family: 'modeSeven', monospace !important;
+  color: primary;
+  font-size: 24px;
+`
 
 const AddSafeButton = ({ onAdd }: Props): ReactElement => {
   return (
@@ -40,10 +45,7 @@ const AddSafeButton = ({ onAdd }: Props): ReactElement => {
       <StyledLink onClick={onAdd} to={WELCOME_ROUTE}>
         <Fab color="secondary" size="small" aria-label="Add Safe">
           <AddIcon />
-
-          <Text color="primary" size="xl" strong>
-            Add Safe
-          </Text>
+          <StyledText size="xl">Add Safe</StyledText>
         </Fab>
       </StyledLink>
     </Track>

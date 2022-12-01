@@ -9,7 +9,7 @@ const calculateStyleBased = (minWidth, minHeight) => ({
 const GnoButton = ({ minWidth, minHeight = 35, testId = '', style = {}, ...props }: any): ReactElement => {
   const calculatedStyle = calculateStyleBased(minWidth, minHeight)
 
-  return <Button data-testid={testId} style={{ ...calculatedStyle, ...style }} {...props} />
+  return <Button data-testid={testId} style={{ ...calculatedStyle, ...style, fontFamily: 'modeSeven' }} {...props} />
 }
 
 export default GnoButton

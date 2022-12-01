@@ -1,6 +1,5 @@
 import { lazy, useMemo } from 'react'
 import styled from 'styled-components'
-import { Divider } from '@gnosis.pm/safe-react-components'
 import { useDispatch } from 'react-redux'
 
 import List, { ListItemType, StyledListItem, StyledListItemText } from 'src/components/List'
@@ -13,7 +12,6 @@ import ListIcon from 'src/components/List/ListIcon'
 import { openCookieBanner } from 'src/logic/cookies/store/actions/openCookieBanner'
 import { loadFromCookie } from 'src/logic/cookies/utils'
 import { COOKIES_KEY, BannerCookiesType, COOKIE_IDS } from 'src/logic/cookies/model/cookie'
-import { background, primaryLite } from 'src/theme/variables'
 
 const HelpContainer = styled.div`
   margin-top: auto;
@@ -24,36 +22,6 @@ const HelpList = styled.div`
   padding: 0 12px;
 `
 
-const HelpCenterLink = styled.a`
-  width: 100%;
-  display: flex;
-  position: relative;
-  box-sizing: border-box;
-  text-align: left;
-  align-items: center;
-  padding: 6px 12px;
-  justify-content: flex-start;
-  text-decoration: none;
-  border-radius: 8px;
-
-  &:hover {
-    background-color: ${primaryLite};
-  }
-  p {
-    font-family: "modeSeven", monospace;
-    font-size: 0.76em;
-    font-weight: 600;
-    line-height: 1.5;
-    letter-spacing: 1px;
-    color: ${({ theme }) => theme.colors.placeHolder};
-    text-transform: uppercase;
-    padding: 0 0 0 4px;
-  }
-`
-
-const StyledList = styled(List)`
-  background-color: #000;
-`
 type Props = {
   safeAddress?: string
   safeName?: string
@@ -117,11 +85,7 @@ const Sidebar = ({
         />
       </div>
 
-      {items.length ? (
-        <>
-          <List items={items} />
-        </>
-      ) : null}
+      {items.length ? <List items={items} /> : null}
 
       <HelpContainer>
         {debugToggle}
