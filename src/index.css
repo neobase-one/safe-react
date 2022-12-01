@@ -2,8 +2,3 @@ body,
 html, .MuiButton-label, .MuiFormLabel-root, .MuiInputBase-input, .MuiTypography-body1 {
   font-family: 'modeSeven', monospace !important;
 }
-
-/* @font-face {
-  font-family: 'modeSeven';
-  src: local('modeSeven'), url(./assets/modeseven.ttf) format('truetype');
-} */
