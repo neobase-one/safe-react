@@ -30,10 +30,6 @@ import useTxStatus from 'src/logic/hooks/useTxStatus'
 import Spacer from 'src/components/Spacer'
 import { isSupportedMultiSendCall } from 'src/logic/safe/transactions/multisend'
 
-const StyledP = styled.p`
-  font-family: monospace;
-`
-
 export const TxInfo = ({ info, name }: { info: AssetInfo; name?: string }): ReactElement | null => {
   if (isTokenTransferAsset(info)) {
     return <TokenTransferAmount assetInfo={info} />
@@ -159,7 +155,7 @@ export const TxCollapsed = ({
       <Tooltip title={formatDateTime(time)} arrow backgroundColor="white" size="lg">
         <TooltipContent ref={timestamp}>
           <Text size="xl">
-            <StyledP>{txLocation === 'history' ? formatTime(time) : formatTimeInWords(time)}</StyledP>
+            <p>{txLocation === 'history' ? formatTime(time) : formatTimeInWords(time)}</p>
           </Text>
         </TooltipContent>
       </Tooltip>
@@ -199,7 +195,7 @@ export const TxCollapsed = ({
         isAwaitingExecution(txStatus) && <SmallDot color={status.color} />
       )}
       <Text size="md" className="col" strong>
-        <StyledP>{status.text}</StyledP>
+        <p>{status.text}</p>
       </Text>
     </div>
   )

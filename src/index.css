@@ -1,0 +1,4 @@
+body,
+html, .MuiButton-label, .MuiFormLabel-root, .MuiInputBase-input, .MuiTypography-body1, .MuiTableCell-root, .MuiButton-root, .MuiButton-label, .MuiStepLabel-label {
+  font-family: 'modeSeven', monospace !important;
+}
