@@ -168,6 +168,9 @@ const NotificationsPopper = styled(Paper)`
   color: ${primary};
   border: 2px solid ${primary};
   width: 438px;
+  @media (max-width: 800px) {
+    width: 340px;
+  }
 `
 
 const NotificationsHeader = styled.div`
@@ -184,6 +187,9 @@ const NotificationsTitle = styled.h4`
   font-weight: 700;
   font-size: 20px;
   line-height: 26px;
+  @media (max-width: 800px) {
+    font-size: 16px;
+  }
 `
 
 const UnreadCount = styled.span`

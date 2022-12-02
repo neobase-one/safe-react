@@ -124,20 +124,20 @@ const ChooseTxType = ({
           {contractInteractionEnabled && (
             <Track {...MODALS_EVENTS.CONTRACT_INTERACTION}>
               <Button
+                color="primary"
                 disabled={disableContractInteraction}
                 minHeight={52}
                 minWidth={240}
                 onClick={() => setActiveScreen('contractInteraction')}
+                variant="contained"
               >
                 <Img
                   alt="Contract Interaction"
                   className={classNames(classes.leftIcon, classes.iconSmall)}
                   src={ContractInteractionIcon}
+                  style={{ color: 'red' }}
                 />
-                <ButtonText >
-
-                Contract interaction
-                </ButtonText>
+                <ButtonText>Contract Interaction</ButtonText>
               </Button>
             </Track>
           )}
@@ -149,7 +149,6 @@ const ChooseTxType = ({
 
 export default ChooseTxType
 
-
 const ButtonText = styled.p`
-  color: #06fc99;
+  color: black;
 `

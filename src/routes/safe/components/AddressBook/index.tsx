@@ -1,13 +1,4 @@
-import {
-  Breadcrumb,
-  BreadcrumbElement,
-  Button,
-  ButtonLink,
-  FixedIcon,
-  Icon,
-  Menu,
-  Text,
-} from '@gnosis.pm/safe-react-components'
+import { Breadcrumb, BreadcrumbElement, Button, ButtonLink, Icon, Menu, Text } from '@gnosis.pm/safe-react-components'
 import TableCell from '@material-ui/core/TableCell'
 import TableContainer from '@material-ui/core/TableContainer'
 import TableRow from '@material-ui/core/TableRow'
@@ -16,7 +7,7 @@ import cn from 'classnames'
 import styled from 'styled-components'
 import { ReactElement, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-
+import { useMedia } from 'react-use'
 import { styles } from './style'
 import { getExplorerInfo } from 'src/config'
 import ButtonHelper from 'src/components/ButtonHelper'
@@ -76,6 +67,7 @@ export type Entry = {
 }
 
 const AddressBookTable = (): ReactElement => {
+  const below800 = useMedia('(max-width: 800px)')
   const classes = useStyles()
   const columns = generateColumns()
   const autoColumns = columns.filter(({ custom }) => !custom)
@@ -168,7 +160,11 @@ const AddressBookTable = (): ReactElement => {
       <Menu>
         <Col start="sm" sm={6} xs={12}>
           <Breadcrumb>
-            <StyledBreadcrumbElements iconType="addressBook" text="Address Book" counter={addressBook?.length.toString()} />
+            <StyledBreadcrumbElements
+              iconType="addressBook"
+              text="Address Book"
+              counter={addressBook?.length.toString()}
+            />
           </Breadcrumb>
         </Col>
         <Col end="sm" sm={6} xs={12}>
@@ -181,8 +177,8 @@ const AddressBookTable = (): ReactElement => {
               color="primary"
               iconType="exportImg"
               iconSize="sm"
-              textSize="xl"
-              style={{textDecoration: 'none'}}
+              textSize={below800 ? 'md' : 'xl'}
+              style={{ textDecoration: 'none' }}
             >
               Export
             </ButtonLink>
@@ -195,8 +191,8 @@ const AddressBookTable = (): ReactElement => {
               color="primary"
               iconType="importImg"
               iconSize="sm"
-              textSize="xl"
-              style={{textDecoration: 'none'}}
+              textSize={below800 ? 'md' : 'xl'}
+              style={{ textDecoration: 'none' }}
             >
               Import
             </ButtonLink>
@@ -210,10 +206,10 @@ const AddressBookTable = (): ReactElement => {
               color="primary"
               iconType="add"
               iconSize="sm"
-              textSize="xl"
-              style={{textDecoration: 'none'}}
+              textSize={below800 ? 'md' : 'xl'}
+              style={{ textDecoration: 'none' }}
             >
-              Create entry
+              Entry
             </ButtonLink>
           </Track>
         </Col>

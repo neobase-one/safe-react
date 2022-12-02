@@ -41,7 +41,6 @@ export const NoPaddingAccordion = styled(Accordion).attrs((props) =>
     background-color: #000;
     border-bottom: 2px solid #60fc99;
   }
-
 `
 
 export const ActionAccordion = styled(Accordion)`
@@ -196,7 +195,7 @@ export const StyledTransaction = styled.div`
   grid-template-columns: ${Object.values(gridColumns).join(' ')};
   width: 100%;
 
-   /* &:hover {
+  /* &:hover {
     background-color: red;
   } */
 
@@ -214,7 +213,7 @@ export const StyledTransaction = styled.div`
   }
 
   .tx-actions {
-    visibility: hidden;
+    visibility: visible;
     justify-self: end;
   }
 
@@ -236,7 +235,7 @@ export const StyledTransaction = styled.div`
       visibility: visible;
 
       &.will-be-replaced {
-        visibility: hidden;
+        visibility: visible;
       }
     }
   }

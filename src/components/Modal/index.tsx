@@ -61,8 +61,8 @@ const ModalStyled = styled(ModalMUI)`
     }
 
     @media (max-width: ${screenSm}px) {
-      width: 100vw;
-      max-width: 100vw !important;
+      width: 80vw;
+      max-width: 80vw !important;
     }
   }
 `
@@ -170,7 +170,8 @@ const FooterSection = styled.div<{ withoutBorder: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border-top: ${({ withoutBorder }) => (withoutBorder ? '0' : '2px')} solid ${({ theme }) => theme.colors.separator}; */
+  /* border-top: ${({ withoutBorder }) => (withoutBorder ? '0' : '2px')} solid ${({ theme }) =>
+    theme.colors.separator}; */
   height: 84px;
   gap: 16px;
 `

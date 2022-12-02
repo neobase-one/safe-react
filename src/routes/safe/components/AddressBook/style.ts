@@ -17,13 +17,13 @@ export const styles = createStyles({
       backgroundColor: `${background}`,
     },
     '&:hover $actions': {
-      visibility: 'initial',
+      visibility: 'visible',
     },
   },
   actions: {
     justifyContent: 'flex-end',
     alignItems: 'center',
-    visibility: 'hidden',
+    visibility: 'visible',
     minWidth: '100px',
     gap: md,
   },

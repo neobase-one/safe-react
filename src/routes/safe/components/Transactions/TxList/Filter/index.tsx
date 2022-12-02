@@ -13,13 +13,13 @@ import FormControlLabel from '@material-ui/core/FormControlLabel/FormControlLabe
 import { parse } from 'query-string'
 import { useHistory, useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-
+import { useMedia } from 'react-use'
 import Button from 'src/components/layout/Button'
 import RHFTextField from 'src/routes/safe/components/Transactions/TxList/Filter/RHFTextField'
 import RHFAddressSearchField from 'src/routes/safe/components/Transactions/TxList/Filter/RHFAddressSearchField'
 import BackdropLayout from 'src/components/layout/Backdrop'
 import filterIcon from 'src/routes/safe/components/Transactions/TxList/assets/filter-icon.svg'
-import { lg, md, primary300, grey400, largeFontSize, primary200, sm, black300, fontColor } from 'src/theme/variables'
+import { lg, md, grey400, largeFontSize, primary200, sm, black300 } from 'src/theme/variables'
 import { trackEvent } from 'src/utils/googleTagManager'
 import { TX_LIST_EVENTS } from 'src/utils/events/txList'
 import { isValidAmount, isValidNonce } from 'src/routes/safe/components/Transactions/TxList/Filter/validation'
@@ -34,8 +34,6 @@ import { checksumAddress } from 'src/utils/checksumAddress'
 import { ChainId } from 'src/config/chain'
 import { Dispatch } from 'src/logic/safe/store/actions/types'
 import { isEqual } from 'lodash'
-import { red } from '@material-ui/core/colors'
-
 export const FILTER_TYPE_FIELD_NAME = 'type'
 export const DATE_FROM_FIELD_NAME = 'execution_date__gte'
 export const DATE_TO_FIELD_NAME = 'execution_date__lte'
@@ -111,6 +109,7 @@ const StyledRHFTextField = styled(RHFTextField)`
 `
 
 const Filter = (): ReactElement => {
+  const below800 = useMedia('(max-width: 800px)')
   const dispatch = useDispatch()
   const chainId = useSelector(currentChainId)
   const { safeAddress } = useSafeAddress()
@@ -203,10 +202,12 @@ const Filter = (): ReactElement => {
       <BackdropLayout isOpen={showFilter} />
       <ClickAwayListener onClickAway={hideFilter}>
         <Wrapper>
-          <StyledFilterButton onClick={toggleFilter} variant="contained" disableElevation $isFiltered={!!search}>
-            <StyledFilterIconImage src={filterIcon} /> {search ? initialValues[FILTER_TYPE_FIELD_NAME] : 'Filter'}
-            {showFilter ? <ExpandLessIcon color="secondary" /> : <ExpandMoreIcon color="secondary" />}
-          </StyledFilterButton>
+          {!below800 && (
+            <StyledFilterButton onClick={toggleFilter} variant="contained" disableElevation $isFiltered={!!search}>
+              <StyledFilterIconImage src={filterIcon} /> {search ? initialValues[FILTER_TYPE_FIELD_NAME] : 'Filter'}
+              {showFilter ? <ExpandLessIcon color="secondary" /> : <ExpandMoreIcon color="secondary" />}
+            </StyledFilterButton>
+          )}
           {showFilter && (
             <StyledPaper elevation={0} variant="outlined">
               <form onSubmit={handleSubmit(onSubmit)}>
@@ -331,12 +332,10 @@ const StyledFilterButton = styled(Button)<{ $isFiltered: boolean }>`
     margin-top: -51px;
     margin-bottom: ${md};
 
-      span {
-        color: #06fc99;
-      }
+    span {
+      color: #06fc99;
+    }
   }
-
- 
 `
 
 const StyledFilterIconImage = styled.img`
@@ -354,7 +353,7 @@ const Wrapper = styled.div`
 
 const StyledPaper = styled(Paper)`
   border: 2px solid #06fc99;
-  background-color: black; 
+  background-color: black;
   position: absolute;
   width: calc(100% - 30px);
   margin-left: 10px;
