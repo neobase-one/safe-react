@@ -28,7 +28,6 @@ const useSidebarStyles = makeStyles({
     top: `calc(${headerHeight} + ${sidebarMarginTop})`,
     width: sidebarWidth,
     maxWidth: `calc(100% - ${sidebarMarginLeft} - ${sidebarMarginLeft})`,
-    zIndex: '1',
 
     [`@media (min-width: ${screenSm}px)`]: {
       maxWidth: 'none',
