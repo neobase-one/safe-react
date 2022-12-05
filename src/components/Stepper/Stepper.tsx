@@ -100,9 +100,9 @@ function StepperComponent(): ReactElement {
                   align="center"
                   grow
                   className={classes.controlStyle}
-                  style={{ paddingTop: '1px', paddingLeft: { below800 } ? '24%' : '18px' }}
+                  style={{ paddingTop: '1px', justifyContent: 'center' }}
                 >
-                  <Col center="xs" xs={12}>
+                  <Col center="xs" xs={12} style={{ justifyContent: 'center' }}>
                     {trackingCategory ? (
                       <>
                         <span style={{ padding: '5px' }}>
