@@ -41,7 +41,6 @@ export const NoPaddingAccordion = styled(Accordion).attrs((props) =>
     background-color: #000;
     border-bottom: 2px solid #60fc99;
   }
-
 `
 
 export const ActionAccordion = styled(Accordion)`
@@ -91,7 +90,6 @@ export const SubTitle = styled(Text)`
   line-height: 1.5;
   letter-spacing: 1px;
   color: #06fc99;
-  font-family: monospace;
   text-transform: uppercase;
 `
 
@@ -195,10 +193,6 @@ export const StyledTransaction = styled.div`
   display: grid;
   grid-template-columns: ${Object.values(gridColumns).join(' ')};
   width: 100%;
-
-   /* &:hover {
-    background-color: red;
-  } */
 
   ,
   p {

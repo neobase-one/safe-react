@@ -28,14 +28,11 @@ const StyledText = styled(Text)`
   font-size: 24px;
   font-weight: bold;
   color: #06fc99;
-  font-family: monospace;
 `
 const StyledP = styled(Text)`
   margin-top: 8px;
   font-size: 16px;
   color: #06fc99;
-  font-family: monospace;
-  
 `
 
 const StyledLink = styled(Link)`
@@ -123,11 +120,8 @@ const Overview = (): ReactElement => {
                   <StyledText size="xl" strong>
                     {name}
                   </StyledText>
-                  <div style={{marginTop: '1rem'}}>
-          
-                  <StyledP size="lg">
-                    {address}
-                  </StyledP>
+                  <div style={{ marginTop: '1rem' }}>
+                    <StyledP size="lg">{address}</StyledP>
                   </div>
                 </Box>
                 <NetworkLabelContainer>
@@ -139,18 +133,14 @@ const Overview = (): ReactElement => {
             <Grid container>
               <Grid item xs={3}>
                 <StyledLink to={assetsLink}>
-                  <StyledP size="lg">
-                    Tokens
-                  </StyledP>
+                  <StyledP size="lg">Tokens</StyledP>
                   <StyledP size="xl">{tokenCount}</StyledP>
                 </StyledLink>
               </Grid>
 
               <Grid item xs={3}>
                 <StyledLink to={nftsLink}>
-                  <StyledP size="lg">
-                    NFTs
-                  </StyledP>
+                  <StyledP size="lg">NFTs</StyledP>
                   {nftTokens && <StyledP size="xl">{nftLoaded ? nftTokens.length : ValueSkeleton}</StyledP>}
                 </StyledLink>
               </Grid>
