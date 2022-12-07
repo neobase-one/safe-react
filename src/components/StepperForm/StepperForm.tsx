@@ -68,6 +68,7 @@ export type StepFormElementProps = {
   label: string
   validate?: (values) => Record<string, unknown> | Promise<Record<string, string>>
   nextButtonLabel?: string
+  backButtonLabel?: string
   children: ReactElement<any, string | JSXElementConstructor<any>>
   disableNextButton?: boolean
 }

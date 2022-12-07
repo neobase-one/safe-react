@@ -204,7 +204,7 @@ function LoadSafeAddressStep(): ReactElement {
         </Col>
       </FieldContainer>
       <Block margin="sm">
-        <Paragraph color="primary" noMargin size="lg">
+        <Paragraph color="#06fc99" noMargin size="lg">
           By continuing you consent to the{' '}
           <StyledLink href="https://gnosis-safe.io/terms" rel="noopener noreferrer" target="_blank">
             terms of use

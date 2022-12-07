@@ -23,7 +23,7 @@ const PrefixedEthHashInfo = ({ hash, ...rest }: Props): ReactElement => {
 
   return (
     <StyledEthHashInfo
-      hash={address}
+      hash={address.toString().slice(0, 5) + '....' + address.toString().slice(-3)}
       shortName={shortName}
       shouldShowShortName={showChainPrefix}
       shouldCopyShortName={copyChainPrefix}
