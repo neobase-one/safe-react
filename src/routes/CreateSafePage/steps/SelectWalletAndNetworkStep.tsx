@@ -8,7 +8,6 @@ import DialogContent from '@material-ui/core/DialogContent'
 import List from '@material-ui/core/List'
 import Typography from '@material-ui/core/Typography'
 import styled from 'styled-components'
-
 import Block from 'src/components/layout/Block'
 import { ChainId } from 'src/config/chain.d'
 import { setChainId } from 'src/logic/config/utils'
@@ -97,6 +96,7 @@ function SelectWalletAndNetworkStep(): ReactElement {
 
 const Container = styled(Block)`
   padding: ${lg};
+  padding-bottom: 0px;
   background-color: black;
   border-radius: 10px;
 `

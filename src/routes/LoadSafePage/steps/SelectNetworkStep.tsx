@@ -72,6 +72,7 @@ export default SelectNetworkStep
 
 const Container = styled(Block)`
   padding: ${lg};
+  padding-bottom: 0px;
 `
 
 const StyledDialogContent = styled(DialogContent)`
