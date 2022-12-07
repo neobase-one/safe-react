@@ -123,11 +123,11 @@ const Sidebar = ({
         </>
       ) : null}
 
-      <HelpContainer>
+      {/* <HelpContainer>
         {debugToggle}
 
         <HelpList>
-          {/* icons color needs to be changed */}
+          {/* icons color needs to be changed 
           {!isDesktop && BEAMER_ID && (
             <Track {...OVERVIEW_EVENTS.WHATS_NEW}>
               <StyledListItem className="beamer-trigger" button onClick={handleClick}>
@@ -137,7 +137,7 @@ const Sidebar = ({
             </Track>
           )}
         </HelpList>
-      </HelpContainer>
+      </HelpContainer> */}
     </>
   )
 }

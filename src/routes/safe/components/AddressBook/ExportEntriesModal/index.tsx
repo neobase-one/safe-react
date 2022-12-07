@@ -121,7 +121,7 @@ export const ExportEntriesModal = ({ isOpen, onClose }: ExportEntriesModalProps)
       </Modal.Body>
 
       <Modal.Footer withoutBorder>
-        <Button size="md" variant="outlined" onClick={onClose}>
+        <Button color="primary" size="md" variant="contained" onClick={onClose}>
           Cancel
         </Button>
 

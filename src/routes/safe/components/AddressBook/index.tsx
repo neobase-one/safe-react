@@ -251,8 +251,8 @@ const AddressBookTable = (): ReactElement => {
                             <Block justify="left">
                               <PrefixedEthHashInfo
                                 hash={row[column.id]}
+                                shortenHash={below800?3:32}
                                 showCopyBtn
-                                showAvatar
                                 explorerUrl={getExplorerInfo(row[column.id])}
                               />
                             </Block>

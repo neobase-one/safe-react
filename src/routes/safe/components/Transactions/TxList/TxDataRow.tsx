@@ -1,7 +1,7 @@
 import { ReactElement, ReactNode } from 'react'
 import styled from 'styled-components'
 import { CopyToClipboardBtn, Text } from '@gnosis.pm/safe-react-components'
-
+import { useMedia } from 'react-use'
 import { InlineEthHashInfo, InlinePrefixedEthHashInfo, StyledGridRow } from './styled'
 import { getExplorerInfo } from 'src/config'
 import { getByteLength } from 'src/utils/getByteLength'
@@ -38,14 +38,15 @@ const generateInlineTypeValue = (
   value?: string,
   hasExplorer?: boolean,
 ): ReactElement | null => {
+  const below800 = useMedia('(max-width: 800px)')
   if (!value) return null
   switch (type) {
     case 'address':
       return (
         <InlinePrefixedEthHashInfo
-          textSize="xl"
+          textSize={below800?"md":"xl"}
           hash={value}
-          shortenHash={8}
+          shortenHash={below800?3:8}
           showCopyBtn
           explorerUrl={getExplorerInfo(value)}
         />
@@ -53,9 +54,9 @@ const generateInlineTypeValue = (
     case 'hash':
       return (
         <InlineEthHashInfo
-          textSize="xl"
+          textSize={below800?"md":"xl"}
           hash={value}
-          shortenHash={8}
+          shortenHash={below800?3:8}
           showCopyBtn
           explorerUrl={hasExplorer ? getExplorerInfo(value) : undefined}
         />
@@ -83,10 +84,11 @@ export const TxDataRow = ({
   method,
   paramType,
 }: TxDataRowType): ReactElement | null => {
+  const below800 = useMedia('(max-width: 800px)')
   if (value == undefined) return null
   return (
     <StyledGridRow>
-      <Text size="xl" as="span" color="primary">
+      <Text size={below800?"md":"xl"} as="span" color="primary">
         <StyledText>{title}</StyledText>
       </Text>
       {isArray && value && method && paramType && (
@@ -96,7 +98,7 @@ export const TxDataRow = ({
       )}
       {!isArray && generateInlineTypeValue(inlineType, value, hasExplorer)}
       {!isArray && !inlineType && value && (
-        <Text size="xl" as="span" color="primary">
+        <Text size={below800?"md":"xl"} as="span" color="primary">
           <StyledText>{value}</StyledText>
         </Text>
       )}

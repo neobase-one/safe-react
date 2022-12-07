@@ -1,6 +1,6 @@
 import { Text } from '@gnosis.pm/safe-react-components'
 import styled from 'styled-components'
-
+import { useMedia } from 'react-use'
 import {
   isAddress,
   isArrayParameter,
@@ -21,6 +21,7 @@ interface RenderValueProps {
 }
 
 const GenericValue = ({ method, type, value }: RenderValueProps): React.ReactElement => {
+  const below800 = useMedia('(max-width: 800px)')
   const getTextValue = (value: string, key?: string) => <HexEncodedData limit={60} hexData={value} key={key} />
 
   const getArrayValue = (parentId: string, value: string[] | string) => (
@@ -30,7 +31,7 @@ const GenericValue = ({ method, type, value }: RenderValueProps): React.ReactEle
         {(value as string[]).map((currentValue, index) => {
           const key = `${parentId}-value-${index}`
           return Array.isArray(currentValue) ? (
-            <Text key={key} size="xl" as="span">
+            <Text key={key} size={below800?"sm":"xl"} as="span">
               {index > 0 && (
                 <>
                   ,<br />
@@ -55,6 +56,7 @@ const GenericValue = ({ method, type, value }: RenderValueProps): React.ReactEle
 }
 
 const Value = ({ type, ...props }: RenderValueProps): React.ReactElement => {
+  const below800 = useMedia('(max-width: 800px)')
   if (isArrayParameter(type) && isAddress(type)) {
     return (
       <>
@@ -75,7 +77,8 @@ const Value = ({ type, ...props }: RenderValueProps): React.ReactElement => {
             return (
               <PrefixedEthHashInfo
                 key={`${address}_${key}`}
-                textSize="xl"
+                textSize={below800?"sm":"xl"}
+                shortenHash={below800?3:8}
                 hash={address}
                 showCopyBtn
                 explorerUrl={explorerUrl}
@@ -92,7 +95,7 @@ const Value = ({ type, ...props }: RenderValueProps): React.ReactElement => {
     const explorerUrl = getExplorerInfo(props.value as string)
     return (
       <PrefixedEthHashInfo
-        textSize="xl"
+        textSize={below800?"sm":"xl"}
         hash={props.value as string}
         showCopyBtn
         explorerUrl={explorerUrl}

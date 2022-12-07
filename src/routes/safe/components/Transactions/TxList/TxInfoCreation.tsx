@@ -2,7 +2,7 @@ import { ReactElement } from 'react'
 import styled from 'styled-components'
 import { Text } from '@gnosis.pm/safe-react-components'
 import { Creation } from '@gnosis.pm/safe-react-gateway-sdk'
-
+import { useMedia } from 'react-use'
 import { getExplorerInfo } from 'src/config'
 import { formatDateTime } from 'src/utils/date'
 import { Transaction } from 'src/logic/safe/store/models/types/gateway.d'
@@ -18,6 +18,10 @@ const StyledTxCreationAddress = styled.div`
   justify-content: space-between;
   margin-bottom: ${md};
   padding: 0 ${md};
+  @media (max-width: 800px) {
+    padding: 0 5px;
+    align-items: center;
+  }
 
   &:last-of-type {
     margin-bottom: 0px;
@@ -25,6 +29,7 @@ const StyledTxCreationAddress = styled.div`
 `
 
 export const TxInfoCreation = ({ transaction }: { transaction: Transaction }): ReactElement => {
+  const below800 = useMedia('(max-width: 800px)')
   const txInfo = transaction.txInfo as Creation
   const timestamp = transaction.timestamp
 
@@ -34,20 +39,20 @@ export const TxInfoCreation = ({ transaction }: { transaction: Transaction }): R
     address: KnownAddressType,
   ): ReactElement => (
     <StyledTxCreationAddress>
-      <Text color="primary" size="xl" strong>
+      <Text color="primary" size={below800?"sm":"xl"} strong>
         <Details>{title}:</Details>
       </Text>
       {creationEntity ? (
         <PrefixedEthHashInfo
-          textSize="xl"
+          textSize={below800?"md":"xl"}
           hash={creationEntity.value}
+          shortenHash={below800?3:32}
           showCopyBtn
           explorerUrl={getExplorerInfo(creationEntity.value)}
           customAvatar={address?.logoUri || undefined}
-          showAvatar
         />
       ) : (
-        <Text size="xl" as="span">
+        <Text size={below800?"md":"xl"} as="span">
           {NOT_AVAILABLE}
         </Text>
       )}
@@ -63,7 +68,7 @@ export const TxInfoCreation = ({ transaction }: { transaction: Transaction }): R
           {generateCreatorTxData('Mastercopy', txInfo.implementation, useKnownAddress(txInfo.implementation))}
         </div>
         <div>
-          <TxDataRow title="Transaction hash:" value={txInfo.transactionHash} inlineType="hash" />
+          <TxDataRow title={below800?"Tx Hash:":"Transaction Hash:"} value={txInfo.transactionHash} inlineType="hash" />
           <TxDataRow title="Created:" value={formatDateTime(timestamp)} />
         </div>
       </div>
@@ -72,8 +77,8 @@ export const TxInfoCreation = ({ transaction }: { transaction: Transaction }): R
 }
 const Details = styled.div`
   color: #06fc99;
-  font-size: 16px !important;
+  font-size: 16px;
   @media (max-width: 800px) {
-    font-size: 16px;
+    font-size: 12px;
   }
 `
