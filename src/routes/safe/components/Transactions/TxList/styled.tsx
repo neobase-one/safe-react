@@ -194,11 +194,6 @@ export const StyledTransaction = styled.div`
   display: grid;
   grid-template-columns: ${Object.values(gridColumns).join(' ')};
   width: 100%;
-
-  /* &:hover {
-    background-color: red;
-  } */
-
   ,
   p {
     color: #69fc99;

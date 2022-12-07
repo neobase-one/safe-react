@@ -170,8 +170,6 @@ const FooterSection = styled.div<{ withoutBorder: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border-top: ${({ withoutBorder }) => (withoutBorder ? '0' : '2px')} solid ${({ theme }) =>
-    theme.colors.separator}; */
   height: 84px;
   gap: 16px;
 `
