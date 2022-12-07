@@ -30,7 +30,8 @@ const ModalApp = styled.div`
 `
 
 const StyledCard = styled(Card)`
-  background-color: #fdfdfd;
+  background-color: black;
+  border: 2px solid #06fc99;
   /*   width: 45vw; */
   min-width: 245px;
   height: 220px;
@@ -116,7 +117,7 @@ export const MobileNotSupported = ({ onClose }: Props): ReactElement => {
             <Text size="lg">Get the mobile app for a better experience.</Text>
             <Button size="md" color="primary" variant="contained">
               <StyledLink target="_blank" href="https://gnosis-safe.io/#mobile" rel="noopener noreferrer">
-                <Text color="white" size="xl">
+                <Text color="black" size="xl">
                   Get the App
                 </Text>
               </StyledLink>

@@ -47,6 +47,9 @@ const Wrapper = styled.div`
 const Description = styled(Typography)`
   color: ${primary};
   padding-top: 8px;
+  @media (max-width: 800px) {
+    padding-bottom: 55px;
+  }
 `
 
 const StyledList = styled(List)`

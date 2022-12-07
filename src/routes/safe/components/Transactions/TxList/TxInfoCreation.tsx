@@ -34,8 +34,8 @@ export const TxInfoCreation = ({ transaction }: { transaction: Transaction }): R
     address: KnownAddressType,
   ): ReactElement => (
     <StyledTxCreationAddress>
-      <Text color='primary' size="xl" strong>
-        {title}:
+      <Text color="primary" size="xl" strong>
+        <Details>{title}:</Details>
       </Text>
       {creationEntity ? (
         <PrefixedEthHashInfo
@@ -70,3 +70,10 @@ export const TxInfoCreation = ({ transaction }: { transaction: Transaction }): R
     </TxDetailsContainer>
   )
 }
+const Details = styled.div`
+  color: #06fc99;
+  font-size: 16px !important;
+  @media (max-width: 800px) {
+    font-size: 16px;
+  }
+`

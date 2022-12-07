@@ -193,7 +193,6 @@ export const StyledTransaction = styled.div`
   display: grid;
   grid-template-columns: ${Object.values(gridColumns).join(' ')};
   width: 100%;
-
   ,
   p {
     color: #69fc99;
@@ -208,7 +207,7 @@ export const StyledTransaction = styled.div`
   }
 
   .tx-actions {
-    visibility: hidden;
+    visibility: visible;
     justify-self: end;
   }
 
@@ -230,7 +229,7 @@ export const StyledTransaction = styled.div`
       visibility: visible;
 
       &.will-be-replaced {
-        visibility: hidden;
+        visibility: visible;
       }
     }
   }

@@ -1,6 +1,6 @@
 import { Loader, Title } from '@gnosis.pm/safe-react-components'
 import { ReactElement, useEffect, useMemo } from 'react'
-
+import styled from 'styled-components'
 import Img from 'src/components/layout/Img'
 import NoTransactionsImage from './assets/no-transactions.svg'
 import { usePagedQueuedTransactions } from './hooks/usePagedQueuedTransactions'
@@ -42,8 +42,10 @@ export const QueueTransactions = (): ReactElement => {
   if (count === 0 || !transactions) {
     return (
       <NoTransactions>
-        <Img alt="No Transactions yet" src={NoTransactionsImage} />
-        <Title size="xs">Queued transactions will appear here </Title>
+        <Img style={{ alignSelf: 'center' }} alt="No Transactions yet" src={NoTransactionsImage} />
+        <Title size="xs">
+          <SubTitle>Queued transactions will appear here</SubTitle>
+        </Title>
       </NoTransactions>
     )
   }
@@ -65,3 +67,9 @@ export const QueueTransactions = (): ReactElement => {
     </BatchExecuteHoverProvider>
   )
 }
+const SubTitle = styled.div`
+  font-size: 20px;
+  @media (max-width: 800px) {
+    font-size: 14px;
+  }
+`

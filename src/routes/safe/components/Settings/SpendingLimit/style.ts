@@ -24,12 +24,12 @@ export const useStyles = makeStyles(
         backgroundColor: `${background}`,
       },
       '&:hover $actions': {
-        visibility: 'initial',
+        visibility: 'visible',
       },
     },
     actions: {
       justifyContent: 'flex-end',
-      visibility: 'hidden',
+      visibility: 'visible',
     },
     noBorderBottom: {
       '& > td': {

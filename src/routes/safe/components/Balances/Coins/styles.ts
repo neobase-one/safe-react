@@ -15,15 +15,15 @@ export const styles = createStyles({
       backgroundColor: `${background}`,
     },
     '&:hover $actions': {
-      visibility: 'initial',
+      visibility: 'visible',
     },
     '&:focus $actions': {
-      visibility: 'initial',
+      visibility: 'visible',
     },
   },
   actions: {
     justifyContent: 'flex-end',
-    visibility: 'hidden',
+    visibility: 'visible',
   },
   leftIcon: {
     marginRight: sm,

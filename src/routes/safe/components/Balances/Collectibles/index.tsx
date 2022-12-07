@@ -30,8 +30,7 @@ const useStyles = makeStyles(
       backgroundColor: '#000',
       border: '4px solid #06fc99',
     },
-    cardOuter: {
-    },
+    cardOuter: {},
     gridRow: {
       boxSizing: 'border-box',
       columnGap: '30px',
@@ -83,7 +82,10 @@ const useStyles = makeStyles(
     noData: {
       fontSize: lg,
       textAlign: 'center',
-      color: '#06fc99'
+      color: '#06fc99',
+      [`@media (max-width: 800px)`]: {
+        fontSize: '16px',
+      },
     },
   }),
 )

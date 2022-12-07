@@ -7,7 +7,7 @@ import cn from 'classnames'
 import styled from 'styled-components'
 import { ReactElement, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-
+import { useMedia } from 'react-use'
 import { styles } from './style'
 import { getExplorerInfo } from 'src/config'
 import ButtonHelper from 'src/components/ButtonHelper'
@@ -67,6 +67,7 @@ export type Entry = {
 }
 
 const AddressBookTable = (): ReactElement => {
+  const below800 = useMedia('(max-width: 800px)')
   const classes = useStyles()
   const columns = generateColumns()
   const autoColumns = columns.filter(({ custom }) => !custom)
@@ -168,7 +169,7 @@ const AddressBookTable = (): ReactElement => {
               color="primary"
               iconType="exportImg"
               iconSize="sm"
-              textSize="xl"
+              textSize={below800 ? 'md' : 'xl'}
               style={{ textDecoration: 'none' }}
             >
               Export
@@ -182,7 +183,7 @@ const AddressBookTable = (): ReactElement => {
               color="primary"
               iconType="importImg"
               iconSize="sm"
-              textSize="xl"
+              textSize={below800 ? 'md' : 'xl'}
               style={{ textDecoration: 'none' }}
             >
               Import
@@ -197,10 +198,10 @@ const AddressBookTable = (): ReactElement => {
               color="primary"
               iconType="add"
               iconSize="sm"
-              textSize="xl"
+              textSize={below800 ? 'md' : 'xl'}
               style={{ textDecoration: 'none' }}
             >
-              Create entry
+              Entry
             </ButtonLink>
           </Track>
         </Col>
