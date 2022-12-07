@@ -2210,10 +2210,10 @@
   resolved "https://registry.yarnpkg.com/@gnosis.pm/safe-modules-deployments/-/safe-modules-deployments-1.0.0.tgz#b4cfcf7782c3fa1491b84405ac06cfa4f7eff365"
   integrity sha512-mZkGtfGmEym7l5w2K6d/mIaS8sDmy50uGWAfTj5Q/+Y1cU9fHYU6hzhb0QaeyNM7F7HM3jg5ZTJjartZJUqu3w==
 
-"@gnosis.pm/safe-react-components@npm:@tusharjain994/safe-react-components@1.0.5-canto":
+"@gnosis.pm/safe-react-components@npm:@neobase-one/safe-react-components@1.0.5-canto":
   version "1.0.5-canto"
-  resolved "https://registry.yarnpkg.com/@tusharjain994/safe-react-components/-/safe-react-components-1.0.5-canto.tgz#c3a01e34d44fe7d0b122980ddfda2dee7205cdcb"
-  integrity sha512-Tdoeg99yEb3HjD/3femiUN4T8QC9Lgxp1Rcy33R7/2x8zifpTmRaxGS/+XsZkWw4LpSyopwQ3ZdXQj2/t9YhxQ==
+  resolved "https://registry.yarnpkg.com/@neobase-one/safe-react-components/-/safe-react-components-1.0.5-canto.tgz#612710de510844fe283727f4e20e7f94be5c7ee8"
+  integrity sha512-Od1XT7XFKB2Q1EcFwIXLfDPkyLjiTLYmwAwIM2CTd1F71cDtm5x+wOxLybfTpyT1EaAi+Ww33SfKCniPDAqYsA==
   dependencies:
     react-media "^1.10.0"
     web3-utils "^1.6.0"
