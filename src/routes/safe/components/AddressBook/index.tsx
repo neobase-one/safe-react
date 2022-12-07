@@ -47,6 +47,13 @@ const StyledButton = styled(Button)`
     margin: 4px 12px 4px 0px;
     padding: 0 12px;
     min-width: auto;
+    @media (max-width: 800px) {
+      margin: 4px 4px 4px 0px;
+      padding: 0 6px;
+      min-height: 24px;
+      height: 24px;
+      min-width: 40px;
+    }
   }
 
   svg {
@@ -303,7 +310,7 @@ const AddressBookTable = (): ReactElement => {
                               variant="contained"
                               data-testid={SEND_ENTRY_BUTTON}
                             >
-                              <Text size="xl" color="black">
+                              <Text size={below800 ? 'sm' : 'xl'} color="black">
                                 Send
                               </Text>
                             </StyledButton>

@@ -27,6 +27,11 @@ export const useStyles = makeStyles(
       visibility: 'visible',
       minWidth: '100px',
       gap: '16px',
+      [`@media (max-width: 800px)`]: {
+        minWidth: '0px',
+        gap: '3px',
+        padding: '4px 4px 4px 2px',
+      },
     },
     noBorderBottom: {
       '& > td': {

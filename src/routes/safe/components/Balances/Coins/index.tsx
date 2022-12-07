@@ -7,9 +7,9 @@ import Tooltip from '@material-ui/core/Tooltip'
 import TableContainer from '@material-ui/core/TableContainer'
 import TableRow from '@material-ui/core/TableRow'
 import { Skeleton } from '@material-ui/lab'
-
+import { useMedia } from 'react-use'
 import InfoIcon from 'src/assets/icons/info_red.svg'
-import { FixedIcon, Text, Button } from '@gnosis.pm/safe-react-components'
+import { Text, Button } from '@gnosis.pm/safe-react-components'
 
 import Img from 'src/components/layout/Img'
 import Table from 'src/components/Table'
@@ -38,14 +38,21 @@ const StyledButton = styled(Button)`
     margin: 4px 12px 4px 0px;
     padding: 0 12px;
     min-width: auto;
+    @media (max-width: 800px) {
+      margin: 4px 4px 4px 0px;
+      padding: 0 6px;
+      min-height: 24px;
+      height: 24px;
+      min-width: 40px;
+    }
   }
   svg {
     margin: 0 6px 0 0;
   }
-`;
+`
 const ButtonText = styled(Text)`
   color: #000';
-`;
+`
 
 const useStyles = makeStyles(styles)
 
@@ -77,6 +84,7 @@ const CurrencyTooltip = (props: CurrencyTooltipProps): React.ReactElement | null
 }
 
 const Coins = (props: Props): React.ReactElement => {
+  const below800 = useMedia('(max-width: 800px)')
   const { showReceiveFunds, showSendFunds } = props
   const classes = useStyles()
   const columns = generateColumns()
@@ -157,7 +165,7 @@ const Coins = (props: Props): React.ReactElement => {
                         variant="contained"
                         data-testid="balance-send-btn"
                       >
-                        <ButtonText size="xl" color="black">
+                        <ButtonText size={below800 ? 'sm' : 'lg'} color="black">
                           Send
                         </ButtonText>
                       </StyledButton>
@@ -165,7 +173,7 @@ const Coins = (props: Props): React.ReactElement => {
                   )}
                   <Track {...ASSETS_EVENTS.RECEIVE}>
                     <StyledButton color="primary" onClick={showReceiveFunds} size="md" variant="contained">
-                      <ButtonText size="xl" color="black">
+                      <ButtonText size={below800 ? 'sm' : 'lg'} color="black">
                         Receive
                       </ButtonText>
                     </StyledButton>
