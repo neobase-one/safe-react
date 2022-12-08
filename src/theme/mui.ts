@@ -279,6 +279,24 @@ const theme = createTheme({
       input: {
         padding: '16px !important',
       },
+      option:{
+        backgroundColor: 'black',
+        border: `1px solid ${primary}`,
+        borderRadius: '0px',
+        color: primary,
+        padding: '0px 0',
+        '&:hover': {
+          backgroundColor: primary,
+          color: 'black',
+        },        
+      },
+      listbox:{
+        border: `1px solid ${primary}`,
+        padding: '0px 0',
+        borderRadius: '8px',
+        backgroundColor: 'black',
+      },
+      
     },
     MuiSelect: {
       outlined: {
