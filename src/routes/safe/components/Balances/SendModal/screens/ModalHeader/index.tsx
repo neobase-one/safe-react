@@ -18,7 +18,7 @@ const ChainIndicatorWrapper = styled(Row)<{ $chainTheme: Theme }>`
   font-size: ${smallFontSize};
   padding: ${xs} ${sm};
   background-color: ${({ $chainTheme }) => $chainTheme.backgroundColor ?? border};
-  color: ${({ $chainTheme }) => $chainTheme.textColor ?? primary};
+  color:  ${{primary}};
   border-radius: 4px;
   align-items: center;
   white-space: nowrap;

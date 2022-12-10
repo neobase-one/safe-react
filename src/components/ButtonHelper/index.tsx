@@ -17,7 +17,9 @@ const UnStyledButton = styled.button`
   justify-content: center;
   align-items: center;
   :hover {
-    background-color: ${({ theme }) => theme.colors.separator};
+    border: 2px solid #06fc99;
+    height: 26px;
+    width: 26px;
   }
 `
 type Props = {

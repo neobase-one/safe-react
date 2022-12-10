@@ -31,9 +31,10 @@ const styles = {
   },
   paginationRoot: {
     backgroundColor: 'black',
-    border: '2px solid #69fc99',
+    border: '3px solid #69fc99',
     borderTop: 'none',
     marginBottom: '90px',
+    minWidth: '482px',
     borderBottomRightRadius: sm,
     borderBottomLeftRadius: sm,
   },

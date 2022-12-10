@@ -550,7 +550,10 @@ export const StyledGridRow = styled.div`
   gap: ${md};
   justify-content: flex-start;
   max-width: 900px;
-
+  @media (max-width: 800px) {
+    align-items: center;
+    padding-bottom: 5px;
+  }
   & > * {
     flex-shrink: 0;
   }

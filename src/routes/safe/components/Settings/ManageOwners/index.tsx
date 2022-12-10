@@ -4,7 +4,7 @@ import TableCell from '@material-ui/core/TableCell'
 import TableContainer from '@material-ui/core/TableContainer'
 import TableRow from '@material-ui/core/TableRow'
 import cn from 'classnames'
-
+import { useMedia } from 'react-use'
 import { AddOwnerModal } from './AddOwnerModal'
 import { EditOwnerModal } from './EditOwnerModal'
 import { RemoveOwnerModal } from './RemoveOwnerModal'
@@ -40,6 +40,7 @@ type Props = {
 }
 
 const ManageOwners = ({ granted, owners }: Props): ReactElement => {
+  const below800 = useMedia('(max-width: 800px)')
   const classes = useStyles()
 
   const [selectedOwner, setSelectedOwner] = useState<OwnerData | undefined>()
@@ -106,8 +107,8 @@ const ManageOwners = ({ granted, owners }: Props): ReactElement => {
                         <Block justify="left">
                           <PrefixedEthHashInfo
                             hash={row[column.id]}
-                            showCopyBtn
-                            showAvatar
+                            shortenHash={below800?3:32}
+                            showCopyBtn                            
                             explorerUrl={getExplorerInfo(row[column.id])}
                           />
                         </Block>

@@ -346,11 +346,22 @@ const Body = styled.div`
 
   display: grid;
   grid-template-rows: 100px 50px 110px 1fr;
+  @media (max-width: 800px) {
+    grid-template-rows: 30px 30px 30px 30px;
+    grid-column: 1;
+    grid-row: 3;
+    min-width: 350px;
+    padding-top: 30px;
+  }
 `
 
 const CardTitle = styled.div`
   font-size: 20px;
   padding-top: 10px;
+  @media (max-width: 800px) {
+    font-size: 14px;
+    padding-top: 4px;
+  }
 `
 
 const FullParagraph = styled(Paragraph)<FullParagraphProps>`
@@ -359,6 +370,11 @@ const FullParagraph = styled(Paragraph)<FullParagraphProps>`
   font-size: 20px;
   margin-bottom: 16px;
   transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  @media (max-width: 800px) {
+    font-size: 14px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
 `
 
 const Center = styled.div`
@@ -371,16 +387,25 @@ const Center = styled.div`
 
 const BodyDescription = styled.div`
   grid-row: 2;
+  @media (max-width: 800px) {
+    grid-row: 1;
+  }
 `
 const BodyInstruction = styled.div`
   grid-row: 3;
   margin: 27px 0;
+  @media (max-width: 800px) {
+    grid-row: 2;
+  }
 `
 
 const TxText = styled.div`
   grid-row: 4;
   margin: 3em 0;
   font-size: 0.8em;
+  @media (max-width: 800px) {
+    grid-row: 3;
+  }
 `
 
 const BodyFooter = styled.div`
@@ -390,4 +415,7 @@ const BodyFooter = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  @media (max-width: 800px) {
+    grid-row: 4;
+  }
 `
