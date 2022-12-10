@@ -90,7 +90,6 @@ export const SubTitle = styled(Text)`
   line-height: 1.5;
   letter-spacing: 1px;
   color: #06fc99;
-  font-family: monospace;
   text-transform: uppercase;
 `
 

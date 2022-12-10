@@ -158,20 +158,12 @@ const AddressBookTable = (): ReactElement => {
     setImportEntryModalOpen(false)
   }
 
-  const StyledBreadcrumbElements = styled(BreadcrumbElement)`
-    font-family: monospace;
-  `
-
   return (
     <>
       <Menu>
         <Col start="sm" sm={6} xs={12}>
           <Breadcrumb>
-            <StyledBreadcrumbElements
-              iconType="addressBook"
-              text="Address Book"
-              counter={addressBook?.length.toString()}
-            />
+            <BreadcrumbElement iconType="addressBook" text="Address Book" counter={addressBook?.length.toString()} />
           </Breadcrumb>
         </Col>
         <Col end="sm" sm={6} xs={12}>

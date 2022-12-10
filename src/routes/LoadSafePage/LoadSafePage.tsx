@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import IconButton from '@material-ui/core/IconButton'
 import ChevronLeft from '@material-ui/icons/ChevronLeft'
-
+import { useMedia } from 'react-use'
 import Block from 'src/components/layout/Block'
 import Page from 'src/components/layout/Page'
 import Heading from 'src/components/layout/Heading'
@@ -44,6 +44,7 @@ import { LOAD_SAFE_CATEGORY, LOAD_SAFE_EVENTS } from 'src/utils/events/createLoa
 import { trackEvent } from 'src/utils/googleTagManager'
 
 function Load(): ReactElement {
+  const below800 = useMedia('(max-width: 800px)')
   const dispatch = useDispatch()
   const history = useHistory()
   const { safeAddress, shortName } = extractPrefixedSafeAddress(undefined, LOAD_SPECIFIC_SAFE_ROUTE)
@@ -138,28 +139,59 @@ function Load(): ReactElement {
         </Row>
 
         {/* key={safeAddress} ensures that it goes to step 1 when the address changes */}
-        <StepperForm
-          initialValues={initialFormValues}
-          testId="load-safe-form"
-          onSubmit={onSubmitLoadSafe}
-          key={safeAddress}
-          trackingCategory={LOAD_SAFE_CATEGORY}
-        >
-          {safeAddress && shortName ? null : (
-            <StepFormElement label={selectNetworkStepLabel} nextButtonLabel="Continue">
-              <SelectNetworkStep />
+        {!below800 && (
+          <StepperForm
+            initialValues={initialFormValues}
+            testId="load-safe-form"
+            onSubmit={onSubmitLoadSafe}
+            key={safeAddress}
+            trackingCategory={LOAD_SAFE_CATEGORY}
+          >
+            {safeAddress && shortName ? null : (
+              <StepFormElement label={selectNetworkStepLabel} nextButtonLabel="Continue">
+                <SelectNetworkStep />
+              </StepFormElement>
+            )}
+            <StepFormElement label={loadSafeAddressStepLabel} validate={loadSafeAddressStepValidations}>
+              <LoadSafeAddressStep />
             </StepFormElement>
-          )}
-          <StepFormElement label={loadSafeAddressStepLabel} validate={loadSafeAddressStepValidations}>
-            <LoadSafeAddressStep />
-          </StepFormElement>
-          <StepFormElement label={loadSafeOwnersStepLabel} nextButtonLabel="Continue">
-            <LoadSafeOwnersStep />
-          </StepFormElement>
-          <StepFormElement label={reviewLoadStepLabel} nextButtonLabel="Add">
-            <ReviewLoadStep />
-          </StepFormElement>
-        </StepperForm>
+            <StepFormElement label={loadSafeOwnersStepLabel} nextButtonLabel="Continue">
+              <LoadSafeOwnersStep />
+            </StepFormElement>
+            <StepFormElement label={reviewLoadStepLabel} nextButtonLabel="Add">
+              <ReviewLoadStep />
+            </StepFormElement>
+          </StepperForm>
+        )}
+        {below800 && (
+          <StepperForm
+            initialValues={initialFormValues}
+            testId="load-safe-form"
+            onSubmit={onSubmitLoadSafe}
+            key={safeAddress}
+            trackingCategory={LOAD_SAFE_CATEGORY}
+          >
+            {safeAddress && shortName ? null : (
+              <StepFormElement label={selectNetworkStepLabel} nextButtonLabel=">" backButtonLabel="<">
+                <SelectNetworkStep />
+              </StepFormElement>
+            )}
+            <StepFormElement
+              label={loadSafeAddressStepLabel}
+              validate={loadSafeAddressStepValidations}
+              nextButtonLabel=">"
+              backButtonLabel="<"
+            >
+              <LoadSafeAddressStep />
+            </StepFormElement>
+            <StepFormElement label={loadSafeOwnersStepLabel} nextButtonLabel=">" backButtonLabel="<">
+              <LoadSafeOwnersStep />
+            </StepFormElement>
+            <StepFormElement label={reviewLoadStepLabel} nextButtonLabel=">" backButtonLabel="<">
+              <ReviewLoadStep />
+            </StepFormElement>
+          </StepperForm>
+        )}
       </Block>
     </Page>
   )

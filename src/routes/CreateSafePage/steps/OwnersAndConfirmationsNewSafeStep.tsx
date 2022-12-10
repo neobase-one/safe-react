@@ -6,7 +6,7 @@ import InputAdornment from '@material-ui/core/InputAdornment'
 import MenuItem from '@material-ui/core/MenuItem'
 import { Icon, Link, Text } from '@gnosis.pm/safe-react-components'
 import { useForm } from 'react-final-form'
-
+import { useMedia } from 'react-use'
 import Block from 'src/components/layout/Block'
 import Paragraph from 'src/components/layout/Paragraph'
 import AddressInput from 'src/components/forms/AddressInput'
@@ -43,6 +43,7 @@ import { sameString } from 'src/utils/strings'
 export const ownersAndConfirmationsNewSafeStepLabel = 'Owners and Confirmations'
 
 function OwnersAndConfirmationsNewSafeStep(): ReactElement {
+  const below800 = useMedia('(max-width: 800px)')
   const provider = useSelector(providerNameSelector)
   const { setCurrentStep } = useStepper()
 
@@ -125,14 +126,16 @@ function OwnersAndConfirmationsNewSafeStep(): ReactElement {
         </Paragraph>
       </BlockWithPadding>
 
-      <RowHeader>
-        <Col xs={3}>
-          <ColText>NAME</ColText>
-        </Col>
-        <Col xs={7}>
-          <ColText>ADDRESS</ColText>
-        </Col>
-      </RowHeader>
+      {!below800 && (
+        <RowHeader>
+          <Col xs={3}>
+            <ColText>NAME</ColText>
+          </Col>
+          <Col xs={7}>
+            <ColText>ADDRESS</ColText>
+          </Col>
+        </RowHeader>
+      )}
       <Block margin="sm" padding="md">
         <RowHeader>
           {owners.map(({ nameFieldName, addressFieldName }, i: number) => {
@@ -217,9 +220,16 @@ function OwnersAndConfirmationsNewSafeStep(): ReactElement {
             data-testid="add-new-owner"
             onClick={onClickAddNewOwner}
           >
-            <Paragraph noMargin size="lg">
-              + Add another owner
-            </Paragraph>
+            {!below800 && (
+              <Paragraph noMargin size="lg">
+                + Add another owner
+              </Paragraph>
+            )}
+            {below800 && (
+              <Paragraph noMargin size="lg">
+                Add Owner
+              </Paragraph>
+            )}
           </Button>
         </OwnerContainer>
         <BlockWithPadding>
